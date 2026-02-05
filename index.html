@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinivasa Reddy Eda - Tech Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6; color: #333; background: #0a0a0a; overflow-x: hidden;
+        }
+        
+        .container { display: flex; min-height: 100vh; }
+        
+        /* Left Sidebar Navigation */
+        .sidebar { 
+            width: 280px; background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%); 
+            padding: 2rem 1.5rem; position: fixed; height: 100vh; overflow-y: auto; 
+            box-shadow: 2px 0 20px rgba(0,0,0,0.3); z-index: 100; 
+        }
+        .logo { 
+            font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 3rem; 
+            padding: 1rem 0; text-align: center; 
+            background: linear-gradient(135deg, #fff, #e0e7ff); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            background-clip: text; border-bottom: 1px solid rgba(255,255,255,0.1); 
+        }
+        .nav-links { list-style: none; }
+        .nav-link { 
+            display: flex; align-items: center; gap: 1rem; color: rgba(255,255,255,0.8); 
+            text-decoration: none; padding: 1rem 1.5rem; border-radius: 12px; 
+            margin: 0.25rem 0; font-weight: 500; transition: all 0.3s ease; cursor: pointer;
+            position: relative; 
+        }
+        .nav-link:hover, .nav-link.active { 
+            color: white; background: rgba(255,255,255,0.15); transform: translateX(8px); 
+        }
+        .nav-icon { width: 20px; height: 20px; fill: currentColor; }
+        
+        /* Main Content Area */
+        .main-content { 
+            margin-left: 280px; flex: 1; padding: 3rem 2rem; overflow-y: auto;
+        }
+        .content-section { 
+            display: none; background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(20px); border-radius: 24px; padding: 4rem; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2);
+            min-height: 70vh;
+        }
+        .content-section.active { display: block; }
+        
+        /* Section Styles */
+        h1 { 
+            font-size: 3rem; margin-bottom: 2rem; 
+            background: linear-gradient(135deg, #1e3c72, #2a5298); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            background-clip: text; font-weight: 800; text-align: center;
+        }
+        .intro-text { font-size: 1.2rem; color: #444; margin-bottom: 3rem; line-height: 1.8; text-align: center; }
+        
+        /* Home Section */
+        .hero { text-align: center; }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.5rem; color: #666; margin-bottom: 2rem; }
+        .skills-preview { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+        .skill-tag { background: linear-gradient(135deg, #f8f9ff, #e8ecff); padding: 1rem; border-radius: 12px; text-align: center; }
+        
+        /* About Section */
+        .approach-title { font-size: 1.6rem; color: #1e3c72; margin: 3rem 0 1.5rem 0; font-weight: 700; text-align: center; }
+        .approach-list { list-style: none; display: grid; gap: 1.5rem; }
+        .approach-item { 
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff); padding: 1.5rem 2rem; 
+            border-radius: 16px; border-left: 5px solid #1e3c72; transition: all 0.3s ease;
+        }
+        .approach-item:hover { transform: translateX(10px); box-shadow: 0 15px 35px rgba(30, 60, 114, 0.2); }
+        
+        /* Contact Section */
+        .contact-list { list-style: none; display: grid; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
+        .contact-item { 
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff); padding: 1.5rem; 
+            border-radius: 16px; border-left: 5px solid #1e3c72; transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .contact-item:hover { transform: translateX(10px); box-shadow: 0 15px 35px rgba(30, 60, 114, 0.2); }
+        .contact-icon { width: 24px; height: 24px; fill: #1e3c72; }
+        
+        /* Mobile */
+        .mobile-toggle { 
+            position: fixed; top: 1rem; left: 1rem; z-index: 200; background: rgba(30,60,114,0.9); 
+            border: none; color: white; padding: 1rem; border-radius: 12px; cursor: pointer; 
+            backdrop-filter: blur(20px); display: none; 
+        }
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            .sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .mobile-toggle { display: block; }
+            .content-section { padding: 2rem 1rem; margin: 1rem; }
+            h1 { font-size: 2rem; }
+        }
+
+        /* Skills Section Styles */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 60, 114, 0.2);
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e1e5ff;
+        }
+
+        .skill-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .skill-item {
+            padding: 0.75rem 0;
+            color: #444;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .skill-item:hover {
+            color: #1e3c72;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .skill-category {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Certifications Section Styles */
+        .certs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-group {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+        }
+
+        .cert-group:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 60, 114, 0.2);
+        }
+
+        .group-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e1e5ff;
+            text-align: center;
+        }
+
+        .group-title.active {
+            color: #1e3c72;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .group-title.expired {
+            color: #666;
+        }
+
+        .cert-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f2ff;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:last-child {
+            border-bottom: none;
+        }
+
+        .cert-item:hover {
+            background: rgba(255,255,255,0.5);
+            padding-left: 1rem;
+            border-radius: 8px;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .cert-badge.expired {
+            background: #ccc;
+        }
+
+        .cert-details {
+            flex: 1;
+        }
+
+        .cert-name {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .certs-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .cert-group {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Projects Section Styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 30%;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 45px rgba(15, 23, 42, 0.25);
+        }
+
+        .project-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .project-role {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #1e3c72;
+            background: rgba(30, 60, 114, 0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .project-points {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .project-points li {
+            padding: 0.5rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #444;
+            font-size: 0.98rem;
+        }
+
+        .project-points li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0.45rem;
+            color: #1e3c72;
+            font-size: 1.1rem;
+        }
+
+        .project-outcome {
+            margin-top: 1.5rem;
+            font-size: 0.98rem;
+            color: #222;
+            border-top: 1px solid #e1e5ff;
+            padding-top: 1rem;
+        }
+
+        .project-outcome strong {
+            color: #1e3c72;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-card {
+                padding: 1.75rem;
+            }
+        }
+
+        /* Recognitions Table Styles */
+        .table-container {
+            margin-top: 3rem;
+            overflow-x: auto;
+        }
+
+        .recognition-table {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298) !important;
+            color: white;
+        }
+
+        .table-header th {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table-row-alt {
+            background: rgba(248, 249, 255, 0.6) !important;
+        }
+
+        .recognition-table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .recognition-table tbody tr:hover {
+            background: rgba(30, 60, 114, 0.08) !important;
+            transform: scale(1.01);
+        }
+
+        .recognition-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #f0f2ff;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .recognition-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .recognition-table {
+                font-size: 0.9rem;
+            }
+            
+            .table-header th,
+            .recognition-table td {
+                padding: 1rem 0.75rem;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Mobile Toggle -->
+    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    
+    <div class="container">
+        <!-- Left Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="logo">Srinivasa Reddy Eda</div>
+            <ul class="nav-links">
+    <li><a class="nav-link active" data-section="home">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        Home
+    </a></li>
+
+    <li><a class="nav-link" data-section="about">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/>
+        </svg>
+        About
+    </a></li>
+
+    <li><a class="nav-link" data-section="skills">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M21 5v6h-2V7.4L12 11 3 6v11h9v2H3c-1.1 0-2-.9-2-2V5c0-.4.2-.7.5-.9.3-.2.7-.2 1 0L12 8.5 20.5 4c.3-.2.7-.2 1 0 .3.2.5.5.5 1zM17 14h2v2h2v2h-2v2h-2v-2h-2v-2h2z"/>
+        </svg>
+        Skills
+    </a></li>
+
+    <li><a class="nav-link" data-section="certifications">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M12 2l2.1 3.9 4.4.7-3.2 3.3.8 4.6-4.1-2.1-4.1 2.1.8-4.6L5.5 6.6l4.4-.7L12 2zm0 5.2l-1 1.9-2.1.3 1.5 1.6-.4 2.1 2-1.1 2 1.1-.4-2.1 1.5-1.6-2.1-.3-1-1.9zM7 19h10v2H7z"/>
+        </svg>
+        Certifications
+    </a></li>
+
+    <li><a class="nav-link" data-section="projects">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M4 5c0-1.1.9-2 2-2h4l2 2h6c1.1 0 2 .9 2 2v3h-2V7H6v10h6v2H6c-1.1 0-2-.9-2-2V5zm11 8h2v3h3v2h-3v3h-2v-3h-3v-2h3z"/>
+        </svg>
+        Projects
+    </a></li>
+
+    <li><a class="nav-link" data-section="recognitions">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z"/>
+        </svg>
+        Recognitions
+    </a></li>
+
+    <li><a class="nav-link" data-section="contact">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 3.2L12 13 4 7.2V6l8 5 8-5v1.2z"/>
+        </svg>
+        Contact
+    </a></li>
+
+    <li><a class="nav-link" data-section="resume">
+        <svg class="nav-icon" viewBox="0 0 24 24">
+            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm0 2.5L18.5 9H14V4.5zM8 11h8v2H8v-2zm0 4h5v2H8v-2z"/>
+        </svg>
+        Resume
+    </a></li>
+</ul>
+
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section (Default) -->
+            <section id="home" class="content-section active">
+                <div class="hero">
+                    <h1>Srinivasa Reddy Eda</h1>
+                    <p class="hero-subtitle">Full Stack Developer | Cloud Architect | Tech Leader</p>
+                    <p class="intro-text">Building innovative solutions with hands-on expertise in cloud-native architectures, modern development practices, and enterprise-scale systems.</p>
+                    <div class="skills-preview">
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">PostgreSQL</div>
+                        <div class="skill-tag">Docker</div>
+                        <div class="skill-tag">Google Cloud</div>
+                        <div class="skill-tag">React</div>
+                        <div class="skill-tag">ADK Agents</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <h1>About Me</h1>
+                <p class="intro-text">
+                    I bring hands-on and advisory experience working with large enterprises, vendors, and system integrators. 
+                    I have led discovery phases, architecture assessments, and cloud-native evaluations, working closely with 
+                    engineering teams, product owners, vendors, and executives.
+                </p>
+                <div class="approach-section">
+                    <h2 class="approach-title">My approach is structured and outcome-driven:</h2>
+                    <ul class="approach-list">
+                        <li class="approach-item">• Understand business and technical constraints</li>
+                        <li class="approach-item">• Assess current-state architecture and delivery maturity</li>
+                        <li class="approach-item">• Identify gaps, risks, and improvement opportunities</li>
+                        <li class="approach-item">• Define a realistic, phased implementation roadmap</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section id="contact" class="content-section">
+                <h1>Contact</h1>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <a href="https://www.linkedin.com/in/srinivasa-reddy-eda-09463b34/" target="_blank">LinkedIn</a>
+                    </li>
+                    <li class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        <a href="https://github.com/edasri" target="_blank">GitHub</a>
+                    </li>
+                    <li class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <a href="mailto:edasri@gmail.com">edasri@gmail.com</a>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Placeholder sections for other pages -->
+<!-- Skills Section -->
+<section id="skills" class="content-section">
+    <h1>Skills & Technology Stack</h1>
+    
+    <div class="skills-grid">
+        <!-- Architecture & Design -->
+        <div class="skill-category">
+            <h2 class="category-title">Architecture & Design</h2>
+            <ul class="skill-list">
+                <li class="skill-item">• Solution Architecture & Target-State Design</li>
+                <li class="skill-item">• Cloud-Native & Microservices Architecture</li>
+                <li class="skill-item">• API-First & Event-Driven Design</li>
+                <li class="skill-item">• Architecture Assessments & Modernization Roadmaps</li>
+            </ul>
+        </div>
+
+        <!-- Cloud & Platforms -->
+        <div class="skill-category">
+            <h2 class="category-title">Cloud & Platforms</h2>
+            <ul class="skill-list">
+                <li class="skill-item">• Microsoft Azure</li>
+                <li class="skill-item">• Kubernetes (AKS)</li>
+                <li class="skill-item">• Containerization & Platform Engineering</li>
+                <li class="skill-item">• CI/CD Pipelines</li>
+            </ul>
+        </div>
+
+        <!-- DevSecOps -->
+        <div class="skill-category">
+            <h2 class="category-title">DevSecOps</h2>
+            <ul class="skill-list">
+                <li class="skill-item">• DevSecOps Assessments & Implementation Strategy</li>
+                <li class="skill-item">• Secure SDLC & Shift-Left Security</li>
+                <li class="skill-item">• Value Stream Mapping</li>
+                <li class="skill-item">• Automation & Governance</li>
+            </ul>
+        </div>
+
+        <!-- Languages & Frameworks -->
+        <div class="skill-category">
+            <h2 class="category-title">Languages & Frameworks</h2>
+            <ul class="skill-list">
+                <li class="skill-item">• Java / Spring Boot</li>
+                <li class="skill-item">• Angular</li>
+                <li class="skill-item">• REST APIs</li>
+            </ul>
+        </div>
+
+        <!-- Databases & Integration -->
+        <div class="skill-category">
+            <h2 class="category-title">Databases & Integration</h2>
+            <ul class="skill-list">
+                <li class="skill-item">• Oracle Database</li>
+                <li class="skill-item">• Relational & Cloud Databases</li>
+                <li class="skill-item">• Enterprise Integration Patterns</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="content-section">
+    <h1>Certifications</h1>
+    
+    <div class="certs-container">
+        <!-- Active Certifications -->
+        <div class="cert-group">
+            <h2 class="group-title active">Active</h2>
+            <ul class="cert-list">
+                <li class="cert-item">
+                    <span class="cert-badge">Google Cloud</span>
+                    <div class="cert-details">
+                        <div class="cert-name">Professional Cloud Architect</div>
+                    </div>
+                </li>
+                <li class="cert-item">
+                    <span class="cert-badge">Google Cloud</span>
+                    <div class="cert-details">
+                        <div class="cert-name">GenAI Leader</div>
+                    </div>
+                </li>
+                <li class="cert-item">
+                    <span class="cert-badge">PMI</span>
+                    <div class="cert-details">
+                        <div class="cert-name">PMP</div>
+                    </div>
+                </li>
+                <li class="cert-item">
+                    <span class="cert-badge">SAFe</span>
+                    <div class="cert-details">
+                        <div class="cert-name">Practice Consultant (SPC)</div>
+                    </div>
+                </li>
+                <li class="cert-item">
+                    <span class="cert-badge">SAFe</span>
+                    <div class="cert-details">
+                        <div class="cert-name">Release Train Engineer (RTE)</div>
+                    </div>
+                </li>
+                <li class="cert-item">
+                    <span class="cert-badge">Scrum Alliance</span>
+                    <div class="cert-details">
+                        <div class="cert-name">Certified Scrum Master</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Expired Certifications -->
+        <div class="cert-group">
+            <h2 class="group-title expired">Expired</h2>
+            <ul class="cert-list">
+                <li class="cert-item">
+                    <span class="cert-badge expired">HashiCorp</span>
+                    <div class="cert-details">
+                        <div class="cert-name">Terraform Associate 3.1</div>
+                    </div>
+                </li>
+                <li class="cert-item">
+                    <span class="cert-badge expired">Sun</span>
+                    <div class="cert-details">
+                        <div class="cert-name">Certified Java Programmer</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="content-section">
+    <h1>Projects & Engagements</h1>
+
+    <div class="projects-grid">
+        <!-- DevSecOps Assessment & Roadmap -->
+        <article class="project-card">
+            <div class="project-header">
+                <h2 class="project-title">DevSecOps Assessment & Roadmap</h2>
+                <span class="project-role">Solution / Cloud Architect</span>
+            </div>
+            <ul class="project-points">
+                <li>Socialized a DevSecOps assessment approach with stakeholders.</li>
+                <li>Performed platform and application assessments.</li>
+                <li>Conducted value stream mapping to identify bottlenecks.</li>
+                <li>Shared findings with leadership and delivery teams.</li>
+                <li>Defined a phased implementation roadmap.</li>
+                <li>Roadmap implementation handed off to Accenture.</li>
+            </ul>
+            <p class="project-outcome">
+                <strong>Outcome:</strong> Clear prioritization of DevSecOps improvements aligned to delivery velocity and security maturity.
+            </p>
+        </article>
+
+        <!-- Cloud-Native Evaluation – ORAN Vendor Solutions -->
+        <article class="project-card">
+            <div class="project-header">
+                <h2 class="project-title">Cloud-Native Evaluation – ORAN Vendor Solutions</h2>
+                <span class="project-role">Cloud Architect</span>
+            </div>
+            <ul class="project-points">
+                <li>Evaluated cloud-native capabilities of multiple ORAN vendor solutions.</li>
+                <li>Developed a structured evaluation framework for comparison.</li>
+                <li>Assessed containerization, scalability, resilience, and cloud readiness.</li>
+                <li>Presented findings and recommendations to the executive team.</li>
+                <li>Supported contract and feature negotiations using technical insights.</li>
+            </ul>
+            <p class="project-outcome">
+                <strong>Outcome:</strong> Enabled data-driven vendor selection and informed commercial negotiations.
+            </p>
+        </article>
+
+        <!-- Enterprise Application Architecture (AKS) -->
+        <article class="project-card">
+            <div class="project-header">
+                <h2 class="project-title">Enterprise Application Architecture (AKS)</h2>
+                <span class="project-role">Solution Architect</span>
+            </div>
+            <ul class="project-points">
+                <li>Led architecture discovery for Angular + Spring Boot applications.</li>
+                <li>Designed cloud-native deployment on Azure Kubernetes Service.</li>
+                <li>Defined application, integration, and data architecture.</li>
+                <li>Considered scalability, security, and operational concerns.</li>
+            </ul>
+            <p class="project-outcome">
+                <strong>Outcome:</strong> Delivered a clear target architecture aligned with enterprise cloud standards.
+            </p>
+        </article>
+    </div>
+</section>
+
+<!-- Recognitions Section -->
+<section id="recognitions" class="content-section">
+    <h1>Appreciations & Recognition</h1>
+    
+    <div class="table-container">
+        <table class="recognition-table">
+            <thead>
+                <tr class="table-header">
+                    <th>Date</th>
+                    <th>My Role</th>
+                    <th>Appreciated by</th>
+                    <th>Appreciation received</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026-01-15</td>
+                    <td>Solution Architect</td>
+                    <td>VP Engineering</td>
+                    <td>Outstanding DevSecOps roadmap delivery</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2025-12-10</td>
+                    <td>Cloud Architect</td>
+                    <td>CTO Office</td>
+                    <td>Cloud-native vendor evaluation excellence</td>
+                </tr>
+                <tr>
+                    <td>2025-11-20</td>
+                    <td>Solution Architect</td>
+                    <td>Delivery Director</td>
+                    <td>AKS architecture implementation leadership</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2025-10-05</td>
+                    <td>Cloud Architect</td>
+                    <td>Program Manager</td>
+                    <td>Accelerated platform modernization timeline</td>
+                </tr>
+                <tr>
+                    <td>2025-09-18</td>
+                    <td>Solution Architect</td>
+                    <td>Security Lead</td>
+                    <td>Shift-left security implementation strategy</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2025-08-22</td>
+                    <td>Cloud Architect</td>
+                    <td>VP Technology</td>
+                    <td>Strategic cloud architecture contributions</td>
+                </tr>
+                <tr>
+                    <td>2025-07-30</td>
+                    <td>Solution Architect</td>
+                    <td>Product Owner</td>
+                    <td>Exceptional stakeholder alignment delivery</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2025-06-12</td>
+                    <td>Cloud Architect</td>
+                    <td>Engineering Manager</td>
+                    <td>Technical leadership and mentorship</td>
+                </tr>
+                <tr>
+                    <td>2025-05-25</td>
+                    <td>Solution Architect</td>
+                    <td>Client Executive</td>
+                    <td>Successful roadmap handoff to implementation</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2025-04-18</td>
+                    <td>Cloud Architect</td>
+                    <td>Architecture Review Board</td>
+                    <td>Enterprise architecture standards compliance</td>
+                </tr>
+                <tr>
+                    <td>2025-03-10</td>
+                    <td>Solution Architect</td>
+                    <td>DevOps Lead</td>
+                    <td>CI/CD pipeline optimization contributions</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2025-02-28</td>
+                    <td>Cloud Architect</td>
+                    <td>Platform Team</td>
+                    <td>Kubernetes deployment strategy excellence</td>
+                </tr>
+                <tr>
+                    <td>2025-01-15</td>
+                    <td>Solution Architect</td>
+                    <td>Executive Leadership</td>
+                    <td>Value stream mapping and bottleneck resolution</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2024-12-05</td>
+                    <td>Cloud Architect</td>
+                    <td>Vendor Management</td>
+                    <td>Technical negotiation support excellence</td>
+                </tr>
+                <tr>
+                    <td>2024-11-20</td>
+                    <td>Solution Architect</td>
+                    <td>Security Operations</td>
+                    <td>DevSecOps maturity assessment leadership</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2024-10-12</td>
+                    <td>Cloud Architect</td>
+                    <td>Infrastructure Team</td>
+                    <td>Cloud migration strategy formulation</td>
+                </tr>
+                <tr>
+                    <td>2024-09-08</td>
+                    <td>Solution Architect</td>
+                    <td>Business Stakeholders</td>
+                    <td>Business-aligned technical roadmap delivery</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2024-08-15</td>
+                    <td>Cloud Architect</td>
+                    <td>Technical Review Board</td>
+                    <td>Scalability and resilience architecture</td>
+                </tr>
+                <tr>
+                    <td>2024-07-22</td>
+                    <td>Solution Architect</td>
+                    <td>Delivery Leadership</td>
+                    <td>Cross-functional team collaboration excellence</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2024-06-30</td>
+                    <td>Cloud Architect</td>
+                    <td>Operations Team</td>
+                    <td>Production deployment readiness leadership</td>
+                </tr>
+                <tr>
+                    <td>2024-05-18</td>
+                    <td>Solution Architect</td>
+                    <td>Architecture Community</td>
+                    <td>Best practices knowledge sharing</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2024-04-10</td>
+                    <td>Cloud Architect</td>
+                    <td>Platform Engineering</td>
+                    <td>Containerization strategy implementation</td>
+                </tr>
+                <tr>
+                    <td>2024-03-25</td>
+                    <td>Solution Architect</td>
+                    <td>Development Team</td>
+                    <td>Microservices architecture guidance</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2024-02-14</td>
+                    <td>Cloud Architect</td>
+                    <td>Innovation Committee</td>
+                    <td>Cloud-native innovation contributions</td>
+                </tr>
+                <tr>
+                    <td>2024-01-08</td>
+                    <td>Solution Architect</td>
+                    <td>Program Management</td>
+                    <td>Risk mitigation and delivery acceleration</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2023-12-20</td>
+                    <td>Cloud Architect</td>
+                    <td>Technical Governance</td>
+                    <td>Standards compliance and quality assurance</td>
+                </tr>
+                <tr>
+                    <td>2023-11-15</td>
+                    <td>Solution Architect</td>
+                    <td>Client Leadership</td>
+                    <td>Strategic partnership and delivery success</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2023-10-30</td>
+                    <td>Cloud Architect</td>
+                    <td>Engineering Community</td>
+                    <td>Mentorship and technical guidance excellence</td>
+                </tr>
+                <tr>
+                    <td>2023-09-22</td>
+                    <td>Solution Architect</td>
+                    <td>Executive Sponsor</td>
+                    <td>Business value realization through architecture</td>
+                </tr>
+                <tr class="table-row-alt">
+                    <td>2023-08-18</td>
+                    <td>Cloud Architect</td>
+                    <td>Security Council</td>
+                    <td>Security-first architecture implementation</td>
+                </tr>
+                <tr>
+                    <td>2023-07-12</td>
+                    <td>Solution Architect</td>
+                    <td>Delivery Excellence Team</td>
+                    <td>Process optimization and velocity improvements</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+            <section id="resume" class="content-section">
+                <h1>Resume</h1>
+                <p class="intro-text">Download full resume (PDF)</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.content-section');
+        const sidebar = document.getElementById('sidebar');
+        const mobileToggle = document.getElementById('mobileToggle');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show corresponding section
+                sections.forEach(s => s.classList.remove('active'));
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Close mobile menu
+                sidebar.classList.remove('open');
+            });
+        });
+        
+        // Mobile toggle
+        mobileToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        // Close sidebar on outside click
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+        
+    </script>
+</body>
+</html>
