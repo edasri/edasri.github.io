@@ -1,3 +1,7 @@
+[Home](/) | [About](/about) | [Skills](/skills) | [Certifications](/certifications) | [Projects](/projects) | [Recognitions](/recognitions) | [Contact](/contact) | [Resume](/resume) 
+
+---
+
 # About Me
 I bring hands-on and advisory experience working with large enterprises, vendors, and system integrators. I have led discovery phases, architecture assessments, and cloud-native evaluations, working closely with engineering teams, product owners, vendors, and executives.
 
