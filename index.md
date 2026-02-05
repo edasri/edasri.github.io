@@ -1,13 +1,7 @@
 ---
-title: Srinivasa Reddy Eda
+layout: default
 ---
-
-# Srinivasa Reddy Eda
-**Solution Architect | Cloud & DevSecOps | Enterprise Platforms**
-
-[About Me](/about) | [Skills](/skills) | [Projects](/projects) | [Recognition](/recognition) | [Contact](/contact)
-
----
+{% include header.md %}
 
 ## Welcome
 This site presents my professional profile, technical expertise, and selected engagements across cloud architecture, DevSecOps, and enterprise platforms.
