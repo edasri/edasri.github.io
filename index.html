@@ -57,7 +57,7 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
             background-clip: text; font-weight: 800; text-align: center;
         }
-        .intro-text { font-size: 1.2rem; color: #444; margin-bottom: 3rem; line-height: 1.8; text-align: center; }
+        .intro-text { font-size: 1.2rem; color: #444; margin-bottom: 3rem; line-height: 1.8; text-align: left; }
         
         /* Home Section */
         .hero { text-align: center; }
@@ -470,18 +470,19 @@
         <nav class="sidebar" id="sidebar">
             <div class="logo">Srinivasa Reddy Eda</div>
             <ul class="nav-links">
+<!--                
     <li><a class="nav-link active" data-section="home">
         <svg class="nav-icon" viewBox="0 0 24 24">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
         </svg>
         Home
     </a></li>
-
+-->
     <li><a class="nav-link" data-section="about">
         <svg class="nav-icon" viewBox="0 0 24 24">
             <path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/>
         </svg>
-        About
+        About Me
     </a></li>
 
     <li><a class="nav-link" data-section="skills">
@@ -519,12 +520,12 @@
         Contact
     </a></li>
 
-    <li><a class="nav-link" data-section="resume">
+    <!-- <li><a class="nav-link" data-section="resume">
         <svg class="nav-icon" viewBox="0 0 24 24">
             <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm0 2.5L18.5 9H14V4.5zM8 11h8v2H8v-2zm0 4h5v2H8v-2z"/>
         </svg>
         Resume
-    </a></li>
+    </a></li> -->
 </ul>
 
         </nav>
@@ -532,7 +533,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Home Section (Default) -->
-            <section id="home" class="content-section active">
+           <!-- <section id="home" class="content-section active">
                 <div class="hero">
                     <h1>Srinivasa Reddy Eda</h1>
                     <p class="hero-subtitle">Full Stack Developer | Cloud Architect | Tech Leader</p>
@@ -546,15 +547,16 @@
                         <div class="skill-tag">ADK Agents</div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             
             <!-- About Section -->
             <section id="about" class="content-section">
                 <h1>About Me</h1>
                 <p class="intro-text">
-                    I bring hands-on and advisory experience working with large enterprises, vendors, and system integrators. 
-                    I have led discovery phases, architecture assessments, and cloud-native evaluations, working closely with 
-                    engineering teams, product owners, vendors, and executives.
+                    Accomplished Cloud & AI Architect and Program Manager with extensive experience in driving strategic technology initiatives, large-scale cloud migrations, and advanced Generative AI (GenAI) solutions across Google Cloud Platform (GCP), AWS, and hybrid environments. Proven leader in developing and implementing strategic plans to leverage technology for business growth, optimizing operations, and enhancing overall business performance. Expert in orchestrating complex Agile deliveries (SAFe, ART ceremonies), managing geographically distributed teams (up to 100+ members), and leading IT Service Management (ITSM) process maturity assessments and DevSecOps transformations.
+                </p>
+                <p class="intro-text">
+                    Deep technical proficiency in GCP services, including GKE, CloudSQL, BigQuery ML, DataProc, Dataflow, and Vertex AI, with a strong focus on designing and deploying sophisticated GenAI agents using Python, LangChain, Google GenAI services, and Google Agent Development Kit (ADK) for LLM orchestration. Skilled in building robust data processing pipelines for large datasets in streaming and batch modes, and architecting scalable solutions for 150+ Spring Boot microservices. Adept at stakeholder collaboration, communicating complex technical concepts, and leading high-performing, diverse teams to achieve strategic business objectives and competitive advantage.
                 </p>
                 <div class="approach-section">
                     <h2 class="approach-title">My approach is structured and outcome-driven:</h2>
@@ -607,10 +609,20 @@
         <div class="skill-category">
             <h2 class="category-title">Cloud & Platforms</h2>
             <ul class="skill-list">
-                <li class="skill-item">• Microsoft Azure</li>
-                <li class="skill-item">• Kubernetes (AKS)</li>
+                <li class="skill-item">• Google Cloud Platform</li>
+                <li class="skill-item">• Kubernetes & OpenShift</li>
                 <li class="skill-item">• Containerization & Platform Engineering</li>
                 <li class="skill-item">• CI/CD Pipelines</li>
+            </ul>
+        </div>
+
+        <!-- AI/ML & GenAI -->
+        <div class="skill-category">
+            <h2 class="category-title">AI/ML & GenAI</h2>
+            <ul class="skill-list">
+                <li class="skill-item">• Generative AI: LLM Fine-tuning, Prompt Engineering, RAG, LangChain, Google ADK.</li>
+                <li class="skill-item">• Agentic Frameworks: Sequential/Parallel/Loop Agents, AgentGen, A2A, MCP.</li>
+                <li class="skill-item">• Data Science & ML: BigQuery ML (Training & Deployment), Python, Model Tuning.</li>
             </ul>
         </div>
 
@@ -630,6 +642,7 @@
             <h2 class="category-title">Languages & Frameworks</h2>
             <ul class="skill-list">
                 <li class="skill-item">• Java / Spring Boot</li>
+                <li class="skill-item">• Python</li>
                 <li class="skill-item">• Angular</li>
                 <li class="skill-item">• REST APIs</li>
             </ul>
@@ -644,6 +657,17 @@
                 <li class="skill-item">• Enterprise Integration Patterns</li>
             </ul>
         </div>
+
+        <!-- Management -->
+        <div class="skill-category">
+            <h2 class="category-title">Management</h2>
+            <ul class="skill-list">
+                <li class="skill-item">• Project/Program Management</li>
+                <li class="skill-item">• Release Train Engineer</li>
+                <li class="skill-item">• Agile Coach</li>
+            </ul>
+        </div>
+
     </div>
 </section>
 
@@ -677,7 +701,7 @@
                 <li class="cert-item">
                     <span class="cert-badge">SAFe</span>
                     <div class="cert-details">
-                        <div class="cert-name">Practice Consultant (SPC)</div>
+                        <div class="cert-name">SAFe Practice Consultant (SPC)</div>
                     </div>
                 </li>
                 <li class="cert-item">
@@ -689,7 +713,7 @@
                 <li class="cert-item">
                     <span class="cert-badge">Scrum Alliance</span>
                     <div class="cert-details">
-                        <div class="cert-name">Certified Scrum Master</div>
+                        <div class="cert-name">Scrum Master</div>
                     </div>
                 </li>
             </ul>
@@ -702,13 +726,13 @@
                 <li class="cert-item">
                     <span class="cert-badge expired">HashiCorp</span>
                     <div class="cert-details">
-                        <div class="cert-name">Terraform Associate 3.1</div>
+                        <div class="cert-name">Terraform Associate (003)</div>
                     </div>
                 </li>
                 <li class="cert-item">
                     <span class="cert-badge expired">Sun</span>
                     <div class="cert-details">
-                        <div class="cert-name">Certified Java Programmer</div>
+                        <div class="cert-name">Java Programmer</div>
                     </div>
                 </li>
             </ul>
@@ -984,11 +1008,13 @@
 </section>
 
 
-
+            <!--
             <section id="resume" class="content-section">
                 <h1>Resume</h1>
                 <p class="intro-text">Download full resume (PDF)</p>
             </section>
+            -->
+
         </main>
     </div>
 
