@@ -1,103 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srinivasa Reddy Eda - Tech Portfolio</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            line-height: 1.6; color: #333; background: #0a0a0a; overflow-x: hidden;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .container { display: flex; min-height: 100vh; }
-        
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
         /* Left Sidebar Navigation */
-        .sidebar { 
-            width: 280px; background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%); 
-            padding: 2rem 1.5rem; position: fixed; height: 100vh; overflow-y: auto; 
-            box-shadow: 2px 0 20px rgba(0,0,0,0.3); z-index: 100; 
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 100;
         }
-        .logo { 
-            font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 3rem; 
-            padding: 1rem 0; text-align: center; 
-            background: linear-gradient(135deg, #fff, #e0e7ff); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            background-clip: text; border-bottom: 1px solid rgba(255,255,255,0.1); 
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 3rem;
+            padding: 1rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .nav-links { list-style: none; }
-        .nav-link { 
-            display: flex; align-items: center; gap: 1rem; color: rgba(255,255,255,0.8); 
-            text-decoration: none; padding: 1rem 1.5rem; border-radius: 12px; 
-            margin: 0.25rem 0; font-weight: 500; transition: all 0.3s ease; cursor: pointer;
-            position: relative; 
+
+        .nav-links {
+            list-style: none;
         }
-        .nav-link:hover, .nav-link.active { 
-            color: white; background: rgba(255,255,255,0.15); transform: translateX(8px); 
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin: 0.25rem 0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
-        .nav-icon { width: 20px; height: 20px; fill: currentColor; }
-        
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(8px);
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
         /* Main Content Area */
-        .main-content { 
-            margin-left: 280px; flex: 1; padding: 3rem 2rem; overflow-y: auto;
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 3rem 2rem;
+            overflow-y: auto;
         }
-        .content-section { 
-            display: none; background: rgba(255,255,255,0.95); 
-            backdrop-filter: blur(20px); border-radius: 24px; padding: 4rem; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2);
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 4rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             min-height: 70vh;
         }
-        .content-section.active { display: block; }
-        
+
+        .content-section.active {
+            display: block;
+        }
+
         /* Section Styles */
-        h1 { 
-            font-size: 3rem; margin-bottom: 2rem; 
-            background: linear-gradient(135deg, #1e3c72, #2a5298); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            background-clip: text; font-weight: 800; text-align: center;
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            text-align: center;
         }
-        .intro-text { font-size: 1.2rem; color: #444; margin-bottom: 3rem; line-height: 1.8; text-align: left; }
-        
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            text-align: left;
+        }
+
         /* Home Section */
-        .hero { text-align: center; }
-        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
-        .hero-subtitle { font-size: 1.5rem; color: #666; margin-bottom: 2rem; }
-        .skills-preview { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
-        .skill-tag { background: linear-gradient(135deg, #f8f9ff, #e8ecff); padding: 1rem; border-radius: 12px; text-align: center; }
-        
+        .hero {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .skills-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
         /* About Section */
-        .approach-title { font-size: 1.6rem; color: #1e3c72; margin: 3rem 0 1.5rem 0; font-weight: 700; text-align: center; }
-        .approach-list { list-style: none; display: grid; gap: 1.5rem; }
-        .approach-item { 
-            background: linear-gradient(135deg, #f8f9ff, #e8ecff); padding: 1.5rem 2rem; 
-            border-radius: 16px; border-left: 5px solid #1e3c72; transition: all 0.3s ease;
+        .approach-title {
+            font-size: 1.6rem;
+            color: #1e3c72;
+            margin: 3rem 0 1.5rem 0;
+            font-weight: 700;
+            text-align: center;
         }
-        .approach-item:hover { transform: translateX(10px); box-shadow: 0 15px 35px rgba(30, 60, 114, 0.2); }
-        
+
+        .approach-list {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .approach-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            border-left: 5px solid #1e3c72;
+            transition: all 0.3s ease;
+        }
+
+        .approach-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(30, 60, 114, 0.2);
+        }
+
         /* Contact Section */
-        .contact-list { list-style: none; display: grid; gap: 1.5rem; max-width: 600px; margin: 0 auto; }
-        .contact-item { 
-            background: linear-gradient(135deg, #f8f9ff, #e8ecff); padding: 1.5rem; 
-            border-radius: 16px; border-left: 5px solid #1e3c72; transition: all 0.3s ease;
-            display: flex; align-items: center; gap: 1rem;
+        .contact-list {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .contact-item:hover { transform: translateX(10px); box-shadow: 0 15px 35px rgba(30, 60, 114, 0.2); }
-        .contact-icon { width: 24px; height: 24px; fill: #1e3c72; }
-        
+
+        .contact-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-left: 5px solid #1e3c72;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(30, 60, 114, 0.2);
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            fill: #1e3c72;
+        }
+
         /* Mobile */
-        .mobile-toggle { 
-            position: fixed; top: 1rem; left: 1rem; z-index: 200; background: rgba(30,60,114,0.9); 
-            border: none; color: white; padding: 1rem; border-radius: 12px; cursor: pointer; 
-            backdrop-filter: blur(20px); display: none; 
+        .mobile-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: rgba(30, 60, 114, 0.9);
+            border: none;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+            display: none;
         }
+
         @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
-            .sidebar.open { transform: translateX(0); }
-            .main-content { margin-left: 0; }
-            .mobile-toggle { display: block; }
-            .content-section { padding: 2rem 1rem; margin: 1rem; }
-            h1 { font-size: 2rem; }
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .content-section {
+                padding: 2rem 1rem;
+                margin: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
         }
 
         /* Skills Section Styles */
@@ -166,7 +325,7 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            
+
             .skill-category {
                 padding: 1.5rem;
             }
@@ -246,7 +405,7 @@
         }
 
         .cert-item:hover {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
             padding-left: 1rem;
             border-radius: 8px;
         }
@@ -283,7 +442,7 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            
+
             .cert-group {
                 padding: 1.5rem;
             }
@@ -441,6 +600,23 @@
             color: #444;
         }
 
+/* Start: Added to inccrease the width of Date column especially to avoid text wrapping */
+        .recognition-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #f0f2ff;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* ADD THIS - Controls 1st column width */
+        .recognition-table th:nth-child(1),
+        .recognition-table td:nth-child(1) {
+            width: 120px;
+            max-width: 120px;
+            white-space: nowrap;
+        }
+
+/* End: Added to inccrease the width of Date column especially to avoid text wrapping */
         .recognition-table tbody tr:last-child td {
             border-bottom: none;
         }
@@ -450,27 +626,34 @@
             .recognition-table {
                 font-size: 0.9rem;
             }
-            
+
             .table-header th,
             .recognition-table td {
                 padding: 1rem 0.75rem;
             }
         }
 
-
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
 
     </style>
 </head>
+
 <body>
     <!-- Mobile Toggle -->
     <button class="mobile-toggle" id="mobileToggle">☰</button>
-    
+
     <div class="container">
         <!-- Left Sidebar -->
         <nav class="sidebar" id="sidebar">
             <div class="logo">Srinivasa Reddy Eda</div>
             <ul class="nav-links">
-<!--                
+                <!--                
     <li><a class="nav-link active" data-section="home">
         <svg class="nav-icon" viewBox="0 0 24 24">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -478,62 +661,68 @@
         Home
     </a></li>
 -->
-    <li><a class="nav-link" data-section="about">
-        <svg class="nav-icon" viewBox="0 0 24 24">
-            <path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/>
-        </svg>
-        About Me
-    </a></li>
+                <li><a class="nav-link" data-section="about">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z" />
+                        </svg>
+                        About Me
+                    </a></li>
 
-    <li><a class="nav-link" data-section="skills">
-        <svg class="nav-icon" viewBox="0 0 24 24">
-            <path d="M21 5v6h-2V7.4L12 11 3 6v11h9v2H3c-1.1 0-2-.9-2-2V5c0-.4.2-.7.5-.9.3-.2.7-.2 1 0L12 8.5 20.5 4c.3-.2.7-.2 1 0 .3.2.5.5.5 1zM17 14h2v2h2v2h-2v2h-2v-2h-2v-2h2z"/>
-        </svg>
-        Skills
-    </a></li>
+                <li><a class="nav-link" data-section="skills">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M21 5v6h-2V7.4L12 11 3 6v11h9v2H3c-1.1 0-2-.9-2-2V5c0-.4.2-.7.5-.9.3-.2.7-.2 1 0L12 8.5 20.5 4c.3-.2.7-.2 1 0 .3.2.5.5.5 1zM17 14h2v2h2v2h-2v2h-2v-2h-2v-2h2z" />
+                        </svg>
+                        Skills
+                    </a></li>
 
-    <li><a class="nav-link" data-section="certifications">
-        <svg class="nav-icon" viewBox="0 0 24 24">
-            <path d="M12 2l2.1 3.9 4.4.7-3.2 3.3.8 4.6-4.1-2.1-4.1 2.1.8-4.6L5.5 6.6l4.4-.7L12 2zm0 5.2l-1 1.9-2.1.3 1.5 1.6-.4 2.1 2-1.1 2 1.1-.4-2.1 1.5-1.6-2.1-.3-1-1.9zM7 19h10v2H7z"/>
-        </svg>
-        Certifications
-    </a></li>
+                <li><a class="nav-link" data-section="certifications">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l2.1 3.9 4.4.7-3.2 3.3.8 4.6-4.1-2.1-4.1 2.1.8-4.6L5.5 6.6l4.4-.7L12 2zm0 5.2l-1 1.9-2.1.3 1.5 1.6-.4 2.1 2-1.1 2 1.1-.4-2.1 1.5-1.6-2.1-.3-1-1.9zM7 19h10v2H7z" />
+                        </svg>
+                        Certifications
+                    </a></li>
 
-    <li><a class="nav-link" data-section="projects">
-        <svg class="nav-icon" viewBox="0 0 24 24">
-            <path d="M4 5c0-1.1.9-2 2-2h4l2 2h6c1.1 0 2 .9 2 2v3h-2V7H6v10h6v2H6c-1.1 0-2-.9-2-2V5zm11 8h2v3h3v2h-3v3h-2v-3h-3v-2h3z"/>
-        </svg>
-        Projects
-    </a></li>
+                <li><a class="nav-link" data-section="projects">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M4 5c0-1.1.9-2 2-2h4l2 2h6c1.1 0 2 .9 2 2v3h-2V7H6v10h6v2H6c-1.1 0-2-.9-2-2V5zm11 8h2v3h3v2h-3v3h-2v-3h-3v-2h3z" />
+                        </svg>
+                        Projects
+                    </a></li>
 
-    <li><a class="nav-link" data-section="recognitions">
-        <svg class="nav-icon" viewBox="0 0 24 24">
-            <path d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z"/>
-        </svg>
-        Recognitions
-    </a></li>
+                <li><a class="nav-link" data-section="recognitions">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z" />
+                        </svg>
+                        Recognitions
+                    </a></li>
 
-    <li><a class="nav-link" data-section="contact">
-        <svg class="nav-icon" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 3.2L12 13 4 7.2V6l8 5 8-5v1.2z"/>
-        </svg>
-        Contact
-    </a></li>
+                <li><a class="nav-link" data-section="contact">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 3.2L12 13 4 7.2V6l8 5 8-5v1.2z" />
+                        </svg>
+                        Contact
+                    </a></li>
 
-    <!-- <li><a class="nav-link" data-section="resume">
+                <!-- <li><a class="nav-link" data-section="resume">
         <svg class="nav-icon" viewBox="0 0 24 24">
             <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm0 2.5L18.5 9H14V4.5zM8 11h8v2H8v-2zm0 4h5v2H8v-2z"/>
         </svg>
         Resume
     </a></li> -->
-</ul>
+            </ul>
 
         </nav>
-        
+
         <!-- Main Content -->
         <main class="main-content">
             <!-- Home Section (Default) -->
-           <!-- <section id="home" class="content-section active">
+            <!-- <section id="home" class="content-section active">
                 <div class="hero">
                     <h1>Srinivasa Reddy Eda</h1>
                     <p class="hero-subtitle">Full Stack Developer | Cloud Architect | Tech Leader</p>
@@ -548,15 +737,27 @@
                     </div>
                 </div>
             </section> -->
-            
+
             <!-- About Section (Default) -->
             <section id="about" class="content-section active">
                 <h1>About Me</h1>
                 <p class="intro-text">
-                    Accomplished Cloud & AI Architect and Program Manager with extensive experience in driving strategic technology initiatives, large-scale cloud migrations, and advanced Generative AI (GenAI) solutions across Google Cloud Platform (GCP), AWS, and hybrid environments. Proven leader in developing and implementing strategic plans to leverage technology for business growth, optimizing operations, and enhancing overall business performance. Expert in orchestrating complex Agile deliveries (SAFe, ART ceremonies), managing geographically distributed teams (up to 100+ members), and leading IT Service Management (ITSM) process maturity assessments and DevSecOps transformations.
+                    Accomplished Cloud & AI Architect and Program Manager with extensive experience in driving strategic
+                    technology initiatives, large-scale cloud migrations, and advanced Generative AI (GenAI) solutions
+                    across Google Cloud Platform (GCP), AWS, and hybrid environments. Proven leader in developing and
+                    implementing strategic plans to leverage technology for business growth, optimizing operations, and
+                    enhancing overall business performance. Expert in orchestrating complex Agile deliveries (SAFe, ART
+                    ceremonies), managing geographically distributed teams (up to 100+ members), and leading IT Service
+                    Management (ITSM) process maturity assessments and DevSecOps transformations.
                 </p>
                 <p class="intro-text">
-                    Deep technical proficiency in GCP services, including GKE, CloudSQL, BigQuery ML, DataProc, Dataflow, and Vertex AI, with a strong focus on designing and deploying sophisticated GenAI agents using Python, LangChain, Google GenAI services, and Google Agent Development Kit (ADK) for LLM orchestration. Skilled in building robust data processing pipelines for large datasets in streaming and batch modes, and architecting scalable solutions for 150+ Spring Boot microservices. Adept at stakeholder collaboration, communicating complex technical concepts, and leading high-performing, diverse teams to achieve strategic business objectives and competitive advantage.
+                    Deep technical proficiency in GCP services, including GKE, CloudSQL, BigQuery ML, DataProc,
+                    Dataflow, and Vertex AI, with a strong focus on designing and deploying sophisticated GenAI agents
+                    using Python, LangChain, Google GenAI services, and Google Agent Development Kit (ADK) for LLM
+                    orchestration. Skilled in building robust data processing pipelines for large datasets in streaming
+                    and batch modes, and architecting scalable solutions for 150+ Spring Boot microservices. Adept at
+                    stakeholder collaboration, communicating complex technical concepts, and leading high-performing,
+                    diverse teams to achieve strategic business objectives and competitive advantage.
                 </p>
                 <div class="approach-section">
                     <h2 class="approach-title">My approach is structured and outcome-driven:</h2>
@@ -568,444 +769,819 @@
                     </ul>
                 </div>
             </section>
-            
+
             <!-- Contact Section -->
             <section id="contact" class="content-section">
                 <h1>Contact</h1>
                 <ul class="contact-list">
                     <li class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
                         <a href="https://www.linkedin.com/in/srinivasa-reddy-eda-09463b34/" target="_blank">LinkedIn</a>
                     </li>
                     <li class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg>
                         <a href="https://github.com/edasri" target="_blank">GitHub</a>
                     </li>
                     <li class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
                         <a href="mailto:edasri@gmail.com">edasri@gmail.com</a>
                     </li>
                 </ul>
             </section>
-            
+
             <!-- Placeholder sections for other pages -->
-<!-- Skills Section -->
-<section id="skills" class="content-section">
-    <h1>Skills & Technology Stack</h1>
-    
-    <div class="skills-grid">
-        <!-- Architecture & Design -->
-        <div class="skill-category">
-            <h2 class="category-title">Architecture & Design</h2>
-            <ul class="skill-list">
-                <li class="skill-item">• Solution Architecture & Target-State Design</li>
-                <li class="skill-item">• Cloud-Native & Microservices Architecture</li>
-                <li class="skill-item">• API-First & Event-Driven Design</li>
-                <li class="skill-item">• Architecture Assessments & Modernization Roadmaps</li>
-            </ul>
-        </div>
+            <!-- Skills Section -->
+            <section id="skills" class="content-section">
+                <h1>Skills & Technology Stack</h1>
 
-        <!-- Cloud & Platforms -->
-        <div class="skill-category">
-            <h2 class="category-title">Cloud & Platforms</h2>
-            <ul class="skill-list">
-                <li class="skill-item">• Google Cloud Platform</li>
-                <li class="skill-item">• Kubernetes & OpenShift</li>
-                <li class="skill-item">• Containerization & Platform Engineering</li>
-                <li class="skill-item">• CI/CD Pipelines</li>
-            </ul>
-        </div>
-
-        <!-- AI/ML & GenAI -->
-        <div class="skill-category">
-            <h2 class="category-title">AI/ML & GenAI</h2>
-            <ul class="skill-list">
-                <li class="skill-item">• Generative AI: LLM Fine-tuning, Prompt Engineering, RAG, LangChain, Google ADK.</li>
-                <li class="skill-item">• Agentic Frameworks: Sequential/Parallel/Loop Agents, AgentGen, A2A, MCP.</li>
-                <li class="skill-item">• Data Science & ML: BigQuery ML (Training & Deployment), Python, Model Tuning.</li>
-            </ul>
-        </div>
-
-        <!-- DevSecOps -->
-        <div class="skill-category">
-            <h2 class="category-title">DevSecOps</h2>
-            <ul class="skill-list">
-                <li class="skill-item">• DevSecOps Assessments & Implementation Strategy</li>
-                <li class="skill-item">• Secure SDLC & Shift-Left Security</li>
-                <li class="skill-item">• Value Stream Mapping</li>
-                <li class="skill-item">• Automation & Governance</li>
-            </ul>
-        </div>
-
-        <!-- Languages & Frameworks -->
-        <div class="skill-category">
-            <h2 class="category-title">Languages & Frameworks</h2>
-            <ul class="skill-list">
-                <li class="skill-item">• Java / Spring Boot</li>
-                <li class="skill-item">• Python</li>
-                <li class="skill-item">• Angular</li>
-                <li class="skill-item">• REST APIs</li>
-            </ul>
-        </div>
-
-        <!-- Databases & Integration -->
-        <div class="skill-category">
-            <h2 class="category-title">Databases & Integration</h2>
-            <ul class="skill-list">
-                <li class="skill-item">• Oracle Database</li>
-                <li class="skill-item">• Relational & Cloud Databases</li>
-                <li class="skill-item">• Enterprise Integration Patterns</li>
-            </ul>
-        </div>
-
-        <!-- Management -->
-        <div class="skill-category">
-            <h2 class="category-title">Management</h2>
-            <ul class="skill-list">
-                <li class="skill-item">• Project/Program Management</li>
-                <li class="skill-item">• Release Train Engineer</li>
-                <li class="skill-item">• Agile Coach</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
-<!-- Certifications Section -->
-<section id="certifications" class="content-section">
-    <h1>Certifications</h1>
-    
-    <div class="certs-container">
-        <!-- Active Certifications -->
-        <div class="cert-group">
-            <h2 class="group-title active">Active</h2>
-            <ul class="cert-list">
-                <li class="cert-item">
-                    <span class="cert-badge">Google Cloud</span>
-                    <div class="cert-details">
-                        <div class="cert-name">Professional Cloud Architect</div>
+                <div class="skills-grid">
+                    <!-- Architecture & Design -->
+                    <div class="skill-category">
+                        <h2 class="category-title">Architecture & Design</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">• Solution Architecture & Target-State Design</li>
+                            <li class="skill-item">• Cloud-Native & Microservices Architecture</li>
+                            <li class="skill-item">• API-First & Event-Driven Design</li>
+                            <li class="skill-item">• Architecture Assessments & Modernization Roadmaps</li>
+                        </ul>
                     </div>
-                </li>
-                <li class="cert-item">
-                    <span class="cert-badge">Google Cloud</span>
-                    <div class="cert-details">
-                        <div class="cert-name">GenAI Leader</div>
-                    </div>
-                </li>
-                <li class="cert-item">
-                    <span class="cert-badge">PMI</span>
-                    <div class="cert-details">
-                        <div class="cert-name">PMP</div>
-                    </div>
-                </li>
-                <li class="cert-item">
-                    <span class="cert-badge">SAFe</span>
-                    <div class="cert-details">
-                        <div class="cert-name">SAFe Practice Consultant (SPC)</div>
-                    </div>
-                </li>
-                <li class="cert-item">
-                    <span class="cert-badge">SAFe</span>
-                    <div class="cert-details">
-                        <div class="cert-name">Release Train Engineer (RTE)</div>
-                    </div>
-                </li>
-                <li class="cert-item">
-                    <span class="cert-badge">Scrum Alliance</span>
-                    <div class="cert-details">
-                        <div class="cert-name">Scrum Master</div>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Expired Certifications -->
-        <div class="cert-group">
-            <h2 class="group-title expired">Expired</h2>
-            <ul class="cert-list">
-                <li class="cert-item">
-                    <span class="cert-badge expired">HashiCorp</span>
-                    <div class="cert-details">
-                        <div class="cert-name">Terraform Associate (003)</div>
+                    <!-- Cloud & Platforms -->
+                    <div class="skill-category">
+                        <h2 class="category-title">Cloud & Platforms</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">• Google Cloud Platform</li>
+                            <li class="skill-item">• Kubernetes & OpenShift</li>
+                            <li class="skill-item">• Containerization & Platform Engineering</li>
+                            <li class="skill-item">• CI/CD Pipelines</li>
+                        </ul>
                     </div>
-                </li>
-                <li class="cert-item">
-                    <span class="cert-badge expired">Sun</span>
-                    <div class="cert-details">
-                        <div class="cert-name">Java Programmer</div>
+
+                    <!-- AI/ML & GenAI -->
+                    <div class="skill-category">
+                        <h2 class="category-title">AI/ML & GenAI</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">• Generative AI: LLM Fine-tuning, Prompt Engineering, RAG, LangChain,
+                                Google ADK.</li>
+                            <li class="skill-item">• Agentic Frameworks: Sequential/Parallel/Loop Agents, AgentGen, A2A,
+                                MCP.</li>
+                            <li class="skill-item">• Data Science & ML: BigQuery ML (Training & Deployment), Python,
+                                Model Tuning.</li>
+                        </ul>
                     </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
 
-<!-- Projects Section -->
-<section id="projects" class="content-section">
-    <h1>Projects & Engagements</h1>
+                    <!-- DevSecOps -->
+                    <div class="skill-category">
+                        <h2 class="category-title">DevSecOps</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">• DevSecOps Assessments & Implementation Strategy</li>
+                            <li class="skill-item">• Secure SDLC & Shift-Left Security</li>
+                            <li class="skill-item">• Value Stream Mapping</li>
+                            <li class="skill-item">• Automation & Governance</li>
+                        </ul>
+                    </div>
 
-    <div class="projects-grid">
-        <!-- DevSecOps Assessment & Roadmap -->
-        <article class="project-card">
-            <div class="project-header">
-                <h2 class="project-title">DevSecOps Assessment & Roadmap</h2>
-                <span class="project-role">Solution / Cloud Architect</span>
-            </div>
-            <ul class="project-points">
-                <li>Socialized a DevSecOps assessment approach with stakeholders.</li>
-                <li>Performed platform and application assessments.</li>
-                <li>Conducted value stream mapping to identify bottlenecks.</li>
-                <li>Shared findings with leadership and delivery teams.</li>
-                <li>Defined a phased implementation roadmap.</li>
-                <li>Roadmap implementation handed off to Accenture.</li>
-            </ul>
-            <p class="project-outcome">
-                <strong>Outcome:</strong> Clear prioritization of DevSecOps improvements aligned to delivery velocity and security maturity.
-            </p>
-        </article>
+                    <!-- Languages & Frameworks -->
+                    <div class="skill-category">
+                        <h2 class="category-title">Languages & Frameworks</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">• Java / Spring Boot</li>
+                            <li class="skill-item">• Python</li>
+                            <li class="skill-item">• Angular</li>
+                            <li class="skill-item">• REST APIs</li>
+                        </ul>
+                    </div>
 
-        <!-- Cloud-Native Evaluation – ORAN Vendor Solutions -->
-        <article class="project-card">
-            <div class="project-header">
-                <h2 class="project-title">Cloud-Native Evaluation – ORAN Vendor Solutions</h2>
-                <span class="project-role">Cloud Architect</span>
-            </div>
-            <ul class="project-points">
-                <li>Evaluated cloud-native capabilities of multiple ORAN vendor solutions.</li>
-                <li>Developed a structured evaluation framework for comparison.</li>
-                <li>Assessed containerization, scalability, resilience, and cloud readiness.</li>
-                <li>Presented findings and recommendations to the executive team.</li>
-                <li>Supported contract and feature negotiations using technical insights.</li>
-            </ul>
-            <p class="project-outcome">
-                <strong>Outcome:</strong> Enabled data-driven vendor selection and informed commercial negotiations.
-            </p>
-        </article>
+                    <!-- Databases & Integration -->
+                    <div class="skill-category">
+                        <h2 class="category-title">Databases & Integration</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">• Cloud Databases</li>
+                            <li class="skill-item">• Relational & Non-Relational Databases</li>
+                            <li class="skill-item">• Enterprise Integration Patterns</li>
+                        </ul>
+                    </div>
 
-        <!-- Enterprise Application Architecture (AKS) -->
-        <article class="project-card">
-            <div class="project-header">
-                <h2 class="project-title">Enterprise Application Architecture (AKS)</h2>
-                <span class="project-role">Solution Architect</span>
-            </div>
-            <ul class="project-points">
-                <li>Led architecture discovery for Angular + Spring Boot applications.</li>
-                <li>Designed cloud-native deployment on Azure Kubernetes Service.</li>
-                <li>Defined application, integration, and data architecture.</li>
-                <li>Considered scalability, security, and operational concerns.</li>
-            </ul>
-            <p class="project-outcome">
-                <strong>Outcome:</strong> Delivered a clear target architecture aligned with enterprise cloud standards.
-            </p>
-        </article>
-    </div>
-</section>
+                    <!-- Management -->
+                    <div class="skill-category">
+                        <h2 class="category-title">Management</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">• Project/Program Management</li>
+                            <li class="skill-item">• Release Train Engineer</li>
+                            <li class="skill-item">• Agile Coach</li>
+                        </ul>
+                    </div>
 
-<!-- Recognitions Section -->
-<section id="recognitions" class="content-section">
-    <h1>Appreciations & Recognition</h1>
-    
-    <div class="table-container">
-        <table class="recognition-table">
-            <thead>
-                <tr class="table-header">
-                    <th>Date</th>
-                    <th>My Role</th>
-                    <th>Appreciated by</th>
-                    <th>Appreciation received</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2026-01-15</td>
-                    <td>Solution Architect</td>
-                    <td>VP Engineering</td>
-                    <td>Outstanding DevSecOps roadmap delivery</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2025-12-10</td>
-                    <td>Cloud Architect</td>
-                    <td>CTO Office</td>
-                    <td>Cloud-native vendor evaluation excellence</td>
-                </tr>
-                <tr>
-                    <td>2025-11-20</td>
-                    <td>Solution Architect</td>
-                    <td>Delivery Director</td>
-                    <td>AKS architecture implementation leadership</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2025-10-05</td>
-                    <td>Cloud Architect</td>
-                    <td>Program Manager</td>
-                    <td>Accelerated platform modernization timeline</td>
-                </tr>
-                <tr>
-                    <td>2025-09-18</td>
-                    <td>Solution Architect</td>
-                    <td>Security Lead</td>
-                    <td>Shift-left security implementation strategy</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2025-08-22</td>
-                    <td>Cloud Architect</td>
-                    <td>VP Technology</td>
-                    <td>Strategic cloud architecture contributions</td>
-                </tr>
-                <tr>
-                    <td>2025-07-30</td>
-                    <td>Solution Architect</td>
-                    <td>Product Owner</td>
-                    <td>Exceptional stakeholder alignment delivery</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2025-06-12</td>
-                    <td>Cloud Architect</td>
-                    <td>Engineering Manager</td>
-                    <td>Technical leadership and mentorship</td>
-                </tr>
-                <tr>
-                    <td>2025-05-25</td>
-                    <td>Solution Architect</td>
-                    <td>Client Executive</td>
-                    <td>Successful roadmap handoff to implementation</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2025-04-18</td>
-                    <td>Cloud Architect</td>
-                    <td>Architecture Review Board</td>
-                    <td>Enterprise architecture standards compliance</td>
-                </tr>
-                <tr>
-                    <td>2025-03-10</td>
-                    <td>Solution Architect</td>
-                    <td>DevOps Lead</td>
-                    <td>CI/CD pipeline optimization contributions</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2025-02-28</td>
-                    <td>Cloud Architect</td>
-                    <td>Platform Team</td>
-                    <td>Kubernetes deployment strategy excellence</td>
-                </tr>
-                <tr>
-                    <td>2025-01-15</td>
-                    <td>Solution Architect</td>
-                    <td>Executive Leadership</td>
-                    <td>Value stream mapping and bottleneck resolution</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2024-12-05</td>
-                    <td>Cloud Architect</td>
-                    <td>Vendor Management</td>
-                    <td>Technical negotiation support excellence</td>
-                </tr>
-                <tr>
-                    <td>2024-11-20</td>
-                    <td>Solution Architect</td>
-                    <td>Security Operations</td>
-                    <td>DevSecOps maturity assessment leadership</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2024-10-12</td>
-                    <td>Cloud Architect</td>
-                    <td>Infrastructure Team</td>
-                    <td>Cloud migration strategy formulation</td>
-                </tr>
-                <tr>
-                    <td>2024-09-08</td>
-                    <td>Solution Architect</td>
-                    <td>Business Stakeholders</td>
-                    <td>Business-aligned technical roadmap delivery</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2024-08-15</td>
-                    <td>Cloud Architect</td>
-                    <td>Technical Review Board</td>
-                    <td>Scalability and resilience architecture</td>
-                </tr>
-                <tr>
-                    <td>2024-07-22</td>
-                    <td>Solution Architect</td>
-                    <td>Delivery Leadership</td>
-                    <td>Cross-functional team collaboration excellence</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2024-06-30</td>
-                    <td>Cloud Architect</td>
-                    <td>Operations Team</td>
-                    <td>Production deployment readiness leadership</td>
-                </tr>
-                <tr>
-                    <td>2024-05-18</td>
-                    <td>Solution Architect</td>
-                    <td>Architecture Community</td>
-                    <td>Best practices knowledge sharing</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2024-04-10</td>
-                    <td>Cloud Architect</td>
-                    <td>Platform Engineering</td>
-                    <td>Containerization strategy implementation</td>
-                </tr>
-                <tr>
-                    <td>2024-03-25</td>
-                    <td>Solution Architect</td>
-                    <td>Development Team</td>
-                    <td>Microservices architecture guidance</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2024-02-14</td>
-                    <td>Cloud Architect</td>
-                    <td>Innovation Committee</td>
-                    <td>Cloud-native innovation contributions</td>
-                </tr>
-                <tr>
-                    <td>2024-01-08</td>
-                    <td>Solution Architect</td>
-                    <td>Program Management</td>
-                    <td>Risk mitigation and delivery acceleration</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2023-12-20</td>
-                    <td>Cloud Architect</td>
-                    <td>Technical Governance</td>
-                    <td>Standards compliance and quality assurance</td>
-                </tr>
-                <tr>
-                    <td>2023-11-15</td>
-                    <td>Solution Architect</td>
-                    <td>Client Leadership</td>
-                    <td>Strategic partnership and delivery success</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2023-10-30</td>
-                    <td>Cloud Architect</td>
-                    <td>Engineering Community</td>
-                    <td>Mentorship and technical guidance excellence</td>
-                </tr>
-                <tr>
-                    <td>2023-09-22</td>
-                    <td>Solution Architect</td>
-                    <td>Executive Sponsor</td>
-                    <td>Business value realization through architecture</td>
-                </tr>
-                <tr class="table-row-alt">
-                    <td>2023-08-18</td>
-                    <td>Cloud Architect</td>
-                    <td>Security Council</td>
-                    <td>Security-first architecture implementation</td>
-                </tr>
-                <tr>
-                    <td>2023-07-12</td>
-                    <td>Solution Architect</td>
-                    <td>Delivery Excellence Team</td>
-                    <td>Process optimization and velocity improvements</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="content-section">
+                <h1>Certifications</h1>
+
+                <div class="certs-container">
+                    <!-- Active Certifications -->
+                    <div class="cert-group">
+                        <h2 class="group-title active">Active</h2>
+                        <ul class="cert-list">
+                            <li class="cert-item">
+                                <span class="cert-badge">Google Cloud</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Professional Cloud Architect</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge">Google Cloud</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">GenAI Leader</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge">PMI</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">PMP</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge">SAFe</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">SAFe Practice Consultant (SPC)</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge">SAFe</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Release Train Engineer (RTE)</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge">Scrum Alliance</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Scrum Master</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Expired Certifications -->
+                    <div class="cert-group">
+                        <h2 class="group-title expired">Expired</h2>
+                        <ul class="cert-list">
+                            <li class="cert-item">
+                                <span class="cert-badge expired">HashiCorp</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Terraform Associate (003)</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge expired">Sun</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Java Programmer</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section">
+                <h1>Projects & Engagements</h1>
+                <p class="section-subtitle">
+                    Showcasing select high-impact projects that demonstrate diverse Technical Leadership across AI, Cloud Architecture, and Enterprise Transformation.
+                </p>
+
+                <div class="projects-grid">
+
+                    <!-- Multi-Agent GenAI Systems -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Multi-Agent GenAI System</h2>
+                            <span class="project-role">AI / Cloud Architect</span>
+                        </div>
+                        <ul class="project-points">
+                            <li>Architected and deployed sophisticated GenAI agents utilizing Sequential, Parallel, and Loop-based architectures to automate multi-step business logic.</li>
+                            <li>Engineered end-to-end ML pipelines in BigQuery ML, encompassing model training, hyperparameter tuning, and seamless production deployment.</li>
+                            <li>Developed high-performance AI applications using LangChain and Google GenAI services, integrating Model Context Protocol (MCP) and Agent-to-Agent (A2A) communication patterns for enhanced interoperability.</li>
+                            <li>Leveraged Google Agent Development Kit (ADK) and Python to build production-ready capstone projects, demonstrating deep technical proficiency in modern LLM orchestration.</li>
+                        </ul>
+                        <p class="project-outcome">
+                            <strong>Outcome: </strong>Delivered production-ready GenAI orchestration platform automating complex multi-step workflows with seamless A2A interoperability.
+                        </p>
+                    </article>
+
+                    <!-- Multi-Agent GenAI Systems -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Bank Branch Services</h2>
+                            <span class="project-role">'Release Train Engineer (RTE)</span>
+                        </div>
+                        <ul class="project-points">
+                            <li>Orchestrated ART ceremonies across 4 pods (50+ members), driving successful releases and cloud migrations. Portfolio SAFe adoption provided deep insights into enterprise-scale agile operations.</li>
+                            <li>Orchestrated PI Planning sessions and Inspect & Adapt workshops, ensuring successful program execution.</li>
+                            <li>Led Scrum of Scrums meetings and presented to PG SoS leadership forums with executive stakeholders.</li>
+                        </ul>
+                        <p class="project-outcome">
+                            <strong>Outcome: </strong>Streamlined enterprise agile delivery across 50+ members through orchestrated ART ceremonies, PI Planning, and leadership forums, accelerating releases and cloud migrations.
+                        </p>
+                    </article>
+
+                    <!-- DevSecOps Assessment & Roadmap -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">DevSecOps Assessment & Roadmap</h2>
+                            <span class="project-role">Solution / Cloud Architect</span>
+                        </div>
+                        <ul class="project-points">
+                            <li>Socialized a DevSecOps assessment approach with stakeholders.</li>
+                            <li>Performed platform and application assessments.</li>
+                            <li>Conducted value stream mapping to identify bottlenecks.</li>
+                            <li>Shared findings with leadership and delivery teams.</li>
+                            <li>Defined a phased implementation roadmap.</li>
+                            <li>Roadmap implementation handed off to Accenture.</li>
+                        </ul>
+                        <p class="project-outcome">
+                            <strong>Outcome: </strong> Clear prioritization of DevSecOps improvements aligned to delivery
+                            velocity and security maturity.
+                        </p>
+                    </article>
+
+                    <!-- Cloud-Native Evaluation – ORAN Vendor Solutions -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Cloud-Native Evaluation – ORAN Vendor Solutions</h2>
+                            <span class="project-role">Cloud Architect</span>
+                        </div>
+                        <ul class="project-points">
+                            <li>Evaluated cloud-native capabilities of multiple ORAN vendor solutions.</li>
+                            <li>Developed a structured evaluation framework for comparison.</li>
+                            <li>Assessed containerization, scalability, resilience, and cloud readiness.</li>
+                            <li>Presented findings and recommendations to the executive team.</li>
+                            <li>Supported contract and feature negotiations using technical insights.</li>
+                        </ul>
+                        <p class="project-outcome">
+                            <strong>Outcome: </strong> Enabled data-driven vendor selection and informed commercial
+                            negotiations.
+                        </p>
+                    </article>
+
+                    <!-- Enterprise Application Architecture (AKS) -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Enterprise Application Architecture (AKS)</h2>
+                            <span class="project-role">Solution Architect</span>
+                        </div>
+                        <ul class="project-points">
+                            <li>Led architecture discovery for Angular + Spring Boot applications.</li>
+                            <li>Designed cloud-native deployment on Azure Kubernetes Service.</li>
+                            <li>Defined application, integration, and data architecture.</li>
+                            <li>Considered scalability, security, and operational concerns.</li>
+                        </ul>
+                        <p class="project-outcome">
+                            <strong>Outcome: </strong> Delivered a clear target architecture aligned with enterprise
+                            cloud standards.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Recognitions Section -->
+            <section id="recognitions" class="content-section">
+                <h1>Appreciations & Recognition</h1>
+
+                <div class="table-container">
+                    <table class="recognition-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th>Date</th>
+                                <th>My Role</th>
+                                <th>Appreciated by</th>
+                                <th>Appreciation received</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <!--    <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    
+                                </td>
+                            </tr>-->
+                            <tr>
+                                <td>2025-05-07</td>
+                                <td>Release Train Engineer (RTE)</td>
+                                <td>Scrum Master</td>
+                                <td>
+                                    Srini, you have been an amazing fella, great colleague and very knowledgeable person to work with. Over the past few months of our partnership, I truly enjoyed working with you and learnt so much from you.<br><br>
+
+                                    I am humbly wishing you an amazing journey ahead of you and please be in touch.    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2024-07-30</td>
+                                <td>DevSecOps Architect</td>
+                                <td>Associate Director</td>
+                                <td>
+                                    Srinivasa was a hardworking member of the Time To Market (TTM) team, and contributed heavily to the team organization, project methodology and to the 3 of the four product/project assessment streams. He supported SAP team with initial framework mapping from Agile DevSecOps to SAP and metrics definition.<br><br>
+
+                                    Srini is certified Google Cloud Architect and his many years of experience in leading teams in Agile and DevOps delivery on OpenShift, AWS, and Google Cloud as a Scrum Master and Architect.<br><br>
+
+                                    He immediately learned the DevSecOps assessment framework, and worked on defining a scaled onboarding methodology for the client assessment. This methodology was adopted for all client projects onboarding. He also developed all the initial kick-off materials for the assessments.<br><br>
+
+                                    During the project, Srinivasa was able to organize and prepare client SMEs in the delivery of all workshops for two projects. He was also instrumental in analysis and documentation of all sessions, assessment ratings and recommendations. Once recommendations were available, Srini worked diligently with the project teams to obtain sign off. This was essential to the success of the project, since teams were pushing back and it was hard to achieve consensus.<br><br>
+
+                                    Srini was also able to help others during the project with metrics definition for a project where data was not clearly defined and available in the systems, as well as helping with the initial assessment framework mapping from SAP specific to Agile DevSecOps client-wide framework. Overall, Srini made a significant impact in the delivery of the client TTM project.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2023-05-10</td>
+                                <td>Cloud Architect</td>
+                                <td>Senior Manager</td>
+                                <td>
+                                    Hi Srini, I would take this opportunity to appreciate your great support and this huge contribution building up our Cloud Native Assessment framework! It's definitely our great pleasure to work with you on our ORAN journey. Look forward to cross our line soon! 😊 Keep in touch!
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2023-04-26</td>
+                                <td>Cloud Architect & Cloud Tech Program Manager</td>
+                                <td>Associate Director</td>
+                                <td>
+                                    Our Program: A 2+ year implementation of Video Services to cover over 3 million customers across 4 components: (1) Software delivery collaboratively with client engineers. (2) Infrastructure and CI/CD tooling delivery of Google Cloud Platform & GKE Kubernetes Engine. (3) Creation of customer-product centric organization with and for Client. (4) Skills Transition to Client Engineering team.<br><br>
+
+                                    Srini's role was Architect and product Owner of the Frictionless Team, responsible with the platform infrastructure, DevSecOps pipeline and associated capabilities. Srini managed a team of 20 resources both onshore and offshore to build a complex infrastructure on Google Cloud for a video streaming solution supporting 3 million customers. He also led the team through a high paced project to rebuild CICD pipeline from legacy Jenkins self-hosted single jobs per microservice, to a fully integrated CICD pipeline based on Harness.io. He has received praises for his ability to plan and take the plan to completion from the client manager and director levels. Srini has distinguished himself at Client for his leadership abilities, leading a large team as well as building new talent by guiding a team of 10 junior resources in their apprenticeship journey.<br><br>
+
+                                    I highly recommend working with Srini for his deep technical cloud skills, application engineering, and technical architecture depth of knowledge, project planning, and people leadership. Thank you, Srini for an excellent job at our client.
+                                </td>
+                            </tr>                                                                                    
+                            <tr>
+                                <td>2022-Sep-24</td>
+                                <td>Cloud Architect & Cloud Tech Program Manager</td>
+                                <td>Leadership</td>
+                                <td>
+                                    Hi Srini, Thank you very much for stepping up on our critical Performance Testing
+                                    effort, especially in Sr. Architect's absence.<br><br>
+
+                                    It is a very challenging time on our program, and we have much left to do, but
+                                    really appreciate your drive and dedication.
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2022-Apr-18</td>
+                                <td>Cloud Architect</td>
+                                <td>Product Owner</td>
+                                <td>
+                                    I would be out of words if I had to describe how good Srini is in Cloud/DevOps
+                                    Architecture. Along with technical skills, Srini's management skills are also
+                                    amazing. He is good at working with people and building relationships by delivering
+                                    value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2022-Feb-16</td>
+                                <td>Cloud Architect</td>
+                                <td>Director</td>
+                                <td>You have redefined teamwork with your dedication and hardwork, .....</td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2022-Sep-24</td>
+                                <td>Cloud Architect</td>
+                                <td>Project Manager</td>
+                                <td>
+                                    Hi Srini, It was great working with you and thanks a lot for your help with
+                                    everything related to OpenShift. I will certainly miss working with you 😊
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2022-Jan-19</td>
+                                <td>Cloud Architect</td>
+                                <td>Manager</td>
+                                <td>
+                                    Hi Srini, I'm in the same team as Travis and want to message that we really
+                                    appreciate your help with the phone number change pipeline OSD issue. It's a key
+                                    flow for us and impacts a lot of customers if we don’t have it resolved by tomorrow.
+                                    Thank you for prioritizing this with Travis.
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2021-Dec-17</td>
+                                <td>Cloud Architect</td>
+                                <td>Technical Lead</td>
+                                <td>
+                                    I am going to be gone for holiday until next year. Thanks so much for all your
+                                    support this year Srini. You have been one of the most reliable colleague here! Have
+                                    a great holiday season.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2021-Nov-09</td>
+                                <td>Cloud Architect</td>
+                                <td>Project Manager</td>
+                                <td>
+                                    Hi Srini, Thanks a lot for helping us troubleshoot the Proxy issue a week ago, this
+                                    helped us go through the release before the blackfriday Embargo kicks in. We
+                                    appreciate it 😊
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2020-Apr-30</td>
+                                <td>Tech Program Manager & DevOps Architect</td>
+                                <td>SVP</td>
+                                <td>
+                                    Thanks very much for those kind words! Good luck in your new role and thanks very
+                                    much for what you've done to take the technology at our enterprise forward quite a
+                                    ways!<br><br>
+
+                                    Again best luck and wishes for you and your family. ​
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2019-Jan-18</td>
+                                <td>Tech Program Manager & DevOps Architect</td>
+                                <td>Client Partner</td>
+                                <td>
+                                    Srini, I can see you working so hard these last few days on the workshop while also
+                                    trying to manage the actual day to day project work that is going on. I know it’s
+                                    tough. But I feel you are doing a very good job and I truly appreciate the extra
+                                    work you are putting in to help us succeed. You really are doing a good job for us.
+                                    Thanks for the efforts.
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2017-Jul-13</td>
+                                <td>J2EE Architect</td>
+                                <td>General Manager</td>
+                                <td>
+                                    Would like to thank Srini's yet another stellar contributions he made today with the
+                                    prospective customer presentation.<br><br>
+
+                                    Srini great job! Much appreciate all your thought process and subject matter
+                                    expertise.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2016-Jul-15</td>
+                                <td>Scrum Master</td>
+                                <td>Sr. Development Manager</td>
+                                <td>
+                                    Too often in our roles we receive and have to deal with negative feedback. In this
+                                    case I wanted to say that I have found Srini to be an excellent person to work with.
+                                    He is a real team player, works hard and has a very good relationship with the team.
+                                    On top of this he has an excellent technical background which enables him to
+                                    actively participate in all of the technical issues.<br><br>
+
+                                    Great choice for the role! 😊
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2015-May-15</td>
+                                <td>J2EE Architect</td>
+                                <td>Program Manager</td>
+                                <td>
+                                    Dear Srini, I would like to thank your efforts which you have put-in to the project
+                                    till date, truly appreciated. We wouldn’t have come to a stage where we are in today
+                                    towards our project with-out your committed support.<br><br>
+
+                                    Keep going 😊
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2013-Sep-18</td>
+                                <td>J2EE Architect</td>
+                                <td>Sr. Delivery Manager</td>
+                                <td>
+                                    I just got the update from our developer that this is resolved. Yesterday I only
+                                    asked him to talk to you and get this resolved by you because now I am confident
+                                    that any issue is faced by the team can be resolved by EdaSrinivas 😊. Thanks again
+                                    Srinivas. Good to have you in the team.
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2012-May-17</td>
+                                <td>J2EE Architect</td>
+                                <td>Delivery Manager</td>
+                                <td>
+                                    Hi All - Please join me congratulating Our team for the perfect 7/7 PCSAT score.<br><br>
+
+                                    <u>Core Team</u><br><br>
+
+                                    Product Owner: ---<br>
+                                    <b>Architect: Eda</b><br>
+                                    Offshore IM: ---<br>
+                                    TL: ---<br>
+                                    BA: ---<br>
+                                    Line Testing: ---<br>
+                                    Regression Testing: ---
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2012-May-10</td>
+                                <td>J2EE Architect</td>
+                                <td>Test Lead</td>
+                                <td>
+                                    As Eda is going to be leaving shortly, I wanted to give some feedback from a test
+                                    lead perspective. In short, he has been an amazing addition to the team and a huge
+                                    help to the testing team. Starting in the beginning he helped us understand the code
+                                    merge strategy so we could come up with a proper regression testing plan. Throughout
+                                    the whole project Eda always did his best to be available when people needed his
+                                    help. He was also a crucial part of the project when we were trying to test all of
+                                    the dependencies. Without him, we would have missed a few very important defects. He
+                                    was also very professional through the entire project and was able to make wise
+                                    choices for important decisions. And Eda has always been a team player, taking extra
+                                    time to make sure things are correct and helping people to understand.<br><br>
+
+                                    On a personal level, Eda is a very nice person and fun to be around. He is always
+                                    upbeat and positive.
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2012-Apr-17</td>
+                                <td>J2EE Architect</td>
+                                <td>Scrum Master</td>
+                                <td>
+                                    Eda, I could not agree more with Sid's comments.<br><br>
+
+                                    You are really really good at what you do, but what I appreciate most is that you
+                                    are humble and quietly do what the team needs to be done. It is always a pleasure
+                                    working with you.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2012-Apr-16</td>
+                                <td>J2EE Architect</td>
+                                <td>Project Manager</td>
+                                <td>
+                                    I want to express my appreciation for Eda who has excelled in his role not just as
+                                    an Architect but also as an acting Tech Lead for the our Expansion project.<br><br>
+
+                                    The special characteristics about Eda are his resourcefulness, intellectual
+                                    curiosity, tenacity to dive deep into topics, cheerfulness in the face of adversity
+                                    and willingness to guide and help others. His amiable nature, and even keel
+                                    perfectly complement his technical brilliance.<br><br>
+
+                                    Now that CA is in production, it is fair to say that we owe a large part of our
+                                    success to Eda rescuing us from situations - either with his own intuition and
+                                    analysis or by tackling issues discovered by other team members. Policy data issue,
+                                    Billing failures, Failed saves to SA during rating are just a few examples. Even
+                                    with an all around good team effort, Eda was the "extractor" for sticky
+                                    situations.<br><br>
+
+                                    It is unfortunate that he is forced to leave us shortly due to no fault of his own.
+                                    He will be sorely missed by all, including what the team fondly refers to as
+                                    "Edaisms".<br><br>
+
+                                    I consider myself fortunate to have made the acquaintance and worked with one of the
+                                    nicest, good at heart persons at our Organization.
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2011-May-31</td>
+                                <td>Program Tech Dev Lead</td>
+                                <td>Delivery Manager</td>
+                                <td>
+                                    Hi all – Please join me congratulating our team for their fantastic achievement of
+                                    PCSAT 7/7. Also, received a score of 7/7 on Do it Right First Time (DRFT) parameter
+                                    which indicates the quality of the deliverables in consistent manner with less/no
+                                    re-work.<br><br>
+
+                                    <u>The proud team comprises of:</u><br><br>
+
+                                    <b>-Captainship ! (Eda Srinivas – Program tech lead cum Onsite manager and --- -
+                                        Offshore Manager)</b><br>
+                                    -Development (---)<br>
+                                    -Testing (---)<br>
+                                    -Domain (---)<br><br>
+
+                                    I appreciate each and every one from all streams who contributed in their respective
+                                    capacity towards success of this program.<br><br>
+
+                                    Managers/Leads – Please pass on this mail to anyone whom we missed unintentionally
+                                    in the list.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2011-Apr-27</td>
+                                <td>Dev Lead</td>
+                                <td>Program Manager</td>
+                                <td>
+                                    <b> --- Award - Program team recognition</b><br></br>
+
+                                    The following individuals may not have been listed as one of the 13 members of the
+                                    Award-winning team. That is only because they are contractors or were noble enough
+                                    to give up a slot on the nomination form to their front-line project level
+                                    associates.<br></br>
+
+                                    These important program team leaders' contributions were absolutely vital to the
+                                    successful delivery of our program. I didn't want recognition of this achievement to
+                                    pass without mention of the great value they brought to the program -- as leaders
+                                    and team members.<br></br>
+
+                                    In 2010, they were:<br></br>
+
+                                    --- - Program Test Lead<br>
+                                    --- - Program Business Lead<br>
+                                    --- - Program Solution Lead<br>
+                                    --- - Program UE Lead<br>
+                                    <b>Eda Srinivas - Program Tech Dev Lead</b><br>
+                                    --- - Program Architect<br></br>
+
+                                    If you would like more information on the important contributions these folks have
+                                    made , please let me know.
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2011-Jan-06</td>
+                                <td>Program Tech Dev Lead</td>
+                                <td>Director</td>
+                                <td>
+                                    Srini, During our weekly architecture meeting today, our program architect
+                                    recognized your outstanding contributions to our program. He stated that you
+                                    routinely go well beyond Program Tech Dev Lead responsibilities to make the program
+                                    successful . I too wanted to commend you on a job well done. Thanks for your
+                                    valuable contributions.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2010-Aug-12</td>
+                                <td>Program Tech Dev Lead</td>
+                                <td>Program Manager</td>
+                                <td>
+                                    'Thanks Srini for your leadership on this project - you have done an outstanding job
+                                    personally to deliver last release. The recognition you have shown in your email
+                                    below truly demonstrates your ability as a leader. We are very pleased that you have
+                                    taken the overall Program Tech Lead role!'
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2010-Jul-29</td>
+                                <td>Program Tech Dev Lead</td>
+                                <td>Program Manager</td>
+                                <td>
+                                    I am very happy to announce that Eda Srinivasa Reddy (Srini) will be taking on the
+                                    Program Tech Lead role effective Monday 8/9. He will function as the Development
+                                    domain leader across all our projects. Srini has done a great job as the Project
+                                    Tech Lead and I am confident that he will continue to do great things at the program
+                                    level. Please give him your complete cooperation and support in the transition and
+                                    going-forward. Srini has previously served as a Tech Lead on our another program.
+                                    Prior to coming aboard at our organization, he consulted with his employer for
+                                    financial services clients and was engaged in a group-floor opportunity with A--
+                                    Technologies before that.<br><br>
+
+                                    Srini currently lives in Dublin with his wife and daughter. He likes to spend his
+                                    time with his family and to do a lot of reading. He played volleyball in college and
+                                    continues to play often, for recreation. Please join me in congratulating Srini on
+                                    his expanded responsibilities.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2010-Jul-29</td>
+                                <td>Program Tech Dev Lead</td>
+                                <td>Program Leadership</td>
+                                <td>
+                                    Srini - congratulations on your assignment in the Program Tech Lead role - this is a
+                                    very important role and we are glad to have you on the team. Also, thanks for all
+                                    the great work on the --- project!!!
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2010-Jul-20</td>
+                                <td>J2EE Tech Lead</td>
+                                <td>Project Manager</td>
+                                <td>
+                                    <b>I got Caught !</b><br><br>
+
+                                    Srini Eda is an excelptionally talented software developer/architect, keeps his
+                                    focus at the bigger picture while paying attention to minute details of design
+                                    requirements. He is a pleasure to work with, enjoys intellectual debate and is a
+                                    great team player. Our project benefitted immensely by having a tech lead in Eda,
+                                    Eda has the uncanny ability to intuitively anticipate issues and provide guidance to
+                                    the development team.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2010-Jul-14</td>
+                                <td>J2EE Tech Lead</td>
+                                <td>Program Leadership</td>
+                                <td>
+                                    Eda - congratulations and great job to the development team on so few defects in
+                                    your queue - I see there is only 1 low defect assigned out to development. I know
+                                    we've had a couple of down days without new defects coming in, but I am very glad to
+                                    see we've cleared out the backlog so we can attack the new ones coming in.<br><br>
+
+                                    I hear lots of great things about your work , thanks so much for your leadership on
+                                    the project!!!
+                                </td>
+                            </tr>
+                            <tr class="table-row-alt">
+                                <td>2009-Apr-28</td>
+                                <td>2EE Sr. Software Engineer</td>
+                                <td>Project Manager</td>
+                                <td>
+                                    Here is my feedback on Eda Srinivas for the below deliverables on our
+                                    project.<br><br>
+
+                                    <u>Delivery:</u><br><br>
+
+                                    Eda has delivered his tasks on time, within his estimates, and with high quality.
+                                    Eda even goes out of the way to propose better technical designs or solutions to
+                                    problems that others are having. Eda pairs with other teammates and helps others to
+                                    deliver on their commitments.<br><br>
+
+                                    <u>Communication:</u><br><br>
+
+                                    Eda is a good communicator. He works well with the team and can present issues and
+                                    his technical thoughts to everyone in a well thought out and easy to understand
+                                    manner. Eda is able to document his technical implementations for others to
+                                    understand.<br><br>
+
+                                    <u>Teamwork:</u><br><br>
+
+                                    Eda is a team player. He is the first to jump in and help out when help is needed.
+                                    His flexibility and calm demeanour make him a perfect fit for the team because he
+                                    compliments and provides an example for people of harsh character. Eda helps other
+                                    developers when needed and freely shares information and his technical
+                                    knowledge.<br><br>
+
+                                    <u>Overall:</u><br><br>
+
+                                    Eda's performance has been stellar and he is a go to person on my team.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2008-Apr-25</td>
+                                <td>J2EE Sr. Software Engineer</td>
+                                <td>Tech Lead</td>
+                                <td>
+                                    As you know Srini Reddy’s last day on our team is Friday, April 25th. I thought I
+                                    would take this opportunity to provide you some feedback on Srini’s significant
+                                    contributions to our team.<br><br>
+
+                                    Our project is a large complex project, with many moving interdependent parts, and a
+                                    web of business rules. At times we work on 3 simultaneous releases, one in
+                                    development, one in QA and one going into production – needless to say it is a
+                                    difficult situation to walk into. It was evident from the very outset when Srini
+                                    joined the team that he was going to be an asset to our team. Srini embodies all the
+                                    qualities the our team finds valuable in a team member; he has exemplary technical
+                                    skills, excellent communication skills, a strong work ethic, is a quick study, pays
+                                    extremely close attention to details, possesses strong leadership qualities, has a
+                                    genuine concern for the overall quality of the project, and does it all with a great
+                                    attitude.<br><br>
+
+                                    Over the period that Srini has been on the team he has gained the respect of his
+                                    peers, including those on his program team, and members of our Mainframe team, our
+                                    QA team, our database modeling team, and our business team. He has forged strong
+                                    working relationships with the various teams he has been asked to work with. Srini’s
+                                    ability to gain the confidence of the multiple teams we work with has greatly
+                                    enhanced the our team’s ability to meet it’s often time aggressive goals and
+                                    schedules of releases.<br><br>
+
+                                    Srini exhibits a great ability to quickly grasp new concepts and technologies. In
+                                    the course of the project he has taken on many tasks that required learning new
+                                    techniques or quickly acquiring new areas of knowledge. This includes but is not
+                                    limited to taking over the service layer of our project. The service layer includes
+                                    not only a great many business details but several complex technologies including
+                                    the RRBus and inhouse object generation. Srini quickly became proficient in all
+                                    areas of the service layer. In leading the service layer objective Srini was deeply
+                                    involved with the business domain owners quickly proving himself a valuable resource
+                                    keeping track of all the excruciating details involved with this area.<br><br>
+
+                                    In addition to guiding the service layer portion Srini shoulders great many other
+                                    responsibilities in the other nonservice layer areas of the project. He has stepped
+                                    in and stepped up anytime extra effort was needed in areas of the project that were
+                                    not his direct responsibility; this includes fixing view layer issues , developing
+                                    view layer classes, proving guidance to the database modeling team, executing
+                                    builds, managing source control issues, leading demos, and providing guidance and
+                                    support to team members. These efforts included some very long days and nights and
+                                    stemmed from Srini’s great sense of personal responsibility for the success of the
+                                    project.<br><br>
+
+                                    Srini has also been invaluable in mentoring in five new developers onto the team. He
+                                    has provided KAP and guidance to the new developers helping bring them to quickly
+                                    become productive members of the team. He has shown great leadership skill by
+                                    engaging new team members in long working sessions. These sessions served to
+                                    transfer significant knowledge but more importantly acted as a springboard to
+                                    forming strong bonds amongst the developers and facilitating teamwork. He is
+                                    constantly an excellent role model for the other developers on the team.<br><br>
+
+                                    It has been a genuine pleasure working with Srini and Our Team truly appreciates all
+                                    his effort and great work.
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
 
             <!--
@@ -1024,37 +1600,38 @@
         const sections = document.querySelectorAll('.content-section');
         const sidebar = document.getElementById('sidebar');
         const mobileToggle = document.getElementById('mobileToggle');
-        
+
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const sectionId = link.getAttribute('data-section');
-                
+
                 // Update active nav link
                 navLinks.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
-                
+
                 // Show corresponding section
                 sections.forEach(s => s.classList.remove('active'));
                 document.getElementById(sectionId).classList.add('active');
-                
+
                 // Close mobile menu
                 sidebar.classList.remove('open');
             });
         });
-        
+
         // Mobile toggle
         mobileToggle.addEventListener('click', () => {
             sidebar.classList.toggle('open');
         });
-        
+
         // Close sidebar on outside click
         document.addEventListener('click', (e) => {
             if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
                 sidebar.classList.remove('open');
             }
         });
-        
+
     </script>
 </body>
+
 </html>
