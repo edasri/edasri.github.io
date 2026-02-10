@@ -87,7 +87,7 @@
         .main-content {
             margin-left: 280px;
             flex: 1;
-            padding: 3rem 2rem;
+            padding: 10px 10px;/*Eda:Original configuration was padding: 1rem 2rem;*/
             overflow-y: auto;
         }
 
@@ -96,7 +96,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            padding: 4rem;
+            padding: 1rem 3rem; /* Eda: Initially it was 'padding: 4rem'. This is for the top white space area*/
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
             min-height: 70vh;
@@ -109,7 +109,8 @@
         /* Section Styles */
         h1 {
             font-size: 3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;/* Eda: Initially it was 2rem*/
+            
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -121,7 +122,7 @@
         .intro-text {
             font-size: 1.1rem;
             color: #444;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;/* Eda: Initially 3rem*/
             line-height: 1.8;
             text-align: left;
         }
@@ -160,7 +161,7 @@
         .approach-title {
             font-size: 1.6rem;
             color: #1e3c72;
-            margin: 3rem 0 1.5rem 0;
+            margin: 0 0 1.5rem 0;/* Eda: Initially margin: 3rem 0 1.5rem 0;*/
             font-weight: 700;
             text-align: center;
         }
@@ -173,7 +174,7 @@
 
         .approach-item {
             background: linear-gradient(135deg, #f8f9ff, #e8ecff);
-            padding: 1.5rem 2rem;
+            padding: 1rem 2rem; /* Eda: Initially, it was 'padding: 1.5rem 2rem' */
             border-radius: 16px;
             border-left: 5px solid #1e3c72;
             transition: all 0.3s ease;
@@ -264,12 +265,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 1.5rem; /* Eda: Initially, it was 'margin-top: 3rem'  */
         }
 
         .skill-category {
             background: linear-gradient(135deg, #f8f9ff, #e8ecff);
-            padding: 2rem;
+            padding: 1rem; /* Eda: Initially, it was 'padding: 2rem'  */
             border-radius: 20px;
             border: 1px solid rgba(30, 60, 114, 0.1);
             transition: all 0.3s ease;
@@ -295,7 +296,7 @@
         .category-title {
             font-size: 1.4rem;
             color: #1e3c72;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0; /* Eda: Initially, it was 'margin-bottom: 1.5rem'  */
             font-weight: 700;
             padding-bottom: 0.75rem;
             border-bottom: 2px solid #e1e5ff;
@@ -308,7 +309,7 @@
         }
 
         .skill-item {
-            padding: 0.75rem 0;
+            padding: 0.5rem 0; /* Eda: Initially, it was 'padding: 0.75rem 0'  */
             color: #444;
             font-size: 1.05rem;
             transition: color 0.3s ease;
@@ -336,12 +337,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 1.5rem; /* Eda: Initially, it was 'margin-top: 3rem' */
         }
 
         .cert-group {
             background: linear-gradient(135deg, #f8f9ff, #e8ecff);
-            padding: 2.5rem;
+            padding: 0.5rem 2.5rem; /* Eda: Initially, it was 'padding: 2.5rem'  */
             border-radius: 20px;
             border: 1px solid rgba(30, 60, 114, 0.1);
             transition: all 0.3s ease;
@@ -453,12 +454,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 1.5rem;/* margin-top: 3rem;' */
         }
 
         .project-card {
             background: linear-gradient(135deg, #f8f9ff, #e8ecff);
-            padding: 2.5rem;
+            padding: 1.5rem 2.5rem; /* Initiatlly, it was 'padding: 2.5rem;' */
             border-radius: 20px;
             border: 1px solid rgba(30, 60, 114, 0.1);
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
@@ -552,7 +553,7 @@
 
         /* Recognitions Table Styles */
         .table-container {
-            margin-top: 3rem;
+            margin-top: 1rem; /* Eda: Initially, it was 'margin-top: 3rem' */
             overflow-x: auto;
         }
 
@@ -637,7 +638,7 @@
             text-align: center;
             font-size: 1.1rem;
             color: #666;
-            margin-bottom: 3rem;
+            margin-bottom: 0; /* Eda: Initially, it was 'margin-bottom: 3rem' */
             font-style: italic;
         }
     </style>
@@ -761,10 +762,8 @@
                 <div class="approach-section">
                     <h2 class="approach-title">My approach is structured and outcome-driven:</h2>
                     <ul class="approach-list">
-                        <li class="approach-item">• Understand business and technical constraints</li>
-                        <li class="approach-item">• Assess current-state architecture and delivery maturity</li>
-                        <li class="approach-item">• Identify gaps, risks, and improvement opportunities</li>
-                        <li class="approach-item">• Define a realistic, phased implementation roadmap</li>
+                        <li class="approach-item">• Understand business and technical constraints &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; • Assess current-state architecture and delivery maturity</li>
+                        <li class="approach-item">• Identify gaps, risks, and improvement opportunities &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; • Define a realistic, phased implementation roadmap</li>
                     </ul>
                 </div>
             </section>
@@ -887,7 +886,6 @@
             <!-- Certifications Section -->
             <section id="certifications" class="content-section">
                 <h1>Certifications</h1>
-
                 <div class="certs-container">
                     <!-- Active Certifications -->
                     <div class="cert-group">
@@ -956,7 +954,7 @@
             <!-- Projects Section -->
             <section id="projects" class="content-section">
                 <h1>Projects & Engagements</h1>
-                <p class="section-subtitle">
+               <p class="section-subtitle">
                     Showcasing select high-impact projects that demonstrate diverse Technical Leadership across AI,
                     Cloud Architecture, and Enterprise Transformation.
                 </p>
