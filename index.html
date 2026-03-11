@@ -820,6 +820,38 @@ font-size:0.9rem;
 color:#2a4b8d;
 }
 
+
+.impact-metrics{
+padding:70px 20px;
+text-align:center;
+}
+
+.metrics-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:25px;
+max-width:1000px;
+margin:auto;
+}
+
+.metric-card{
+background:white;
+border-radius:12px;
+padding:25px;
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+.metric-card h3{
+font-size:2.4rem;
+color:#2d4a8a;
+margin-bottom:6px;
+}
+
+.metric-card p{
+color:#666;
+font-size:0.95rem;
+}
+
     </style>
 </head>
 
@@ -847,6 +879,16 @@ color:#2a4b8d;
                         </svg>
                         About Me
                     </a></li>
+
+                <li>
+                    <a class="nav-link" data-section="impact-metrics">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12h18M12 3v18"/>
+                        </svg>
+                        Impact Metrics
+                    </a>
+                </li>
 
                 <li>
                     <a class="nav-link" data-section="what-i-build">
@@ -2555,6 +2597,7 @@ color:#2a4b8d;
                 </div>
             </section>
 
+            <!-- NEW Recognitions Section -->
             <section id="recognitions2" class="content-section">
 
 
@@ -3234,6 +3277,47 @@ color:#2a4b8d;
                 </div>
 
             </section>
+
+<!-- Impact Metrics Section -->
+ <section id="impact-metrics" class="content-section">
+
+<h1>Impact at Scale</h1>
+
+<p class="section-subtitle">                
+                    Significant Metrics.
+                </p>
+
+
+<div class="metrics-grid">
+
+<div class="metric-card">
+<h3>150+</h3>
+<p>Microservices Architected</p>
+</div>
+
+<div class="metric-card">
+<h3>500+</h3>
+<p>Applications Migrated</p>
+</div>
+
+<div class="metric-card">
+<h3>200+</h3>
+<p>Databases Migrated</p>
+</div>
+
+<div class="metric-card">
+<h3>100+</h3>
+<p>Engineers Led</p>
+</div>
+
+<div class="metric-card">
+<h3>3M+</h3>
+<p>Customers Served</p>
+</div>
+
+</div>
+
+</section>           
 
             <!--
             <section id="resume" class="content-section">
