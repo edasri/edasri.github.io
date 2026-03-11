@@ -173,7 +173,7 @@
         }
 
         .approach-list {
-            justify-items: center;  
+            justify-items: center;
             list-style: none;
             display: grid;
             gap: 0.5rem;
@@ -181,7 +181,7 @@
         }
 
         .approach-item {
-            width: 470px;       
+            width: 470px;
             background: linear-gradient(135deg, #f8f9ff, #e8ecff);
             padding: 0.75rem 2rem;
             /* Eda: Initially, it was 'padding: 1.5rem 2rem' */
@@ -271,7 +271,7 @@
         }
 
         /* Skills Section Styles */
-        .skills-grid {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
@@ -280,7 +280,8 @@
         }
 
         .skill-category {
-            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            /* background: linear-gradient(135deg, #f8f9ff, #e8ecff);*/
+            background: white;
             padding: 1rem;
             /* Eda: Initially, it was 'padding: 2rem'  */
             border-radius: 20px;
@@ -305,8 +306,8 @@
             box-shadow: 0 20px 40px rgba(30, 60, 114, 0.2);
         }
 
-        .category-title {
-            font-size: 1.4rem;
+        .card-title {
+            font-size: 1.1rem;
             color: #1e3c72;
             margin-bottom: 0;
             /* Eda: Initially, it was 'margin-bottom: 1.5rem'  */
@@ -315,28 +316,45 @@
             border-bottom: 2px solid #e1e5ff;
         }
 
-        .skill-list {
+        .card-list {
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
-        .skill-item {
+        .card-item {
             padding: 0.5rem 0;
-            /* Eda: Initially, it was 'padding: 0.75rem 0'  */
+            /* Eda: Initially, it was 'padding: 0.75rem 0' */
             color: #444;
             font-size: 1.05rem;
             transition: color 0.3s ease;
             position: relative;
+            line-height: 1.6;
+            /* Line spacing */
+            padding-left: 16px;
+            /* Space for dot */
         }
 
-        .skill-item:hover {
+        .card-item:hover {
             color: #1e3c72;
+        }
+
+        /* Small bullet dot */
+        .card-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 21px;
+            /* Align vertically with text */
+            width: 3px;
+            height: 3px;
+            background-color: #3a5fa0;
+            border-radius: 50%;
         }
 
         /* Mobile */
         @media (max-width: 768px) {
-            .skills-grid {
+            .cards-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
@@ -344,6 +362,50 @@
             .skill-category {
                 padding: 1.5rem;
             }
+        }
+
+        /* Architecture Focus Section Styles */
+        .architecture-focus {
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .architecture-focus h2 {
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+            color: #204a8e;
+        }
+
+        .architecture-subtitle {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .individual-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform .25s ease;
+        }
+
+        .individual-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .individual-card h3 {
+            margin-bottom: 12px;
+            color: #204a8e;
         }
 
         /* Certifications Section Styles */
@@ -356,7 +418,8 @@
         }
 
         .cert-group {
-            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            /*background: linear-gradient(135deg, #f8f9ff, #e8ecff);*/
+            background: white;
             padding: 0.5rem 2.5rem;
             /* Eda: Initially, it was 'padding: 2.5rem'  */
             border-radius: 20px;
@@ -373,7 +436,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            /*background: linear-gradient(90deg, #1e3c72, #2a5298);*/
         }
 
         .cert-group:hover {
@@ -382,7 +445,7 @@
         }
 
         .group-title {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 2rem;
             padding-bottom: 0.75rem;
@@ -427,7 +490,7 @@
             border-radius: 8px;
         }
 
-        .cert-badge {
+        .cert-badge-blue {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
             padding: 0.4rem 0.8rem;
@@ -439,8 +502,55 @@
             flex-shrink: 0;
         }
 
-        .cert-badge.expired {
-            background: #ccc;
+        /* Purple Badge */
+        .cert-badge-purple {
+            background: linear-gradient(135deg, #5f2c82, #8e44ad);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Orange Badge */
+        .cert-badge-orange {
+            background: linear-gradient(135deg, #ff7e00, #ffb347);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Green Badge */
+        .cert-badge-green {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .cert-badge-expired {
+            background: linear-gradient(135deg, #7a7a7a, #b5b5b5);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
         }
 
         .cert-details {
@@ -448,7 +558,7 @@
         }
 
         .cert-name {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: #333;
             font-weight: 500;
         }
@@ -475,7 +585,8 @@
         }
 
         .project-card {
-            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            /*background: linear-gradient(135deg, #f8f9ff, #e8ecff);*/
+            background: white;
             padding: 1.5rem 2.5rem;
             /* Initiatlly, it was 'padding: 2.5rem;' */
             border-radius: 20px;
@@ -493,7 +604,7 @@
             left: 0;
             right: 30%;
             height: 4px;
-            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            /*background: linear-gradient(90deg, #1e3c72, #2a5298);*/
         }
 
         .project-card:hover {
@@ -661,6 +772,54 @@
             /* Eda: Initially, it was 'margin-bottom: 3rem' */
             font-style: italic;
         }
+
+/* Temp*/
+
+.recognition-section{
+padding:70px 20px;
+text-align:center;
+}
+
+.section-subtitle{
+max-width:750px;
+margin:auto;
+color:#666;
+margin-bottom:40px;
+}
+
+.recognition-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+.recognition-card{
+background:white;
+border-radius:14px;
+padding:25px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+text-align:left;
+transition:transform .25s ease;
+}
+
+.recognition-card:hover{
+transform:translateY(-5px);
+}
+
+.recognition-quote{
+font-style:italic;
+color:#444;
+line-height:1.6;
+margin-bottom:18px;
+}
+
+.recognition-meta{
+font-size:0.9rem;
+color:#2a4b8d;
+}
+
     </style>
 </head>
 
@@ -689,6 +848,23 @@
                         About Me
                     </a></li>
 
+                <li>
+                    <a class="nav-link" data-section="what-i-build">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21l18 0" />
+                            <path d="M9 8l1 0" />
+                            <path d="M9 12l1 0" />
+                            <path d="M9 16l1 0" />
+                            <path d="M14 8l1 0" />
+                            <path d="M14 12l1 0" />
+                            <path d="M14 16l1 0" />
+                            <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" />
+                        </svg>
+                        What I Build
+                    </a>
+                </li>
+
                 <li><a class="nav-link" data-section="skills">
                         <svg class="nav-icon" viewBox="0 0 24 24">
                             <path
@@ -713,7 +889,15 @@
                         Projects
                     </a></li>
 
-                <li><a class="nav-link" data-section="recognitions">
+                <!-- <li><a class="nav-link" data-section="recognitions">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z" />
+                        </svg>
+                        Recognitions
+                    </a></li>-->
+                
+                    <li><a class="nav-link" data-section="recognitions2">
                         <svg class="nav-icon" viewBox="0 0 24 24">
                             <path
                                 d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z" />
@@ -802,13 +986,13 @@
                         </svg>
                         <a href="https://www.linkedin.com/in/srinivasa-reddy-eda-09463b34/" target="_blank">LinkedIn</a>
                     </li>
-                    <li class="contact-item">
+                    <!--<li class="contact-item">
                         <svg class="contact-icon" viewBox="0 0 24 24">
                             <path
                                 d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                         </svg>
                         <a href="https://github.com/edasri" target="_blank">GitHub</a>
-                    </li>
+                    </li>-->
                     <li class="contact-item">
                         <svg class="contact-icon" viewBox="0 0 24 24">
                             <path
@@ -819,99 +1003,218 @@
                 </ul>
             </section>
 
+            <!-- Architecture-Focus Section -->
+            <section id="what-i-build" class="content-section">
+                <h1>Architecture Focus</h1>
+                <p class="section-subtitle">
+                    Designing scalable AI, cloud-native, and enterprise platforms that enable intelligent automation and
+                    large-scale digital transformation.
+                </p>
+
+                <div class="cards-grid">
+
+                    <div class="individual-card">
+                        <h3 class="card-title">🤖 Generative AI Systems</h3>
+                        <ul class="card-list">
+                            <li class="card-item">Multi-agent AI platforms</li>
+                            <li class="card-item">LLM orchestration</li>
+                            <li class="card-item">MCP/A2A architectures</li>
+                            <li class="card-item">Advanced RAG pipelines</li>
+                            <li class="card-item">Enterprise AI automation solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="individual-card">
+                        <h3 class="card-title">☁️ Cloud-Native Platforms</h3>
+                        <ul class="card-list">
+                            <li class="card-item">Kubernetes-based architectures</li>
+                            <li class="card-item">Microservices platforms</li>
+                            <li class="card-item">Cloud migrations</li>
+                            <li class="card-item">Large-scale distributed systems Running on Google Cloud and hybrid
+                                environments</li>
+
+                        </ul>
+                    </div>
+
+                    <div class="individual-card">
+                        <h3 class="card-title">⚙️ DevSecOps Transformation</h3>
+                        <ul class="card-list">
+                            <li class="card-item">Enterprise DevSecOps frameworks</li>
+                            <li class="card-item">delivery optimization</li>
+                            <li class="card-item">CI/CD modernization</li>
+                            <li class="card-item">Engineering governance for high-performing software delivery
+                                organizations.</li>
+                        </ul>
+                    </div>
+
+                    <div class="individual-card">
+                        <h3 class="card-title">📊 Enterprise Delivery Leadership</h3>
+                        <ul class="card-list">
+                            <li class="card-item">Large-scale Agile programs</li>
+                            <li class="card-item">SAFe Release Trains</li>
+                            <li class="card-item">Cross-team architecture leadership</li>
+                            <li class="card-item">Stakeholder-driven digital transformation initiatives</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
             <!-- Placeholder sections for other pages -->
             <!-- Skills Section -->
             <section id="skills" class="content-section">
-                <h1>Technologies and Capabilities</h1>
+                <h1>Core Technologies & Capabilities</h1>
+                <p class="section-subtitle">
+                    A blend of AI architecture, cloud engineering, enterprise modernization, Agile delivery leadership,
+                    and stakeholder-driven transformation expertise.
+                </p>
 
-                <div class="skills-grid">
-                    <!-- Architecture & Design -->
-                    <div class="skill-category">
-                        <h2 class="category-title">Architecture & Design</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• Solution Architecture & Target-State Design</li>
-                            <li class="skill-item">• Cloud-native & AI-native architecture design</li>
-                            <li class="skill-item">• API-First & Event-Driven Design</li>
-                            <li class="skill-item">• Architecture Assessments & Modernization Roadmaps</li>
+                <div class="cards-grid">
+
+                    <!-- Generative AI & Intelligent Systems -->
+                    <div class="individual-card">
+                        <h2 class="card-title">🤖 Generative AI & Intelligent Systems</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>Generative AI systems</strong> & enterprise LLM apps</li>
+                            <li class="card-item"><strong>Agentic AI architectures</strong> using MCP & A2A patterns
+                            </li>
+                            <li class="card-item"><strong>LLM fine-tuning</strong>, prompt engineering, and
+                                orchestration design</li>
+                            <li class="card-item"><strong>Agent frameworks:</strong> Google ADK, LangChain, CrewAI,
+                                AutoGen</li>
+                            <li class="card-item"><strong>AI workflow platforms:</strong> n8n, Flowise, OpenWebUI,
+                                ComfyUI</li>
+                            <li class="card-item"><strong>ML pipelines and model deployment</strong> using BigQuery ML
+                                and Python</li>
                         </ul>
                     </div>
 
-                    <!-- Management -->
-                    <div class="skill-category">
-                        <h2 class="category-title">Management</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• Project/Program Management</li>
-                            <li class="skill-item">• Release Train Engineer</li>
-                            <li class="skill-item">• Agile Coach</li>
-                            <li class="skill-item">• Scrum Master</li>
+                    <!-- Cloud Platforms & Infrastructure -->
+                    <div class="individual-card">
+                        <h2 class="card-title">☁ Cloud Platforms & Infrastructure</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>Google Cloud Platform (GCP)</strong></li>
+                            <li class="card-item"><strong>Amazon Web Services (AWS)</strong></li>
+                            <li class="card-item"><strong>Kubernetes</strong>, GKE, and OpenShift platform engineering
+                            </li>
+                            <li class="card-item"><strong>Cloud migration</strong>, modernization, and platform
+                                transformation</li>
+                            <li class="card-item"><strong>Containerization</strong> and cloud-native infrastructure
+                                design</li>
+                            <li class="card-item"><strong>Infrastructure as Code</strong> using Terraform</li>
+                            <li class="card-item"><strong>CI/CD platforms</strong>, release automation, and operational
+                                scalability</li>
                         </ul>
                     </div>
 
-                    <!-- Leadership & Collaboration -->
-                    <div class="skill-category">
-                        <h2 class="category-title">Leadership & Collaboration</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• Stakeholder Engagement & Management</li>
-                            <li class="skill-item">• Cross-Functional Collaboration</li>
-                            <li class="skill-item">• Technical Leadership</li>
-                            <li class="skill-item">• Organizational Change Management</li>
+
+                    <!-- Architecture & Solution Design -->
+                    <div class="individual-card">
+                        <h2 class="card-title">🏗 Architecture & Solution Design</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>Solution architecture</strong> and target-state design</li>
+                            <li class="card-item"><strong>Cloud-native and AI-native architecture</strong> design</li>
+                            <li class="card-item"><strong>API-first</strong> and event-driven system design</li>
+                            <li class="card-item"><strong>Microservices</strong> and distributed platform architecture
+                            </li>
+                            <li class="card-item"><strong>Architecture assessments</strong> and modernization roadmaps
+                            </li>
+                            <li class="card-item"><strong>High-level design</strong>, UML modeling, and technical
+                                blueprinting</li>
                         </ul>
                     </div>
 
-                    <!-- AI/ML & GenAI -->
-                    <div class="skill-category">
-                        <h2 class="category-title">AI/ML & GenAI</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• Generative AI: LLM Fine-tuning, Prompt Engineering
-                                Google ADK.</li>
-                            <li class="skill-item">• Agentic Frameworks: Google ADK, LangChain, CrewAI, AgentGen,
-                                n8n, Flowise, OpenWebUI, A2A,
-                                MCP.</li>
-                            <li class="skill-item">• Data Science & ML: BigQuery ML (Training & Deployment), Python,
-                                Model Tuning.</li>
+                    <!-- DevSecOps & Engineering Excellence -->
+                    <div class="individual-card">
+                        <h2 class="card-title">⚙ DevSecOps & Engineering Excellence</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>DevSecOps assessments</strong> and transformation strategy
+                            </li>
+                            <li class="card-item"><strong>Secure SDLC</strong> and shift-left security practices</li>
+                            <li class="card-item"><strong>Value stream mapping</strong> and delivery optimization</li>
+                            <li class="card-item"><strong>CI/CD governance</strong>, automation, and engineering
+                                controls</li>
+                            <li class="card-item"><strong>Performance engineering</strong>, resilience validation, and
+                                troubleshooting
+                            </li>
+                            <li class="card-item"><strong>Metrics-driven improvement</strong> for velocity, quality, and
+                                reliability</li>
                         </ul>
                     </div>
 
-                    <!-- Cloud & Platforms -->
-                    <div class="skill-category">
-                        <h2 class="category-title">Cloud & Platforms</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• Google Cloud Platform</li>
-                            <li class="skill-item">• Kubernetes & OpenShift</li>
-                            <li class="skill-item">• Containerization & Platform Engineering</li>
-                            <li class="skill-item">• CI/CD Pipelines</li>
+                    <!-- Agile & Program Leadership -->
+                    <div class="individual-card">
+                        <h2 class="card-title">🔄 Agile & Program Leadership</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>Program and project leadership</strong> across complex
+                                delivery environments
+                            </li>
+                            <li class="card-item"><strong>SAFe Release Train Engineering (RTE)</strong> and ART
+                                coordination</li>
+                            <li class="card-item"><strong>Agile coaching</strong>, Scrum leadership, and team enablement
+                            </li>
+                            <li class="card-item"><strong>PI Planning</strong>, Inspect &amp; Adapt, and program
+                                execution governance</li>
+                            <li class="card-item"><strong>Delivery tracking</strong>, release readiness, and KPI-driven
+                                execution</li>
+                            <li class="card-item"><strong>Large-scale Agile delivery</strong> across globally
+                                distributed teams</li>
                         </ul>
                     </div>
 
-                    <!-- DevSecOps -->
-                    <div class="skill-category">
-                        <h2 class="category-title">DevSecOps</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• DevSecOps Assessments & Implementation Strategy</li>
-                            <li class="skill-item">• Secure SDLC & Shift-Left Security</li>
-                            <li class="skill-item">• Value Stream Mapping</li>
-                            <li class="skill-item">• Automation & Governance</li>
+                    <!-- Leadership & Stakeholder Engagement -->
+                    <div class="individual-card">
+                        <h2 class="card-title">👥 Leadership & Stakeholder Engagement</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>Executive stakeholder engagement</strong> and business
+                                alignment</li>
+                            <li class="card-item"><strong>Cross-functional collaboration</strong> across engineering,
+                                product, QA, and
+                                operations</li>
+                            <li class="card-item"><strong>Technical leadership</strong> and engineering team mentoring
+                            </li>
+                            <li class="card-item"><strong>Organizational change management</strong> and transformation
+                                enablement</li>
+                            <li class="card-item"><strong>Global team leadership</strong> across multi-region delivery
+                                models</li>
+                            <li class="card-item"><strong>Client engagement</strong>, technical presentations, and
+                                strategic communication
+                            </li>
                         </ul>
                     </div>
 
-                    <!-- Languages & Frameworks -->
-                    <div class="skill-category">
-                        <h2 class="category-title">Languages & Frameworks</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• Python</li>
-                            <li class="skill-item">• Java / Spring Boot</li>
-                            <li class="skill-item">• Angular</li>
-                            <li class="skill-item">• REST APIs</li>
+                    <!-- Programming & Application Frameworks -->
+                    <div class="individual-card">
+                        <h2 class="card-title">💻 Programming & Application Frameworks</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>Python</strong> for AI, automation, and backend engineering
+                            </li>
+                            <li class="card-item"><strong>Java / Spring Boot</strong> for enterprise microservices
+                                development</li>
+                            <li class="card-item"><strong>Angular</strong> for modern web application delivery</li>
+                            <li class="card-item"><strong>REST APIs</strong> and service integration design</li>
+                            <li class="card-item"><strong>LangGraph</strong> and modern application orchestration
+                                frameworks</li>
+                            <li class="card-item"><strong>Reusable engineering patterns</strong> for scalable
+                                application delivery</li>
                         </ul>
                     </div>
 
-                    <!-- Databases & Integration -->
-                    <div class="skill-category">
-                        <h2 class="category-title">Databases & Integration</h2>
-                        <ul class="skill-list">
-                            <li class="skill-item">• Cloud Databases</li>
-                            <li class="skill-item">• Relational & Non-Relational Databases</li>
-                            <li class="skill-item">• Enterprise Integration Patterns</li>
+                    <!-- Data Platforms & Integration Architecture -->
+                    <div class="individual-card">
+                        <h2 class="card-title">🗄 Data Platforms & Integration Architecture</h2>
+                        <ul class="card-list">
+                            <li class="card-item"><strong>Cloud databases</strong> including Cloud SQL and BigQuery</li>
+                            <li class="card-item"><strong>Relational and NoSQL databases</strong> for enterprise
+                                applications</li>
+                            <li class="card-item"><strong>Enterprise integration patterns</strong> and system
+                                connectivity design</li>
+                            <li class="card-item"><strong>Data pipelines</strong> and distributed data processing</li>
+                            <li class="card-item"><strong>Application dependency mapping</strong> and migration planning
+                            </li>
+                            <li class="card-item"><strong>Data-driven architecture decisions</strong> supporting scale
+                                and modernization
+                            </li>
                         </ul>
                     </div>
 
@@ -921,45 +1224,53 @@
             <!-- Certifications Section -->
             <section id="certifications" class="content-section">
                 <h1>Certifications</h1>
+                <p class="section-subtitle">
+                    Industry-recognized certifications validating expertise in cloud architecture, Generative AI, Agile
+                    program leadership, and enterprise technology transformation.<br>
+                    <strong>6 Active Certifications • Cloud, AI, Agile & Program Leadership</strong>
+                </p>
                 <div class="certs-container">
                     <!-- Active Certifications -->
                     <div class="cert-group">
-                        <h2 class="group-title active">Active</h2>
+                        <h2 class="group-title active">Active Certifications</h2>
                         <ul class="cert-list">
                             <li class="cert-item">
-                                <span class="cert-badge">Google Cloud</span>
+                                <span class="cert-badge-blue">Google Cloud</span>
                                 <div class="cert-details">
-                                    <div class="cert-name">Professional Cloud Architect</div>
+                                    <div class="cert-name">&nbsp;Professional Cloud Architect</div>
                                 </div>
                             </li>
                             <li class="cert-item">
-                                <span class="cert-badge">Google Cloud</span>
+                                <span class="cert-badge-blue">Google Cloud</span>
                                 <div class="cert-details">
-                                    <div class="cert-name">GenAI Leader</div>
+                                    <div class="cert-name">&nbsp;Generative AI Leader</div>
                                 </div>
                             </li>
                             <li class="cert-item">
-                                <span class="cert-badge">PMI</span>
+                                <span class="cert-badge-orange">SAFe</span>
                                 <div class="cert-details">
-                                    <div class="cert-name">PMP</div>
+                                    <div class="cert-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAFe Practice
+                                        Consultant (SPC)</div>
                                 </div>
                             </li>
                             <li class="cert-item">
-                                <span class="cert-badge">SAFe</span>
+                                <span class="cert-badge-orange">SAFe</span>
                                 <div class="cert-details">
-                                    <div class="cert-name">SAFe Practice Consultant (SPC)</div>
+                                    <div class="cert-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Release Train
+                                        Engineer (RTE)</div>
                                 </div>
                             </li>
                             <li class="cert-item">
-                                <span class="cert-badge">SAFe</span>
+                                <span class="cert-badge-purple">PMI</span>
                                 <div class="cert-details">
-                                    <div class="cert-name">Release Train Engineer (RTE)</div>
+                                    <div class="cert-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Project
+                                        Management Professional (PMP)</div>
                                 </div>
                             </li>
                             <li class="cert-item">
-                                <span class="cert-badge">Scrum Alliance</span>
+                                <span class="cert-badge-green">Scrum Alliance</span>
                                 <div class="cert-details">
-                                    <div class="cert-name">Scrum Master</div>
+                                    <div class="cert-name">ScrumMaster (CSM)</div>
                                 </div>
                             </li>
                         </ul>
@@ -967,18 +1278,18 @@
 
                     <!-- Expired Certifications -->
                     <div class="cert-group">
-                        <h2 class="group-title expired">Expired</h2>
+                        <h2 class="group-title expired">Past Certifications</h2>
                         <ul class="cert-list">
                             <li class="cert-item">
-                                <span class="cert-badge expired">HashiCorp</span>
+                                <span class="cert-badge-expired">HashiCorp</span>
                                 <div class="cert-details">
                                     <div class="cert-name">Terraform Associate (003)</div>
                                 </div>
                             </li>
                             <li class="cert-item">
-                                <span class="cert-badge expired">Sun</span>
+                                <span class="cert-badge-expired">Sun</span>
                                 <div class="cert-details">
-                                    <div class="cert-name">Java Programmer</div>
+                                    <div class="cert-name">&nbsp;&nbsp;Java Programmer</div>
                                 </div>
                             </li>
                         </ul>
@@ -999,289 +1310,645 @@
                     <!-- Multi-Agent GenAI Systems -->
                     <article class="project-card">
                         <div class="project-header">
-                            <h2 class="project-title">Multi-Agent GenAI System</h2>
-                            <span class="project-role">AI / Cloud Architect</span>
+                            <h2 class="project-title">Multi-Agent Generative AI System</h2>
+                            <span class="project-role"><strong>AI / Cloud Architect</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Architected and deployed sophisticated GenAI agents utilizing Sequential, Parallel, and
-                                Loop-based architectures to automate multi-step business logic using LangGraph, CrewAI,
-                                AgentGen and Google ADK.</li>
-                            <li>Engineered end-to-end ML pipelines in BigQuery ML, encompassing model training,
-                                hyperparameter tuning, and seamless deployment.</li>
-                            <li>Developed high-performance AI applications using LangGraph and Google GenAI services,
-                                integrating Model Context Protocol (MCP) and Agent-to-Agent (A2A) communication
-                                patterns.
+                            <li>
+                                Architected sophisticated <strong>Generative AI agents</strong> using
+                                <strong>sequential, parallel, and loop-based architectures</strong> to automate
+                                multi-step business workflows with
+                                <strong>LangGraph, CrewAI, AutoGen, and Google Agent Development Kit (ADK)</strong>.
                             </li>
-                            <li>Leveraged Google Agent Development Kit (ADK) and Python to build production-ready
-                                capstone projects, demonstrating deep technical proficiency in modern LLM orchestration.
+
+                            <li>
+                                Engineered scalable <strong>ML pipelines</strong> using
+                                <strong>BigQuery ML</strong>, enabling model training, hyperparameter tuning,
+                                and production deployment.
                             </li>
-                            <li>Implemented advanced Retrieval-Augmented Generation (RAG) solutions.</li>
-                            <li>Experienced in using n8n, Flowise workflows in creating agentic solutions
-                                including Model Context Protocol (MCP) servers, OpenWebUI, ComfyUI</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Generative AI, Agentic AI, Model Context
-                                Protocol (MCP),
-                                Agent-to-Agent (A2A) Systems, Local LLMs, Proprietary LLMs, Python, LangChain, CrewAI,
-                                AutoGen, Advanced RAG Architectures, BigQuery ML, Google Agent Development Kit (ADK),
-                                Vertex AI, n8n, Flowise, LLM Fine-Tuning, ML Pipelines.
+
+                            <li>
+                                Developed high-performance AI applications integrating
+                                <strong>LangGraph</strong>,
+                                <strong>Google Generative AI services</strong>,
+                                <strong>Model Context Protocol (MCP)</strong>, and
+                                <strong>Agent-to-Agent (A2A)</strong> communication patterns.
+                            </li>
+
+                            <li>
+                                Built <strong>agentic systems</strong> using
+                                <strong>Python</strong> and <strong>Google ADK</strong>, enabling sophisticated
+                                <strong>LLM orchestration</strong> and
+                                <strong>multi-agent coordination</strong>.
+                            </li>
+
+                            <li>
+                                Implemented advanced <strong>Retrieval-Augmented Generation (RAG)</strong> architectures
+                                to support context-aware reasoning and knowledge retrieval.
+                            </li>
+
+                            <li>
+                                Designed <strong>agentic workflows</strong> using <strong>n8n</strong> and
+                                <strong>Flowise</strong>, including <strong>MCP servers</strong> and integrations
+                                with <strong>OpenWebUI</strong> and <strong>ComfyUI</strong>.
                             </li>
                         </ul>
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Delivered production-ready GenAI orchestration platform automating
-                            complex multi-step workflows with seamless A2A interoperability.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        Generative AI, Agentic AI, <strong>Model Context Protocol (MCP)</strong>,
+                        <strong>Agent-to-Agent (A2A)</strong> Systems, Local &amp; Proprietary LLMs,
+                        Python, <strong>LangGraph</strong>, <strong>LangChain</strong>,
+                        <strong>CrewAI</strong>, <strong>AutoGen</strong>, Advanced RAG Architectures,
+                        <strong>BigQuery ML</strong>, <strong>Google Agent Development Kit (ADK)</strong>,
+                        <strong>Vertex AI</strong>, n8n, Flowise, <strong>LLM Fine-Tuning</strong>,
+                        ML Pipelines.
+
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong><br>
+                        </p>
+                        Delivered a <strong>production-ready multi-agent Generative AI orchestration platform</strong>
+                        capable of automating complex workflows with seamless
+                        <strong>A2A interoperability</strong> and scalable
+                        <strong>LLM-driven decision-making</strong>.
+
                     </article>
 
                     <!-- Bank Branch Services -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">Bank Branch Services</h2>
-                            <span class="project-role">Release Train Engineer (RTE)</span>
+                            <span class="project-role"><strong>Release Train Engineer (RTE)</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Orchestrated ART ceremonies across 4 pods (50+ members), driving successful releases and
-                                cloud migrations. Gained deep insights into enterprise-scale agile operations through
-                                program participation in Portfolio SAFe adoption.</li>
-                            <li>Facilitated PI Planning sessions and Inspect & Adapt workshops, ensuring successful
-                                program execution.</li>
-                            <li>Led Scrum of Scrums meetings and presented to PG SoS leadership forums with executive
-                                stakeholders.</li>
-                            <li>Contributed significantly in promoting agile culture. Provided coaching and mentoring to
-                                Scrum Masters, Product Owners (POs), Tech Leads and agile teams.</li>
-                            <li>Managed Jira and Confluence for program-level tracking and reporting, ensuring healthy
-                                program metrics and KPIs..</li>
-                            <li>Built Jira dashboards providing team transparency and monitoring KPIs, PI Objectives,
-                                pod iteration progress, and monthly release readiness.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> SAFe Framework, Agile & Scrum
-                                Methodologies, PI Planning & Execution, Inspect & Adapt
-                                (I&A), Agile Coaching & Team Enablement, Program Execution & Delivery Governance, PI
-                                Objectives & Iteration Tracking, Release Readiness, KPI-Driven Delivery Management, Jira
-                                & Tableau Dashboards, Confluence, ServiceNow, Microsoft Collaboration Tools.
+                            <li>
+                                Orchestrated <strong>ART ceremonies</strong> across 4 pods (50+ members), enabling
+                                successful releases and large-scale <strong>cloud migration initiatives</strong>
+                                while supporting enterprise adoption of the <strong>SAFe framework</strong>.
+                            </li>
+
+                            <li>
+                                Facilitated <strong>PI Planning</strong> sessions and
+                                <strong>Inspect &amp; Adapt (I&amp;A)</strong> workshops to ensure effective
+                                program execution and alignment across multiple agile teams.
+                            </li>
+
+                            <li>
+                                Led <strong>Scrum of Scrums</strong> meetings and presented program updates
+                                to <strong>PG SoS leadership forums</strong>, engaging executive stakeholders
+                                and enabling data-driven decision making.
+                            </li>
+
+                            <li>
+                                Promoted a strong <strong>Agile culture</strong> by coaching and mentoring
+                                <strong>Scrum Masters, Product Owners, Tech Leads, and delivery teams</strong>.
+                            </li>
+
+                            <li>
+                                Managed program-level tracking and reporting using
+                                <strong>Jira</strong> and <strong>Confluence</strong>, ensuring healthy
+                                <strong>program metrics and KPI visibility</strong>.
+                            </li>
+
+                            <li>
+                                Designed <strong>Jira dashboards</strong> to provide transparency across
+                                teams, monitoring <strong>KPIs, PI Objectives, iteration progress,
+                                    and release readiness</strong>.
                             </li>
                         </ul>
+
+                        </ul>
+
+
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Delivered production-ready GenAI orchestration platform automating
-                            complex multi-step workflows with seamless A2A interoperability.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        <strong>SAFe Framework</strong>, Agile &amp; Scrum Methodologies,
+                        <strong>PI Planning &amp; Execution</strong>,
+                        <strong>Inspect &amp; Adapt (I&amp;A)</strong>,
+                        Agile Coaching &amp; Team Enablement,
+                        Program Execution &amp; Delivery Governance,
+                        PI Objectives &amp; Iteration Tracking,
+                        Release Readiness,
+                        KPI-Driven Delivery Management,
+                        <strong>Jira</strong>, <strong>Tableau Dashboards</strong>,
+                        <strong>Confluence</strong>, <strong>ServiceNow</strong>,
+                        Microsoft Collaboration Tools.
+
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong><br>
+                        </p>
+                        Enabled coordinated delivery across multiple agile teams,
+                        improving <strong>release predictability, program transparency,
+                            and stakeholder alignment</strong> within a large-scale
+                        <strong>SAFe Agile Release Train</strong>.
+
                     </article>
 
                     <!-- DevSecOps Assessment & Roadmap -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">DevSecOps Assessment & Roadmap</h2>
-                            <span class="project-role">DevSecOps Architect</span>
+                            <span class="project-role"><strong>DevSecOps Architect</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Served as DevSecOps Architect for Time To Market (TTM) initiative, defining scaled
-                                onboarding methodology with kickoff materials adopted across all 4 product streams
-                                assessed.</li>
-                            <li>Coordinated with SMEs across two projects—reviewed documentation, conducted workshops,
-                                and captured key observations.
+                            <li>
+                                Served as <strong>DevSecOps Architect</strong> for the
+                                <strong>Time To Market (TTM)</strong> initiative, defining a scalable
+                                <strong>DevSecOps onboarding methodology</strong> and kickoff framework
+                                adopted across four product streams.
                             </li>
-                            <li>Completed assessment rating checklists from documentation/workshop observations,
-                                captured improvement recommendations, and secured sign-offs for critical recommendations
-                                despite team resistance.</li>
-                            <li>Mapped SAP processes to Agile DevSecOps framework with metrics definition, supporting
-                                SAP team and enabling consistent assessments across product streams.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Technology Strategy & Consulting, Agile
-                                DevSecOps Transformation, Architecture Assessment Frameworks,
-                                Workshop Facilitation, Value Stream Mapping, Gap Analysis, Improvement Prioritization,
-                                Implementation Roadmap Development, Stakeholder Engagement & Coordination, KPI & Metrics
-                                Definition, Organizational Change Management. </li>
-                            <p class="project-outcome">
-                                <strong>Outcome: </strong>Delivered Time To Market (TTM) DevSecOps assessments,
-                                achieving recommendation consensus, and delivering velocity/quality improvements
-                                roadmap.
-                            </p>
+
+                            <li>
+                                Coordinated with <strong>subject matter experts (SMEs)</strong> across
+                                multiple projects to review architecture documentation, conduct
+                                <strong>assessment workshops</strong>, and capture key operational
+                                observations.
+                            </li>
+
+                            <li>
+                                Completed structured <strong>DevSecOps assessment checklists</strong>,
+                                documenting maturity levels, identifying improvement opportunities,
+                                and securing stakeholder sign-off on critical transformation
+                                recommendations.
+                            </li>
+
+                            <li>
+                                Mapped <strong>SAP delivery processes</strong> to a
+                                <strong>Agile DevSecOps framework</strong>, defining standardized
+                                <strong>delivery metrics and KPIs</strong> to enable consistent
+                                assessments across product streams.
+                            </li>
+
+                            <li>
+                                Facilitated cross-team collaboration to align engineering,
+                                operations, and leadership stakeholders on
+                                <strong>DevSecOps transformation priorities</strong>.
+                            </li>
+                        </ul>
+
+                        <p class="project-outcome">
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
+                        </p>
+                        Technology Strategy &amp; Consulting,
+                        <strong>Agile DevSecOps Transformation</strong>,
+                        <strong>Architecture Assessment Frameworks</strong>,
+                        <strong>Workshop Facilitation</strong>,
+                        <strong>Value Stream Mapping</strong>,
+                        Gap Analysis,
+                        Improvement Prioritization,
+                        Implementation Roadmap Development,
+                        Stakeholder Engagement &amp; Coordination,
+                        <strong>KPI &amp; Metrics Definition</strong>,
+                        Organizational Change Management.
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong>
+                        </p>
+                        Delivered comprehensive <strong>Time To Market (TTM) DevSecOps assessments</strong>,
+                        achieving stakeholder consensus on improvement initiatives and producing a
+                        <strong>DevSecOps transformation roadmap</strong> to improve
+                        <strong>delivery velocity, quality, and operational efficiency</strong>.
+
                     </article>
 
                     <!-- Cloud-Native Evaluation – ORAN Vendor Solutions -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">Cloud-Native Evaluation – ORAN Solutions</h2>
-                            <span class="project-role">Cloud Architect</span>
+                            <span class="project-role"><strong>Cloud Architect</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Evaluated Kubernetes/OpenShift-based ORAN vendor solutions, assessing feature maturity
-                                and cloud-nativeness.</li>
-                            <li>Developed "Cloud Nativeness" evaluation framework for structured vendor ORAN solution
-                                comparisons.</li>
-                            <li>Conducted solution understanding workshops with vendor teams to assess architecture,
-                                design,
-                                and cloud capabilities.</li>
-                            <li>Led cloud nativeness assessments by coordinating with vendor teams and client engineers
-                                across competing ORAN solutions.</li>
-                            <li>Presented assessment findings and recommendations to enterprise architect and management
-                                stakeholders.</li>
-                            <li>Supported contract and feature negotiations using technical insights.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Strategy & Consulting, Cloud Architecture,
-                                Kubernetes, OpenShift, O-RAN Solutions, Solution Discovery Workshops, Vendor Evaluation
-                                & Selection, Cloud-Native Architecture Frameworks, Stakeholder Engagement &
-                                Coordination, Technical Presentations, Contract Negotiation.
+                            <li>
+                                Evaluated <strong>Kubernetes</strong> and <strong>OpenShift</strong>-based
+                                <strong>O-RAN vendor solutions</strong>, assessing feature maturity,
+                                scalability, and overall <strong>cloud-native architecture readiness</strong>.
+                            </li>
+
+                            <li>
+                                Designed a structured <strong>Cloud Nativeness evaluation framework</strong>
+                                to enable objective comparison of competing <strong>O-RAN solutions</strong>.
+                            </li>
+
+                            <li>
+                                Conducted <strong>solution discovery workshops</strong> with vendor engineering
+                                teams to analyze architecture design, platform capabilities, and
+                                cloud-native deployment patterns.
+                            </li>
+
+                            <li>
+                                Led cross-team <strong>cloud-native capability assessments</strong>,
+                                coordinating vendor teams and client engineering groups across
+                                multiple competing O-RAN implementations.
+                            </li>
+
+                            <li>
+                                Presented <strong>architecture evaluation findings</strong> and
+                                recommendations to <strong>enterprise architects and executive stakeholders</strong>.
+                            </li>
+
+                            <li>
+                                Supported <strong>contract and feature negotiations</strong> by providing
+                                technical insights and comparative evaluation results.
                             </li>
                         </ul>
+
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Delivered Cloud Nativeness assessment framework that enabled
-                            data-driven vendor selection and informed commercial negotiations.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        Technology Strategy &amp; Consulting,
+                        <strong>Cloud Architecture</strong>,
+                        <strong>Kubernetes</strong>,
+                        <strong>OpenShift</strong>,
+                        <strong>O-RAN Solutions</strong>,
+                        Solution Discovery Workshops,
+                        Vendor Evaluation &amp; Selection,
+                        <strong>Cloud-Native Architecture Frameworks</strong>,
+                        Stakeholder Engagement &amp; Coordination,
+                        Technical Presentations,
+                        Contract Negotiation.
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong>
+                        </p>
+                        Delivered a structured <strong>Cloud Nativeness assessment framework</strong>
+                        enabling objective vendor comparison, supporting
+                        <strong>data-driven vendor selection</strong> and strengthening
+                        <strong>commercial and technical negotiation outcomes</strong>.
+
                     </article>
 
                     <!-- Video Platform Modernization -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">Video Platform Modernization</h2>
-                            <span class="project-role">Cloud Architect</span>
+                            <span class="project-role"><strong>Cloud Architect</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Accomplished the migration of a complex application that comprises 150+ microservices
-                                from OpenShift to GKE. The database clusters of this app were entirely running on GCP.
-                                This application caters to three million customers.</li>
-                            <li>Played a significant role in ensuring that the cloud applications met the performance
-                                SLAs. This involved modifying configurations of networks, databases, microservices, pods
-                                etc.</li>
-                            <li>Led the team through a high paced project to rebuild CICD pipeline from legacy Jenkins
-                                self-hosted single jobs per microservice, to a fully integrated CICD pipeline based on
-                                Harness.io.</li>
-                            <li>Effectively managed a geographically distributed infrastructure team of 20 members
-                                working from India, Italy, Brazil, USA and Canada in successfully delivering GCP cloud
-                                infrastructure.</li>
-                            <li>Interfaced with client VP, Directors, Program/project managers, Scrum Masters,
-                                Architects, Tech Leads and Developers.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Cloud Architecture,
-                                Google Cloud Platform (GCP), Kubernetes, OpenShift, Spring Boot Microservices, Cloud
-                                SQL, Terraform (Infrastructure as Code), Performance Engineering, JMeter, CI/CD
-                                Pipelines, Jenkins, Harness, Team Leadership, Stakeholder Engagement & Coordination,
-                                Global Team Collaboration, Client Engagement. </li>
+
+                            <li>
+                                Led the migration of a complex <strong>150+ Spring Boot microservices</strong>
+                                application from <strong>OpenShift</strong> to <strong>Google Kubernetes Engine
+                                    (GKE)</strong>,
+                                supporting a platform serving <strong>3+ million customers</strong>. The application
+                                leveraged fully managed <strong>GCP database clusters</strong>.
+                            </li>
+
+                            <li>
+                                Ensured strict <strong>performance SLA compliance</strong> by optimizing
+                                configurations across <strong>network infrastructure, databases,
+                                    microservices, and Kubernetes pods</strong>.
+                            </li>
+
+                            <li>
+                                Led a fast-paced modernization initiative to rebuild the legacy
+                                <strong>CI/CD pipeline</strong>, migrating from
+                                <strong>Jenkins self-hosted single-job pipelines</strong> to a fully integrated
+                                <strong>Harness-based CI/CD platform</strong>.
+                            </li>
+
+                            <li>
+                                Managed a geographically distributed <strong>cloud infrastructure team of 20
+                                    engineers</strong>
+                                across <strong>India, Italy, Brazil, USA, and Canada</strong>, successfully delivering
+                                scalable <strong>GCP cloud infrastructure</strong>.
+                            </li>
+
+                            <li>
+                                Collaborated with <strong>VPs, Directors, Program Managers, Scrum Masters,
+                                    Architects, Tech Leads, and Engineering teams</strong> to drive alignment and
+                                ensure successful program delivery.
+                            </li>
                         </ul>
+
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Successfully migrated 150+ microservice application serving 3M
-                            customers from OpenShift to GKE, maintained performance SLAs, and rebuilt CICD pipelines
-                            with Harness.io.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        <strong>Cloud Architecture</strong>,
+                        <strong>Google Cloud Platform (GCP)</strong>,
+                        <strong>Kubernetes</strong>,
+                        <strong>OpenShift</strong>,
+                        <strong>Spring Boot Microservices</strong>,
+                        <strong>Cloud SQL</strong>,
+                        <strong>Terraform (Infrastructure as Code)</strong>,
+                        Performance Engineering,
+                        <strong>JMeter</strong>,
+                        <strong>CI/CD Pipelines</strong>,
+                        <strong>Jenkins</strong>,
+                        <strong>Harness</strong>,
+                        Team Leadership,
+                        Stakeholder Engagement &amp; Coordination,
+                        Global Team Collaboration,
+                        Client Engagement.
+
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong>
+                        </p>
+                        Successfully migrated a <strong>150+ microservice enterprise application</strong>
+                        serving <strong>3+ million customers</strong> from
+                        <strong>OpenShift to GKE</strong>, while maintaining strict
+                        <strong>performance SLAs</strong> and modernizing the
+                        <strong>CI/CD platform using Harness</strong>.
+
                     </article>
 
                     <!-- AWS to GCP Cloud Migration -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">AWS to GCP Cloud Migration</h2>
-                            <span class="project-role">Cloud Architect</span>
+                            <span class="project-role"><strong>Cloud Architect</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Efficiently coordinated in completing a large-scale digital migration initiative,
-                                involving the migration of over 500 applications from OpenShift V3 to OpenShift V4 and
-                                transferring over 200 MySQL and PostgreSQL databases from AWS to GCP Cloud SQL.</li>
-                            <li>Conducted impact analysis for Cloud Migration from AWS to GCP and OpenShift upgrade from
-                                v3.10 to v4.7. Performed POCs needed for cloud migration from AWS to GCP.</li>
-                            <li>Created application dependency matrix for 500+ digital apps using Graphviz. </li>
-                            <li>Empowered application teams with self-service AWS-to-GCP migration capabilities through
-                                purpose-built components, documentation, and hands-on support.</li>
-                            <li>Executed Chaos Monkey testing, regional switchover validation, infrastructure
-                                monitoring, and Jenkins pipeline issue resolution.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Cloud Architecture, Cloud Migration,
-                                Google Cloud Platform (GCP), AWS, Kubernetes, OpenShift, Helm, MySQL, PostgreSQL,
-                                Node.js, Terraform, HashiCorp Vault, Application Dependency Mapping, Graphviz,
-                                Self-Service Migration Frameworks, Chaos Engineering (Chaos Monkey), Regional Switchover
-                                Validation, Infrastructure Monitoring, CI/CD Pipelines (Jenkins, Google Cloud Build),
-                                Advanced Troubleshooting. </li>
+                            <li>
+                                Coordinated a large-scale <strong>digital transformation initiative</strong>
+                                involving migration of <strong>500+ enterprise applications</strong> from
+                                <strong>OpenShift v3.10 to OpenShift v4.7</strong> and transferring
+                                <strong>200+ MySQL and PostgreSQL databases</strong> from
+                                <strong>AWS</strong> to <strong>Google Cloud SQL</strong>.
+                            </li>
+
+                            <li>
+                                Performed detailed <strong>cloud migration impact analysis</strong> and
+                                executed multiple <strong>proof-of-concept (POC) validations</strong> to
+                                support the transition from <strong>AWS to Google Cloud Platform (GCP)</strong>.
+                            </li>
+
+                            <li>
+                                Designed an <strong>application dependency matrix</strong> for
+                                <strong>500+ digital applications</strong> using
+                                <strong>Graphviz</strong>, enabling structured migration planning and
+                                risk identification.
+                            </li>
+
+                            <li>
+                                Enabled <strong>self-service migration capabilities</strong> for application
+                                teams by building reusable migration components, documentation,
+                                and providing hands-on technical guidance.
+                            </li>
+
+                            <li>
+                                Executed resilience and operational validation activities including
+                                <strong>Chaos Monkey testing</strong>,
+                                <strong>regional switchover validation</strong>,
+                                <strong>infrastructure monitoring</strong>, and
+                                <strong>Jenkins pipeline troubleshooting</strong>.
+                            </li>
                         </ul>
+
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Delivered large-scale digital migration of 500+ applications from
-                            OpenShift V3→V4 and 200+ AWS databases to GCP Cloud SQL. Identified and decommissioned
-                            unused applications, enabling cost savings and operational efficiency.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        <strong>Cloud Migration</strong>,
+                        <strong>Google Cloud Platform (GCP)</strong>,
+                        <strong>AWS</strong>,
+                        <strong>Kubernetes</strong>,
+                        <strong>OpenShift</strong>,
+                        <strong>Helm</strong>,
+                        <strong>MySQL</strong>,
+                        <strong>PostgreSQL</strong>,
+                        <strong>Node.js</strong>,
+                        <strong>Terraform</strong>,
+                        <strong>HashiCorp Vault</strong>,
+                        Application Dependency Mapping,
+                        <strong>Graphviz</strong>,
+                        Self-Service Migration Frameworks,
+                        <strong>Chaos Engineering</strong>,
+                        Regional Switchover Validation,
+                        Infrastructure Monitoring,
+                        <strong>CI/CD Pipelines</strong> (Jenkins, Google Cloud Build),
+                        Advanced Troubleshooting.
+
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong>
+                        </p>
+                        Successfully delivered a <strong>large-scale cloud migration</strong> of
+                        <strong>500+ applications</strong> and <strong>200+ databases</strong>,
+                        modernizing the platform from <strong>OpenShift v3 to v4</strong> and
+                        transitioning workloads from <strong>AWS to GCP Cloud SQL</strong>.
+                        The initiative also enabled <strong>application rationalization</strong>,
+                        identifying unused systems and driving significant
+                        <strong>cost savings and operational efficiency</strong>.
+
                     </article>
 
                     <!-- Enterprise Agile Transformation -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">Enterprise Agile Transformation</h2>
-                            <span class="project-role">Scrum Master</span>
+                            <span class="project-role"><strong>Scrum Master</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Served as Scrum Master driving enterprise-wide transformation from waterfall to agile,
-                                integrating multiple tools alongside process changes.</li>
-                            <li>Organized agile workshops and knowledge sessions while facilitating cross-functional
-                                coordination between Dev, Ops, Security teams.</li>
-                            <li>Delivered C-level executive reporting to SVPs, VPs, Directors while mentoring teams
-                                through organizational culture change.</li>
-                            <li>Published live transformation progress dashboards tracking agile team conversions, tools
-                                integration, and overall status—displayed organization-wide on floor TVs for full
-                                transparency across teams and leadership.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Agile Transformation, Agile Coaching &
-                                Mentoring, Cross-Functional Collaboration, Executive Reporting, Organizational Change
-                                Management, Agile Toolchain Integration, Real-Time Progress Dashboards, Cultural
-                                Transformation, Stakeholder Engagement, Global Team Collaboration.
+                            <li>
+                                Led an enterprise-wide transition from <strong>Waterfall to Agile delivery</strong>,
+                                driving organizational adoption of <strong>Agile practices, frameworks, and
+                                    toolchains</strong>
+                                across multiple engineering teams.
+                            </li>
+
+                            <li>
+                                Facilitated <strong>Agile workshops</strong> and knowledge-sharing sessions while
+                                enabling strong <strong>cross-functional collaboration</strong> between
+                                <strong>Development, Operations, and Security teams</strong>.
+                            </li>
+
+                            <li>
+                                Delivered structured <strong>C-level executive reporting</strong> to
+                                <strong>SVPs, VPs, and Directors</strong>, guiding leadership through
+                                <strong>organizational change and agile culture adoption</strong>.
+                            </li>
+
+                            <li>
+                                Designed and published <strong>live transformation dashboards</strong>
+                                tracking <strong>team agile conversions, toolchain integration, and
+                                    program status</strong>, displayed organization-wide to ensure
+                                <strong>full transparency and leadership visibility</strong>.
+                            </li>
+
+                            <li>
+                                Mentored delivery teams through <strong>Agile coaching</strong>,
+                                strengthening team maturity and accelerating
+                                <strong>organizational culture transformation</strong>.
                             </li>
                         </ul>
+
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Achieved enterprise-wide waterfall-to-agile transformation as
-                            Scrum Master, delivering C-level dashboards, cross-functional coordination, and live
-                            progress visibility across organization—driving complete cultural and tooling adoption.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        <strong>Agile Transformation</strong>,
+                        Agile Coaching &amp; Mentoring,
+                        <strong>Cross-Functional Collaboration</strong>,
+                        <strong>Executive Reporting</strong>,
+                        <strong>Organizational Change Management</strong>,
+                        Agile Toolchain Integration,
+                        <strong>Real-Time Progress Dashboards</strong>,
+                        Cultural Transformation,
+                        Stakeholder Engagement,
+                        Global Team Collaboration.
+
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong>
+                        </p>
+                        Successfully enabled an <strong>enterprise-wide Agile transformation</strong>,
+                        delivering organization-wide <strong>real-time transformation dashboards</strong>,
+                        strengthening cross-team collaboration, and accelerating
+                        <strong>Agile culture adoption across engineering and leadership teams</strong>.
+
                     </article>
 
                     <!-- Western Expansion -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">Western Expansion</h2>
-                            <span class="project-role">J2EE Architect</span>
+                            <span class="project-role"><strong>J2EE Architect</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Led architecture for program enabling client's successful business expansion into
-                                Western USA region.</li>
-                            <li>Translated business requirements into scalable J2EE architecture and high-level designs
-                                using proven patterns and UML modeling.</li>
-                            <li>Authored comprehensive architecture and HLD documentation, establishing technical
-                                blueprint for enterprise development teams.</li>
-                            <li>Guided development teams in architecture implementation through code reviews, design
-                                walkthroughs, and best practices enforcement.</li>
-                            <li>Led performance testing initiatives and provided technical leadership to QA teams during
-                                integration/system validation.</li>
-                            <li>Played a critical role in resolving complex technical challenges and debugging
-                                persistent system issues.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Solution Architecture, J2EE, UML,
-                                High-Level Design, Code Reviews,
-                                Performance Testing,
-                                Technical Leadership, Cross-Functional Collaboration, Western USA Market Expansion,
-                                Enterprise Development Teams, QA Integration Support, Global Teams.
+                            <li>
+                                Led the architecture for a strategic platform enabling the client's
+                                <strong>business expansion into the Western USA market</strong>,
+                                delivering scalable enterprise solutions to support rapid regional growth.
+                            </li>
+
+                            <li>
+                                Translated complex <strong>business requirements</strong> into scalable
+                                <strong>J2EE-based system architecture</strong> and
+                                <strong>high-level design (HLD)</strong> using established design patterns
+                                and <strong>UML modeling</strong>.
+                            </li>
+
+                            <li>
+                                Authored comprehensive <strong>architecture and HLD documentation</strong>,
+                                establishing the technical blueprint for multiple
+                                <strong>enterprise development teams</strong>.
+                            </li>
+
+                            <li>
+                                Guided teams through architecture implementation via
+                                <strong>design walkthroughs</strong>,
+                                and enforcement of <strong>engineering best practices</strong>.
+                            </li>
+
+                            <li>
+                                Led <strong>performance testing initiatives</strong> and provided
+                                technical leadership to <strong>QA teams</strong> during
+                                integration and validation phases.
+                            </li>
+
+                            <li>
+                                Resolved complex <strong>technical challenges</strong> and
+                                debugged persistent system issues, ensuring platform stability
+                                and performance at scale.
+                            </li>
                         </ul>
+
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Enabled client's rapid Western USA market entry and revenue
-                            growth, delivering scalable designs, comprehensive HLDs, team guidance, and performance
-                            leadership—achieving consecutive CSAT 7/7 ratings.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        <strong>Solution Architecture</strong>,
+                        <strong>J2EE</strong>,
+                        <strong>UML Modeling</strong>,
+                        <strong>High-Level System Design</strong>,
+                        <strong>Code Reviews</strong>,
+                        <strong>Performance Testing</strong>,
+                        Technical Leadership,
+                        Cross-Functional Collaboration,
+                        Western USA Market Expansion,
+                        Enterprise Development Teams,
+                        QA Integration Support,
+                        Global Team Collaboration.
+
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong>
+                        </p>
+                        Successfully enabled the client's <strong>Western USA market expansion</strong>
+                        by delivering scalable architecture, comprehensive
+                        <strong>high-level design frameworks</strong>, and strong
+                        <strong>technical leadership</strong>. The initiative achieved
+                        <strong>consecutive CSAT scores of 7/7</strong> while supporting
+                        rapid regional revenue growth.
+
                     </article>
 
                     <!-- Policy Self-Service Transformation -->
                     <article class="project-card">
                         <div class="project-header">
                             <h2 class="project-title">Policy Self-Service Transformation</h2>
-                            <span class="project-role">Program Technical Lead & Program Manager</span>
+                            <span class="project-role"><strong>Program Technical Lead & Program Manager</strong></span>
                         </div>
                         <ul class="project-points">
-                            <li>Led 60-member team as Program Technical Lead and Onsite Progarm Manager, orchestrating
-                                customer management, resource allocation, and cross-project coordination.</li>
-                            <li>Drove program governance through deep dive, gate review, and weekly status meetings
-                                while validating effort/resource estimations.</li>
-                            <li>Ensured technical excellence via process compliance enforcement, interdependent team
-                                management, and mentoring across business/testing teams.</li>
-                            <li>Delivered end-to-end success supporting testing lifecycle while interfacing with
-                                business, QA, and related teams throughout program.</li>
-                            <li>Expanded business impact through RFP participation, technical paper presentations, and
-                                conducting technical interviews.</li>
-                            <li><b>Technologies & Delivery Capabilities: </b> Program Management, Technical Leadership,
-                                Customer Management, Resource
-                                Allocation, Cross-Project
-                                Coordination, Program Governance, Deep Dive Meetings, Gate Reviews, Status Meetings,
-                                Effort Estimation Validation, Process Compliance, Interdependent Team Management,
-                                Mentoring, Testing Lifecycle Support, Business/QA Interface, RFP Participation,
-                                Technical Presentations, Interviewing.
+                            <li>
+                                Led a <strong>60-member cross-functional team</strong> as
+                                <strong>Program Technical Lead and Onsite Program Manager</strong>,
+                                overseeing <strong>customer engagement, resource allocation,
+                                    and multi-project coordination</strong>.
+                            </li>
+
+                            <li>
+                                Directed strong <strong>program governance</strong> through
+                                <strong>deep-dive reviews, stage-gate reviews, and weekly
+                                    program status meetings</strong>, while validating
+                                <strong>effort and resource estimations</strong>.
+                            </li>
+
+                            <li>
+                                Ensured delivery excellence through
+                                <strong>process compliance</strong>,
+                                <strong>interdependent team coordination</strong>, and
+                                mentoring across <strong>business and QA teams</strong>.
+                            </li>
+
+                            <li>
+                                Delivered end-to-end program success by supporting the
+                                <strong>complete testing lifecycle</strong> and facilitating
+                                collaboration across <strong>business, QA, and development teams</strong>.
+                            </li>
+
+                            <li>
+                                Expanded organizational impact through
+                                <strong>RFP participation</strong>,
+                                <strong>technical presentations</strong>, and
+                                conducting <strong>technical interviews</strong> to strengthen
+                                engineering capabilities.
+                            </li>
                         </ul>
+
                         <p class="project-outcome">
-                            <strong>Outcome: </strong>Delivered Policy Self-Service Transformation enabling 24/7 online
-                            policy changes as Program Technical Lead/Onsite Progarm Manager for 60-member team—achieving
-                            perfect 7/7
-                            CSAT rating and Program of the Year recognition.
+                            <strong>Technologies &amp; Delivery Capabilities:</strong>
                         </p>
+                        <strong>Program Management</strong>,
+                        <strong>Technical Leadership</strong>,
+                        Customer Relationship Management,
+                        Resource Allocation,
+                        Cross-Project Coordination,
+                        <strong>Program Governance</strong>,
+                        Deep-Dive Reviews,
+                        Stage-Gate Reviews,
+                        Status Reporting,
+                        Effort Estimation Validation,
+                        Process Compliance,
+                        Interdependent Team Management,
+                        Mentoring &amp; Coaching,
+                        Testing Lifecycle Support,
+                        Business–QA Collaboration,
+                        RFP Participation,
+                        Technical Presentations,
+                        Technical Interviewing.
+
+
+                        <p class="project-outcome">
+                            <strong>Outcome:</strong>
+                        </p>
+                        Successfully delivered the <strong>Policy Self-Service Transformation</strong>,
+                        enabling customers to perform <strong>24/7 online policy updates</strong>.
+                        The initiative achieved a <strong>perfect CSAT score of 7/7</strong> and
+                        earned <strong>Program of the Year recognition</strong> for outstanding
+                        delivery and customer satisfaction.
+
                     </article>
 
 
@@ -1291,7 +1958,10 @@
             <!-- Recognitions Section -->
             <section id="recognitions" class="content-section">
                 <h1>Appreciations & Recognition</h1>
-
+                <p class="subsection-description">
+                    Recognition from clients, senior leaders, and colleagues for delivering high-impact architecture,
+                    cloud transformation, and enterprise program leadership across complex initiatives.
+                </p>
                 <div class="table-container">
                     <table class="recognition-table">
                         <thead>
@@ -1885,6 +2555,685 @@
                 </div>
             </section>
 
+            <section id="recognitions2" class="content-section">
+
+
+                <h1>Appreciations & Recognition</h1>
+
+                <p class="section-subtitle">                
+                    Recognition from clients, senior leaders, and colleagues for delivering high-impact
+                    architecture, cloud transformation, and enterprise program leadership across complex
+                    initiatives.
+                </p>
+
+                <div class="cards-grid">
+
+                    <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Srini, you have been an amazing fella, great colleague and very knowledgeable person
+                                    to work with. Over the past few months of our partnership, I truly enjoyed working
+                                    with you and learnt so much from you.<br><br>
+
+                                    I am humbly wishing you an amazing journey ahead of you and please be in touch."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Scrum Master</strong><br>
+                            Role: Release Train Engineer (RTE) • May 2025
+                        </div>
+                    </div>
+
+                    <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Srinivasa was a hardworking member of the Time To Market (TTM) team, and contributed
+                                    heavily to the team organization, project methodology and to the 3 of the four
+                                    product/project assessment streams. He supported SAP team with initial framework
+                                    mapping from Agile DevSecOps to SAP and metrics definition.<br><br>
+
+                                    Srini is certified Google Cloud Architect and his many years of experience in
+                                    leading teams in Agile and DevOps delivery on OpenShift, AWS, and Google Cloud as a
+                                    Scrum Master and Architect.<br><br>
+
+                                    He immediately learned the DevSecOps assessment framework, and worked on defining a
+                                    scaled onboarding methodology for the client assessment. This methodology was
+                                    adopted for all client projects onboarding. He also developed all the initial
+                                    kick-off materials for the assessments.<br><br>
+
+                                    During the project, Srinivasa was able to organize and prepare client SMEs in the
+                                    delivery of all workshops for two projects. He was also instrumental in analysis and
+                                    documentation of all sessions, assessment ratings and recommendations. Once
+                                    recommendations were available, Srini worked diligently with the project teams to
+                                    obtain sign off. This was essential to the success of the project, since teams were
+                                    pushing back and it was hard to achieve consensus.<br><br>
+
+                                    Srini was also able to help others during the project with metrics definition for a
+                                    project where data was not clearly defined and available in the systems, as well as
+                                    helping with the initial assessment framework mapping from SAP specific to Agile
+                                    DevSecOps client-wide framework. Overall, Srini made a significant impact in the
+                                    delivery of the client TTM project."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Associate Director</strong><br>
+                            Role: DevSecOps Architect • Jul 2024
+                        </div>
+                    </div>
+
+                    <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Hi Srini, I would take this opportunity to appreciate your great support and this
+                                    huge contribution building up our Cloud Native Assessment framework! It's definitely
+                                    our great pleasure to work with you on our ORAN journey. Look forward to cross our
+                                    line soon! 😊 Keep in touch!"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Senior Manager</strong><br>
+                            Role: Cloud Architect • 2023-May-10
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Our Program: A 2+ year implementation of Video Services to cover over 3 million
+                                    customers across 4 components: (1) Software delivery collaboratively with client
+                                    engineers. (2) Infrastructure and CI/CD tooling delivery of Google Cloud Platform &
+                                    GKE Kubernetes Engine. (3) Creation of customer-product centric organization with
+                                    and for Client. (4) Skills Transition to Client Engineering team.<br><br>
+
+                                    Srini's role was Architect and product Owner of the Frictionless Team, responsible
+                                    with the platform infrastructure, DevSecOps pipeline and associated capabilities.
+                                    Srini managed a team of 20 resources both onshore and offshore to build a complex
+                                    infrastructure on Google Cloud for a video streaming solution supporting 3 million
+                                    customers. He also led the team through a high paced project to rebuild CICD
+                                    pipeline from legacy Jenkins self-hosted single jobs per microservice, to a fully
+                                    integrated CICD pipeline based on Harness.io. He has received praises for his
+                                    ability to plan and take the plan to completion from the client manager and director
+                                    levels. Srini has distinguished himself at Client for his leadership abilities,
+                                    leading a large team as well as building new talent by guiding a team of 10 junior
+                                    resources in their apprenticeship journey.<br><br>
+
+                                    I highly recommend working with Srini for his deep technical cloud skills,
+                                    application engineering, and technical architecture depth of knowledge, project
+                                    planning, and people leadership. Thank you, Srini for an excellent job at our
+                                    client."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Associate Director</strong><br>
+                            Role: Cloud Architect & Cloud Tech Program Manager • 2023-Apr-26
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Hi Srini, Thank you very much for stepping up on our critical Performance Testing
+                                    effort, especially in Sr. Architect's absence.<br><br>
+
+                                    It is a very challenging time on our program, and we have much left to do, but
+                                    really appreciate your drive and dedication."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Leadership</strong><br>
+                            Role: Cloud Architect & Cloud Tech Program Manager • 2022-Sep-24
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "I would be out of words if I had to describe how good Srini is in Cloud/DevOps
+                                    Architecture. Along with technical skills, Srini's management skills are also
+                                    amazing. He is good at working with people and building relationships by delivering
+                                    value."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Product Owner</strong><br>
+                            Role: Cloud Architect • 2022-Apr-18
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "You have redefined teamwork with your dedication and hardwork, ....."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Director</strong><br>
+                            Role: Cloud Architect • 2022-Feb-16
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Hi Srini, It was great working with you and thanks a lot for your help with
+                                    everything related to OpenShift. I will certainly miss working with you 😊"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Project Manager</strong><br>
+                            Role: Cloud Architect • 2022-Sep-24
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Hi Srini, I'm in the same team as Travis and want to message that we really
+                                    appreciate your help with the phone number change pipeline OSD issue. It's a key
+                                    flow for us and impacts a lot of customers if we don’t have it resolved by tomorrow.
+                                    Thank you for prioritizing this with Travis."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Manager</strong><br>
+                            Role: Cloud Architect • 2022-Jan-19
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "I am going to be gone for holiday until next year. Thanks so much for all your
+                                    support this year Srini. You have been one of the most reliable colleague here! Have
+                                    a great holiday season."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Technical Lead</strong><br>
+                            Role: Cloud Architect • 2021-Dec-17
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Hi Srini, Thanks a lot for helping us troubleshoot the Proxy issue a week ago, this
+                                    helped us go through the release before the blackfriday Embargo kicks in. We
+                                    appreciate it 😊"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Project Manager</strong><br>
+                            Role: Cloud Architect • 2021-Nov-09
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Thanks very much for those kind words! Good luck in your new role and thanks very
+                                    much for what you've done to take the technology at our enterprise forward quite a
+                                    ways!<br><br>
+
+                                    Again best luck and wishes for you and your family. ​"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>SVP</strong><br>
+                            Role: Tech Program Manager & DevOps Architect • 2020-Apr-30
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Srini, I can see you working so hard these last few days on the workshop while also
+                                    trying to manage the actual day to day project work that is going on. I know it’s
+                                    tough. But I feel you are doing a very good job and I truly appreciate the extra
+                                    work you are putting in to help us succeed. You really are doing a good job for us.
+                                    Thanks for the efforts."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Client Partner</strong><br>
+                            Role: Tech Program Manager & DevOps Architect • 2019-Jan-18
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Would like to thank Srini's yet another stellar contributions he made today with the
+                                    prospective customer presentation.<br><br>
+
+                                    Srini great job! Much appreciate all your thought process and subject matter
+                                    expertise."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>General Manager</strong><br>
+                            Role: J2EE Architect • 2017-Jul-13
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Too often in our roles we receive and have to deal with negative feedback. In this
+                                    case I wanted to say that I have found Srini to be an excellent person to work with.
+                                    He is a real team player, works hard and has a very good relationship with the team.
+                                    On top of this he has an excellent technical background which enables him to
+                                    actively participate in all of the technical issues.<br><br>
+
+                                    Great choice for the role! 😊"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Sr. Development Manager</strong><br>
+                            Role: Scrum Master • 2016-Jul-15
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Dear Srini, I would like to thank your efforts which you have put-in to the project
+                                    till date, truly appreciated. We wouldn’t have come to a stage where we are in today
+                                    towards our project with-out your committed support.<br><br>
+
+                                    Keep going 😊"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Program Manager</strong><br>
+                            Role: J2EE Architect • 2015-May-15
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "I just got the update from our developer that this is resolved. Yesterday I only
+                                    asked him to talk to you and get this resolved by you because now I am confident
+                                    that any issue is faced by the team can be resolved by EdaSrinivas 😊. Thanks again
+                                    Srinivas. Good to have you in the team."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Sr. Delivery Manager</strong><br>
+                            Role: J2EE Architect • 2013-Sep-18
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Hi All - Please join me congratulating Our team for the perfect 7/7 PCSAT
+                                    score.<br><br>
+
+                                    <u>Core Team</u><br><br>
+
+                                    Product Owner: ---<br>
+                                    <b>Architect: Eda</b><br>
+                                    Offshore IM: ---<br>
+                                    TL: ---<br>
+                                    BA: ---<br>
+                                    Line Testing: ---<br>
+                                    Regression Testing: ---"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Delivery Manager</strong><br>
+                            Role: J2EE Architect • 2012-May-17
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "As Eda is going to be leaving shortly, I wanted to give some feedback from a test
+                                    lead perspective. In short, he has been an amazing addition to the team and a huge
+                                    help to the testing team. Starting in the beginning he helped us understand the code
+                                    merge strategy so we could come up with a proper regression testing plan. Throughout
+                                    the whole project Eda always did his best to be available when people needed his
+                                    help. He was also a crucial part of the project when we were trying to test all of
+                                    the dependencies. Without him, we would have missed a few very important defects. He
+                                    was also very professional through the entire project and was able to make wise
+                                    choices for important decisions. And Eda has always been a team player, taking extra
+                                    time to make sure things are correct and helping people to understand.<br><br>
+
+                                    On a personal level, Eda is a very nice person and fun to be around. He is always
+                                    upbeat and positive."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Test Lead</strong><br>
+                            Role: J2EE Architect • 2012-May-10
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Eda, I could not agree more with Sid's comments.<br><br>
+
+                                    You are really really good at what you do, but what I appreciate most is that you
+                                    are humble and quietly do what the team needs to be done. It is always a pleasure
+                                    working with you."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Scrum Master</strong><br>
+                            Role: J2EE Architect • 2012-Apr-17
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "I want to express my appreciation for Eda who has excelled in his role not just as
+                                    an Architect but also as an acting Tech Lead for the our Expansion project.<br><br>
+
+                                    The special characteristics about Eda are his resourcefulness, intellectual
+                                    curiosity, tenacity to dive deep into topics, cheerfulness in the face of adversity
+                                    and willingness to guide and help others. His amiable nature, and even keel
+                                    perfectly complement his technical brilliance.<br><br>
+
+                                    Now that CA is in production, it is fair to say that we owe a large part of our
+                                    success to Eda rescuing us from situations - either with his own intuition and
+                                    analysis or by tackling issues discovered by other team members. Policy data issue,
+                                    Billing failures, Failed saves to SA during rating are just a few examples. Even
+                                    with an all around good team effort, Eda was the "extractor" for sticky
+                                    situations.<br><br>
+
+                                    It is unfortunate that he is forced to leave us shortly due to no fault of his own.
+                                    He will be sorely missed by all, including what the team fondly refers to as
+                                    "Edaisms".<br><br>
+
+                                    I consider myself fortunate to have made the acquaintance and worked with one of the
+                                    nicest, good at heart persons at our Organization."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Project Manager</strong><br>
+                            Role: J2EE Architect • 2012-Apr-16
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Hi all – Please join me congratulating our team for their fantastic achievement of
+                                    PCSAT 7/7. Also, received a score of 7/7 on Do it Right First Time (DRFT) parameter
+                                    which indicates the quality of the deliverables in consistent manner with less/no
+                                    re-work.<br><br>
+
+                                    <u>The proud team comprises of:</u><br><br>
+
+                                    <b>-Captainship ! (Eda Srinivas – Program tech lead cum Onsite manager and --- -
+                                        Offshore Manager)</b><br>
+                                    -Development (---)<br>
+                                    -Testing (---)<br>
+                                    -Domain (---)<br><br>
+
+                                    I appreciate each and every one from all streams who contributed in their respective
+                                    capacity towards success of this program.<br><br>
+
+                                    Managers/Leads – Please pass on this mail to anyone whom we missed unintentionally
+                                    in the list."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Delivery Manager</strong><br>
+                            Role: Program Tech Dev Lead • 2011-May-31
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "<b> --- Award - Program team recognition</b><br></br>
+
+                                    The following individuals may not have been listed as one of the 13 members of the
+                                    Award-winning team. That is only because they are contractors or were noble enough
+                                    to give up a slot on the nomination form to their front-line project level
+                                    associates.<br></br>
+
+                                    These important program team leaders' contributions were absolutely vital to the
+                                    successful delivery of our program. I didn't want recognition of this achievement to
+                                    pass without mention of the great value they brought to the program -- as leaders
+                                    and team members.<br></br>
+
+                                    In 2010, they were:<br></br>
+
+                                    --- - Program Test Lead<br>
+                                    --- - Program Business Lead<br>
+                                    --- - Program Solution Lead<br>
+                                    --- - Program UE Lead<br>
+                                    <b>Eda Srinivas - Program Tech Dev Lead</b><br>
+                                    --- - Program Architect<br></br>
+
+                                    If you would like more information on the important contributions these folks have
+                                    made , please let me know."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Program Manager</strong><br>
+                            Role: Dev Lead • 2011-Apr-27
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Srini, During our weekly architecture meeting today, our program architect
+                                    recognized your outstanding contributions to our program. He stated that you
+                                    routinely go well beyond Program Tech Dev Lead responsibilities to make the program
+                                    successful . I too wanted to commend you on a job well done. Thanks for your
+                                    valuable contributions."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Director</strong><br>
+                            Role: Program Tech Dev Lead • 2011-Jan-06
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "'Thanks Srini for your leadership on this project - you have done an outstanding job
+                                    personally to deliver last release. The recognition you have shown in your email
+                                    below truly demonstrates your ability as a leader. We are very pleased that you have
+                                    taken the overall Program Tech Lead role!'"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Program Manager</strong><br>
+                            Role: Program Tech Dev Lead • 2010-Aug-12
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "I am very happy to announce that Eda Srinivasa Reddy (Srini) will be taking on the
+                                    Program Tech Lead role effective Monday 8/9. He will function as the Development
+                                    domain leader across all our projects. Srini has done a great job as the Project
+                                    Tech Lead and I am confident that he will continue to do great things at the program
+                                    level. Please give him your complete cooperation and support in the transition and
+                                    going-forward. Srini has previously served as a Tech Lead on our another program.
+                                    Prior to coming aboard at our organization, he consulted with his employer for
+                                    financial services clients and was engaged in a group-floor opportunity with A--
+                                    Technologies before that.<br><br>
+
+                                    Srini currently lives in Dublin with his wife and daughter. He likes to spend his
+                                    time with his family and to do a lot of reading. He played volleyball in college and
+                                    continues to play often, for recreation. Please join me in congratulating Srini on
+                                    his expanded responsibilities."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Program Manager</strong><br>
+                            Role: Program Tech Dev Lead • 2010-Jul-29
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Srini - congratulations on your assignment in the Program Tech Lead role - this is a
+                                    very important role and we are glad to have you on the team. Also, thanks for all
+                                    the great work on the --- project!!!"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Program Leadership</strong><br>
+                            Role: Program Tech Dev Lead • 2010-Jul-29
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "<b>I got Caught !</b><br><br>
+
+                                    Srini Eda is an excelptionally talented software developer/architect, keeps his
+                                    focus at the bigger picture while paying attention to minute details of design
+                                    requirements. He is a pleasure to work with, enjoys intellectual debate and is a
+                                    great team player. Our project benefitted immensely by having a tech lead in Eda,
+                                    Eda has the uncanny ability to intuitively anticipate issues and provide guidance to
+                                    the development team."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Project Manager</strong><br>
+                            Role: J2EE Tech Lead • 2010-Jul-20
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Eda - congratulations and great job to the development team on so few defects in
+                                    your queue - I see there is only 1 low defect assigned out to development. I know
+                                    we've had a couple of down days without new defects coming in, but I am very glad to
+                                    see we've cleared out the backlog so we can attack the new ones coming in.<br><br>
+
+                                    I hear lots of great things about your work , thanks so much for your leadership on
+                                    the project!!!"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Program Leadership</strong><br>
+                            Role: J2EE Tech Lead • 2010-Jul-14
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Here is my feedback on Eda Srinivas for the below deliverables on our
+                                    project.<br><br>
+
+                                    <u>Delivery:</u><br><br>
+
+                                    Eda has delivered his tasks on time, within his estimates, and with high quality.
+                                    Eda even goes out of the way to propose better technical designs or solutions to
+                                    problems that others are having. Eda pairs with other teammates and helps others to
+                                    deliver on their commitments.<br><br>
+
+                                    <u>Communication:</u><br><br>
+
+                                    Eda is a good communicator. He works well with the team and can present issues and
+                                    his technical thoughts to everyone in a well thought out and easy to understand
+                                    manner. Eda is able to document his technical implementations for others to
+                                    understand.<br><br>
+
+                                    <u>Teamwork:</u><br><br>
+
+                                    Eda is a team player. He is the first to jump in and help out when help is needed.
+                                    His flexibility and calm demeanour make him a perfect fit for the team because he
+                                    compliments and provides an example for people of harsh character. Eda helps other
+                                    developers when needed and freely shares information and his technical
+                                    knowledge.<br><br>
+
+                                    <u>Overall:</u><br><br>
+
+                                    Eda's performance has been stellar and he is a go to person on my team."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Project Manager</strong><br>
+                            Role: 2EE Sr. Software Engineer • 2009-Apr-28
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "Eda,<br><br>
+
+                                    I would be happy to pass along some feedback on you.<br><br>
+
+                                    Eda has very strong technical skills, is an effective communicator, is accountable,
+                                    and goes above and beyond expectations on a regular basis. Eda has taken on
+                                    ownership of doing project builds, coordinating with the team on builds and testing,
+                                    as well as his regular duties as a developer. On several occasions Eda has provided
+                                    deliverables that were above my expectations (i.e. auto build process and messaging,
+                                    working late hours on defects and functionality, and coming up with creative
+                                    solutions to solve business requirements). Eda works well with the team and is a
+                                    great team player.<br><br>
+
+                                    For Eda to continue his development I would like to see him continue to grow his
+                                    technical skills, take on more responsibility of onboarding developers, completing
+                                    development reviews, and helping to develop junior developers on the team.<br><br>
+
+                                    Thanks Eda!"
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Project Manager</strong><br>
+                            Role: J2EE Sr. Software Engineer • 2008-Nov-13
+                        </div>
+                    </div>
+
+                     <div class="individual-card">
+                        <p class="recognition-quote">
+                            "As you know Srini Reddy’s last day on our team is Friday, April 25th. I thought I
+                                    would take this opportunity to provide you some feedback on Srini’s significant
+                                    contributions to our team.<br><br>
+
+                                    Our project is a large complex project, with many moving interdependent parts, and a
+                                    web of business rules. At times we work on 3 simultaneous releases, one in
+                                    development, one in QA and one going into production – needless to say it is a
+                                    difficult situation to walk into. It was evident from the very outset when Srini
+                                    joined the team that he was going to be an asset to our team. Srini embodies all the
+                                    qualities the our team finds valuable in a team member; he has exemplary technical
+                                    skills, excellent communication skills, a strong work ethic, is a quick study, pays
+                                    extremely close attention to details, possesses strong leadership qualities, has a
+                                    genuine concern for the overall quality of the project, and does it all with a great
+                                    attitude.<br><br>
+
+                                    Over the period that Srini has been on the team he has gained the respect of his
+                                    peers, including those on his program team, and members of our Mainframe team, our
+                                    QA team, our database modeling team, and our business team. He has forged strong
+                                    working relationships with the various teams he has been asked to work with. Srini’s
+                                    ability to gain the confidence of the multiple teams we work with has greatly
+                                    enhanced the our team’s ability to meet it’s often time aggressive goals and
+                                    schedules of releases.<br><br>
+
+                                    Srini exhibits a great ability to quickly grasp new concepts and technologies. In
+                                    the course of the project he has taken on many tasks that required learning new
+                                    techniques or quickly acquiring new areas of knowledge. This includes but is not
+                                    limited to taking over the service layer of our project. The service layer includes
+                                    not only a great many business details but several complex technologies including
+                                    the RRBus and inhouse object generation. Srini quickly became proficient in all
+                                    areas of the service layer. In leading the service layer objective Srini was deeply
+                                    involved with the business domain owners quickly proving himself a valuable resource
+                                    keeping track of all the excruciating details involved with this area.<br><br>
+
+                                    In addition to guiding the service layer portion Srini shoulders great many other
+                                    responsibilities in the other nonservice layer areas of the project. He has stepped
+                                    in and stepped up anytime extra effort was needed in areas of the project that were
+                                    not his direct responsibility; this includes fixing view layer issues , developing
+                                    view layer classes, proving guidance to the database modeling team, executing
+                                    builds, managing source control issues, leading demos, and providing guidance and
+                                    support to team members. These efforts included some very long days and nights and
+                                    stemmed from Srini’s great sense of personal responsibility for the success of the
+                                    project.<br><br>
+
+                                    Srini has also been invaluable in mentoring in five new developers onto the team. He
+                                    has provided KAP and guidance to the new developers helping bring them to quickly
+                                    become productive members of the team. He has shown great leadership skill by
+                                    engaging new team members in long working sessions. These sessions served to
+                                    transfer significant knowledge but more importantly acted as a springboard to
+                                    forming strong bonds amongst the developers and facilitating teamwork. He is
+                                    constantly an excellent role model for the other developers on the team.<br><br>
+
+                                    It has been a genuine pleasure working with Srini and Our Team truly appreciates all
+                                    his effort and great work."
+                        </p>
+
+                        <div class="recognition-meta">
+                            <strong>Tech Lead</strong><br>
+                            Role: J2EE Sr. Software Engineer • 2008-Apr-25
+                        </div>
+                    </div>
+
+                     
+                </div>
+
+            </section>
 
             <!--
             <section id="resume" class="content-section">
