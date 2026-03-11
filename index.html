@@ -92,6 +92,7 @@
             overflow-y: auto;
         }
 
+        /* This is the light yellow area over black area*/
         .content-section {
             display: none;
             background: rgba(255, 255, 255, 0.95);
@@ -99,9 +100,10 @@
             border-radius: 24px;
             padding: 0 3rem;
             /* Eda: Initially it was 'padding: 4rem'. This is for the top white space area*/
+            padding-bottom: 2.5rem;   /* bottom spacing */
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            min-height: 70vh;
+            min-height: 97vh;
         }
 
         .content-section.active {
@@ -276,6 +278,7 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 1.5rem;
+
             /* Eda: Initially, it was 'margin-top: 3rem'  */
         }
 
@@ -333,6 +336,8 @@
             /* Line spacing */
             padding-left: 16px;
             /* Space for dot */
+            margin-bottom: 8px;
+            gap: 8px;
         }
 
         .card-item:hover {
@@ -346,10 +351,13 @@
             left: 0;
             top: 21px;
             /* Align vertically with text */
-            width: 3px;
-            height: 3px;
+            width: 4px;
+            height: 4px;
+
             background-color: #3a5fa0;
             border-radius: 50%;
+            font-weight: bold;
+            margin-right: 8px;
         }
 
         /* Mobile */
@@ -393,10 +401,12 @@
 
         .individual-card {
             background: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             transition: transform .25s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
         .individual-card:hover {
@@ -407,6 +417,122 @@
             margin-bottom: 12px;
             color: #204a8e;
         }
+
+       /* .individual-card h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #2f5597;
+            margin-top: 6px;
+        }*/
+
+        .individual-card p {
+            line-height: 1.75;
+        }
+
+        .individual-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2f5597, #4a6fb3);
+            border-radius: 14px 14px 0 0;
+        }
+
+        /* About page - professional Summary Card Start */
+        .summary-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform .25s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .summary-card h3 {
+            margin-bottom: 12px;
+            color: #204a8e;
+        }
+
+      /* .summary-card h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #2f5597;
+            margin-top: 6px;
+        }*/
+
+        .summary-card p {
+            line-height: 1.75;
+        }
+
+        .summary-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #6a5acd, #8b7cf0);
+            border-radius: 14px 14px 0 0;
+        }
+
+        /* About page - professional Summary Card End */
+
+        /* About page - professional approach Card Start */
+        .approach-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform .25s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .approach-card h3 {
+            margin-bottom: 12px;
+            color: #204a8e;
+        }
+
+       /* .approach-card h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #2f5597;
+            margin-top: 6px;
+        }*/
+
+        .approach-card p {
+            line-height: 1.75;
+        }
+
+        .approach-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1f9d73, #38c997);
+            border-radius: 14px 14px 0 0;
+        }
+
+        /* About page - professional Summary approach section End */
 
         /* Certifications Section Styles */
         .certs-container {
@@ -773,85 +899,87 @@
             font-style: italic;
         }
 
-/* Temp*/
+        /* Temp*/
 
-.recognition-section{
-padding:70px 20px;
-text-align:center;
-}
+        .recognition-section {
+            padding: 70px 20px;
+            text-align: center;
+        }
 
-.section-subtitle{
-max-width:750px;
-margin:auto;
-color:#666;
-margin-bottom:40px;
-}
+        .section-subtitle {
+            max-width: 750px;
+            margin: auto;
+            color: #666;
+            margin-bottom: 40px;
+        }
 
-.recognition-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
-max-width:1100px;
-margin:auto;
-}
+        .recognition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.recognition-card{
-background:white;
-border-radius:14px;
-padding:25px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-text-align:left;
-transition:transform .25s ease;
-}
+        .recognition-card {
+            background: white;
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            transition: transform .25s ease;
+        }
 
-.recognition-card:hover{
-transform:translateY(-5px);
-}
+        .recognition-card:hover {
+            transform: translateY(-5px);
+        }
 
-.recognition-quote{
-font-style:italic;
-color:#444;
-line-height:1.6;
-margin-bottom:18px;
-}
+        .recognition-quote {
+            font-style: italic;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
 
-.recognition-meta{
-font-size:0.9rem;
-color:#2a4b8d;
-}
+        .recognition-meta {
+            font-size: 0.9rem;
+            color: #2a4b8d;
+        }
 
 
-.impact-metrics{
-padding:70px 20px;
-text-align:center;
-}
+        .impact-metrics {
+            padding: 70px 20px;
+            text-align: center;
+        }
 
-.metrics-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:25px;
-max-width:1000px;
-margin:auto;
-}
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
 
-.metric-card{
-background:white;
-border-radius:12px;
-padding:25px;
-box-shadow:0 8px 18px rgba(0,0,0,0.08);
-}
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        }
 
-.metric-card h3{
-font-size:2.4rem;
-color:#2d4a8a;
-margin-bottom:6px;
-}
+        .metric-card h3 {
+            font-size: 2.4rem;
+            color: #2d4a8a;
+            margin-bottom: 6px;
+        }
 
-.metric-card p{
-color:#666;
-font-size:0.95rem;
-}
+        .metric-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
 
+
+        /* NEW ABOUT ME Section*/
     </style>
 </head>
 
@@ -871,6 +999,14 @@ font-size:0.95rem;
         </svg>
         Home
     </a></li>
+
+                <li><a class="nav-link" data-section="about">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z" />
+                        </svg>
+                        About Me
+                    </a></li>
 -->
                 <li><a class="nav-link" data-section="about">
                         <svg class="nav-icon" viewBox="0 0 24 24">
@@ -884,7 +1020,7 @@ font-size:0.95rem;
                     <a class="nav-link" data-section="impact-metrics">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 12h18M12 3v18"/>
+                            <path d="M3 12h18M12 3v18" />
                         </svg>
                         Impact Metrics
                     </a>
@@ -938,8 +1074,8 @@ font-size:0.95rem;
                         </svg>
                         Recognitions
                     </a></li>-->
-                
-                    <li><a class="nav-link" data-section="recognitions2">
+
+                <li><a class="nav-link" data-section="recognitions2">
                         <svg class="nav-icon" viewBox="0 0 24 24">
                             <path
                                 d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z" />
@@ -985,7 +1121,7 @@ font-size:0.95rem;
             </section> -->
 
             <!-- About Section (Default) -->
-            <section id="about" class="content-section active">
+            <section id="about-old" class="content-section">
                 <h1>About Me</h1>
                 <p class="intro-text">
                     Accomplished Cloud and AI Architect and Program Leader with extensive experience driving strategic
@@ -997,8 +1133,8 @@ font-size:0.95rem;
                     DevSecOps and IT Service Management (ITSM) transformation initiatives.
                 </p>
                 <p class="intro-text">
-                    Deep expertise in Google Cloud Platform (GCP)—including GKE, Cloud SQL, BigQuery ML, Dataproc,
-                    Dataflow, and Vertex AI—with a strong focus on architecting scalable Generative AI and agentic
+                    Deep expertise in Google Cloud Platform (GCP) - including GKE, Cloud SQL, BigQuery ML, Dataproc,
+                    Dataflow, and Vertex AI - with a strong focus on architecting scalable Generative AI and agentic
                     systems using Python, LangChain, Google Generative AI services, Google Agent Development Kit (ADK),
                     n8n, and Flowise to enable enterprise-grade LLM orchestration and intelligent automation. Proven
                     experience designing and delivering large-scale cloud architectures supporting 150+ Spring Boot
@@ -2603,7 +2739,7 @@ font-size:0.95rem;
 
                 <h1>Appreciations & Recognition</h1>
 
-                <p class="section-subtitle">                
+                <p class="section-subtitle">
                     Recognition from clients, senior leaders, and colleagues for delivering high-impact
                     architecture, cloud transformation, and enterprise program leadership across complex
                     initiatives.
@@ -2614,10 +2750,10 @@ font-size:0.95rem;
                     <div class="individual-card">
                         <p class="recognition-quote">
                             "Srini, you have been an amazing fella, great colleague and very knowledgeable person
-                                    to work with. Over the past few months of our partnership, I truly enjoyed working
-                                    with you and learnt so much from you.<br><br>
+                            to work with. Over the past few months of our partnership, I truly enjoyed working
+                            with you and learnt so much from you.<br><br>
 
-                                    I am humbly wishing you an amazing journey ahead of you and please be in touch."
+                            I am humbly wishing you an amazing journey ahead of you and please be in touch."
                         </p>
 
                         <div class="recognition-meta">
@@ -2629,31 +2765,31 @@ font-size:0.95rem;
                     <div class="individual-card">
                         <p class="recognition-quote">
                             "Srinivasa was a hardworking member of the Time To Market (TTM) team, and contributed
-                                    heavily to the team organization, project methodology and to the 3 of the four
-                                    product/project assessment streams. He supported SAP team with initial framework
-                                    mapping from Agile DevSecOps to SAP and metrics definition.<br><br>
+                            heavily to the team organization, project methodology and to the 3 of the four
+                            product/project assessment streams. He supported SAP team with initial framework
+                            mapping from Agile DevSecOps to SAP and metrics definition.<br><br>
 
-                                    Srini is certified Google Cloud Architect and his many years of experience in
-                                    leading teams in Agile and DevOps delivery on OpenShift, AWS, and Google Cloud as a
-                                    Scrum Master and Architect.<br><br>
+                            Srini is certified Google Cloud Architect and his many years of experience in
+                            leading teams in Agile and DevOps delivery on OpenShift, AWS, and Google Cloud as a
+                            Scrum Master and Architect.<br><br>
 
-                                    He immediately learned the DevSecOps assessment framework, and worked on defining a
-                                    scaled onboarding methodology for the client assessment. This methodology was
-                                    adopted for all client projects onboarding. He also developed all the initial
-                                    kick-off materials for the assessments.<br><br>
+                            He immediately learned the DevSecOps assessment framework, and worked on defining a
+                            scaled onboarding methodology for the client assessment. This methodology was
+                            adopted for all client projects onboarding. He also developed all the initial
+                            kick-off materials for the assessments.<br><br>
 
-                                    During the project, Srinivasa was able to organize and prepare client SMEs in the
-                                    delivery of all workshops for two projects. He was also instrumental in analysis and
-                                    documentation of all sessions, assessment ratings and recommendations. Once
-                                    recommendations were available, Srini worked diligently with the project teams to
-                                    obtain sign off. This was essential to the success of the project, since teams were
-                                    pushing back and it was hard to achieve consensus.<br><br>
+                            During the project, Srinivasa was able to organize and prepare client SMEs in the
+                            delivery of all workshops for two projects. He was also instrumental in analysis and
+                            documentation of all sessions, assessment ratings and recommendations. Once
+                            recommendations were available, Srini worked diligently with the project teams to
+                            obtain sign off. This was essential to the success of the project, since teams were
+                            pushing back and it was hard to achieve consensus.<br><br>
 
-                                    Srini was also able to help others during the project with metrics definition for a
-                                    project where data was not clearly defined and available in the systems, as well as
-                                    helping with the initial assessment framework mapping from SAP specific to Agile
-                                    DevSecOps client-wide framework. Overall, Srini made a significant impact in the
-                                    delivery of the client TTM project."
+                            Srini was also able to help others during the project with metrics definition for a
+                            project where data was not clearly defined and available in the systems, as well as
+                            helping with the initial assessment framework mapping from SAP specific to Agile
+                            DevSecOps client-wide framework. Overall, Srini made a significant impact in the
+                            delivery of the client TTM project."
                         </p>
 
                         <div class="recognition-meta">
@@ -2665,9 +2801,9 @@ font-size:0.95rem;
                     <div class="individual-card">
                         <p class="recognition-quote">
                             "Hi Srini, I would take this opportunity to appreciate your great support and this
-                                    huge contribution building up our Cloud Native Assessment framework! It's definitely
-                                    our great pleasure to work with you on our ORAN journey. Look forward to cross our
-                                    line soon! 😊 Keep in touch!"
+                            huge contribution building up our Cloud Native Assessment framework! It's definitely
+                            our great pleasure to work with you on our ORAN journey. Look forward to cross our
+                            line soon! 😊 Keep in touch!"
                         </p>
 
                         <div class="recognition-meta">
@@ -2676,30 +2812,30 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Our Program: A 2+ year implementation of Video Services to cover over 3 million
-                                    customers across 4 components: (1) Software delivery collaboratively with client
-                                    engineers. (2) Infrastructure and CI/CD tooling delivery of Google Cloud Platform &
-                                    GKE Kubernetes Engine. (3) Creation of customer-product centric organization with
-                                    and for Client. (4) Skills Transition to Client Engineering team.<br><br>
+                            customers across 4 components: (1) Software delivery collaboratively with client
+                            engineers. (2) Infrastructure and CI/CD tooling delivery of Google Cloud Platform &
+                            GKE Kubernetes Engine. (3) Creation of customer-product centric organization with
+                            and for Client. (4) Skills Transition to Client Engineering team.<br><br>
 
-                                    Srini's role was Architect and product Owner of the Frictionless Team, responsible
-                                    with the platform infrastructure, DevSecOps pipeline and associated capabilities.
-                                    Srini managed a team of 20 resources both onshore and offshore to build a complex
-                                    infrastructure on Google Cloud for a video streaming solution supporting 3 million
-                                    customers. He also led the team through a high paced project to rebuild CICD
-                                    pipeline from legacy Jenkins self-hosted single jobs per microservice, to a fully
-                                    integrated CICD pipeline based on Harness.io. He has received praises for his
-                                    ability to plan and take the plan to completion from the client manager and director
-                                    levels. Srini has distinguished himself at Client for his leadership abilities,
-                                    leading a large team as well as building new talent by guiding a team of 10 junior
-                                    resources in their apprenticeship journey.<br><br>
+                            Srini's role was Architect and product Owner of the Frictionless Team, responsible
+                            with the platform infrastructure, DevSecOps pipeline and associated capabilities.
+                            Srini managed a team of 20 resources both onshore and offshore to build a complex
+                            infrastructure on Google Cloud for a video streaming solution supporting 3 million
+                            customers. He also led the team through a high paced project to rebuild CICD
+                            pipeline from legacy Jenkins self-hosted single jobs per microservice, to a fully
+                            integrated CICD pipeline based on Harness.io. He has received praises for his
+                            ability to plan and take the plan to completion from the client manager and director
+                            levels. Srini has distinguished himself at Client for his leadership abilities,
+                            leading a large team as well as building new talent by guiding a team of 10 junior
+                            resources in their apprenticeship journey.<br><br>
 
-                                    I highly recommend working with Srini for his deep technical cloud skills,
-                                    application engineering, and technical architecture depth of knowledge, project
-                                    planning, and people leadership. Thank you, Srini for an excellent job at our
-                                    client."
+                            I highly recommend working with Srini for his deep technical cloud skills,
+                            application engineering, and technical architecture depth of knowledge, project
+                            planning, and people leadership. Thank you, Srini for an excellent job at our
+                            client."
                         </p>
 
                         <div class="recognition-meta">
@@ -2708,13 +2844,13 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Hi Srini, Thank you very much for stepping up on our critical Performance Testing
-                                    effort, especially in Sr. Architect's absence.<br><br>
+                            effort, especially in Sr. Architect's absence.<br><br>
 
-                                    It is a very challenging time on our program, and we have much left to do, but
-                                    really appreciate your drive and dedication."
+                            It is a very challenging time on our program, and we have much left to do, but
+                            really appreciate your drive and dedication."
                         </p>
 
                         <div class="recognition-meta">
@@ -2723,12 +2859,12 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "I would be out of words if I had to describe how good Srini is in Cloud/DevOps
-                                    Architecture. Along with technical skills, Srini's management skills are also
-                                    amazing. He is good at working with people and building relationships by delivering
-                                    value."
+                            Architecture. Along with technical skills, Srini's management skills are also
+                            amazing. He is good at working with people and building relationships by delivering
+                            value."
                         </p>
 
                         <div class="recognition-meta">
@@ -2737,7 +2873,7 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "You have redefined teamwork with your dedication and hardwork, ....."
                         </p>
@@ -2748,10 +2884,10 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Hi Srini, It was great working with you and thanks a lot for your help with
-                                    everything related to OpenShift. I will certainly miss working with you 😊"
+                            everything related to OpenShift. I will certainly miss working with you 😊"
                         </p>
 
                         <div class="recognition-meta">
@@ -2760,12 +2896,12 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Hi Srini, I'm in the same team as Travis and want to message that we really
-                                    appreciate your help with the phone number change pipeline OSD issue. It's a key
-                                    flow for us and impacts a lot of customers if we don’t have it resolved by tomorrow.
-                                    Thank you for prioritizing this with Travis."
+                            appreciate your help with the phone number change pipeline OSD issue. It's a key
+                            flow for us and impacts a lot of customers if we don’t have it resolved by tomorrow.
+                            Thank you for prioritizing this with Travis."
                         </p>
 
                         <div class="recognition-meta">
@@ -2774,11 +2910,11 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "I am going to be gone for holiday until next year. Thanks so much for all your
-                                    support this year Srini. You have been one of the most reliable colleague here! Have
-                                    a great holiday season."
+                            support this year Srini. You have been one of the most reliable colleague here! Have
+                            a great holiday season."
                         </p>
 
                         <div class="recognition-meta">
@@ -2787,11 +2923,11 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Hi Srini, Thanks a lot for helping us troubleshoot the Proxy issue a week ago, this
-                                    helped us go through the release before the blackfriday Embargo kicks in. We
-                                    appreciate it 😊"
+                            helped us go through the release before the blackfriday Embargo kicks in. We
+                            appreciate it 😊"
                         </p>
 
                         <div class="recognition-meta">
@@ -2800,13 +2936,13 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Thanks very much for those kind words! Good luck in your new role and thanks very
-                                    much for what you've done to take the technology at our enterprise forward quite a
-                                    ways!<br><br>
+                            much for what you've done to take the technology at our enterprise forward quite a
+                            ways!<br><br>
 
-                                    Again best luck and wishes for you and your family. ​"
+                            Again best luck and wishes for you and your family. ​"
                         </p>
 
                         <div class="recognition-meta">
@@ -2815,13 +2951,13 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Srini, I can see you working so hard these last few days on the workshop while also
-                                    trying to manage the actual day to day project work that is going on. I know it’s
-                                    tough. But I feel you are doing a very good job and I truly appreciate the extra
-                                    work you are putting in to help us succeed. You really are doing a good job for us.
-                                    Thanks for the efforts."
+                            trying to manage the actual day to day project work that is going on. I know it’s
+                            tough. But I feel you are doing a very good job and I truly appreciate the extra
+                            work you are putting in to help us succeed. You really are doing a good job for us.
+                            Thanks for the efforts."
                         </p>
 
                         <div class="recognition-meta">
@@ -2830,13 +2966,13 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Would like to thank Srini's yet another stellar contributions he made today with the
-                                    prospective customer presentation.<br><br>
+                            prospective customer presentation.<br><br>
 
-                                    Srini great job! Much appreciate all your thought process and subject matter
-                                    expertise."
+                            Srini great job! Much appreciate all your thought process and subject matter
+                            expertise."
                         </p>
 
                         <div class="recognition-meta">
@@ -2845,15 +2981,15 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Too often in our roles we receive and have to deal with negative feedback. In this
-                                    case I wanted to say that I have found Srini to be an excellent person to work with.
-                                    He is a real team player, works hard and has a very good relationship with the team.
-                                    On top of this he has an excellent technical background which enables him to
-                                    actively participate in all of the technical issues.<br><br>
+                            case I wanted to say that I have found Srini to be an excellent person to work with.
+                            He is a real team player, works hard and has a very good relationship with the team.
+                            On top of this he has an excellent technical background which enables him to
+                            actively participate in all of the technical issues.<br><br>
 
-                                    Great choice for the role! 😊"
+                            Great choice for the role! 😊"
                         </p>
 
                         <div class="recognition-meta">
@@ -2862,13 +2998,13 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Dear Srini, I would like to thank your efforts which you have put-in to the project
-                                    till date, truly appreciated. We wouldn’t have come to a stage where we are in today
-                                    towards our project with-out your committed support.<br><br>
+                            till date, truly appreciated. We wouldn’t have come to a stage where we are in today
+                            towards our project with-out your committed support.<br><br>
 
-                                    Keep going 😊"
+                            Keep going 😊"
                         </p>
 
                         <div class="recognition-meta">
@@ -2877,12 +3013,12 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "I just got the update from our developer that this is resolved. Yesterday I only
-                                    asked him to talk to you and get this resolved by you because now I am confident
-                                    that any issue is faced by the team can be resolved by EdaSrinivas 😊. Thanks again
-                                    Srinivas. Good to have you in the team."
+                            asked him to talk to you and get this resolved by you because now I am confident
+                            that any issue is faced by the team can be resolved by EdaSrinivas 😊. Thanks again
+                            Srinivas. Good to have you in the team."
                         </p>
 
                         <div class="recognition-meta">
@@ -2891,20 +3027,20 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Hi All - Please join me congratulating Our team for the perfect 7/7 PCSAT
-                                    score.<br><br>
+                            score.<br><br>
 
-                                    <u>Core Team</u><br><br>
+                            <u>Core Team</u><br><br>
 
-                                    Product Owner: ---<br>
-                                    <b>Architect: Eda</b><br>
-                                    Offshore IM: ---<br>
-                                    TL: ---<br>
-                                    BA: ---<br>
-                                    Line Testing: ---<br>
-                                    Regression Testing: ---"
+                            Product Owner: ---<br>
+                            <b>Architect: Eda</b><br>
+                            Offshore IM: ---<br>
+                            TL: ---<br>
+                            BA: ---<br>
+                            Line Testing: ---<br>
+                            Regression Testing: ---"
                         </p>
 
                         <div class="recognition-meta">
@@ -2913,21 +3049,21 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "As Eda is going to be leaving shortly, I wanted to give some feedback from a test
-                                    lead perspective. In short, he has been an amazing addition to the team and a huge
-                                    help to the testing team. Starting in the beginning he helped us understand the code
-                                    merge strategy so we could come up with a proper regression testing plan. Throughout
-                                    the whole project Eda always did his best to be available when people needed his
-                                    help. He was also a crucial part of the project when we were trying to test all of
-                                    the dependencies. Without him, we would have missed a few very important defects. He
-                                    was also very professional through the entire project and was able to make wise
-                                    choices for important decisions. And Eda has always been a team player, taking extra
-                                    time to make sure things are correct and helping people to understand.<br><br>
+                            lead perspective. In short, he has been an amazing addition to the team and a huge
+                            help to the testing team. Starting in the beginning he helped us understand the code
+                            merge strategy so we could come up with a proper regression testing plan. Throughout
+                            the whole project Eda always did his best to be available when people needed his
+                            help. He was also a crucial part of the project when we were trying to test all of
+                            the dependencies. Without him, we would have missed a few very important defects. He
+                            was also very professional through the entire project and was able to make wise
+                            choices for important decisions. And Eda has always been a team player, taking extra
+                            time to make sure things are correct and helping people to understand.<br><br>
 
-                                    On a personal level, Eda is a very nice person and fun to be around. He is always
-                                    upbeat and positive."
+                            On a personal level, Eda is a very nice person and fun to be around. He is always
+                            upbeat and positive."
                         </p>
 
                         <div class="recognition-meta">
@@ -2936,13 +3072,13 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Eda, I could not agree more with Sid's comments.<br><br>
 
-                                    You are really really good at what you do, but what I appreciate most is that you
-                                    are humble and quietly do what the team needs to be done. It is always a pleasure
-                                    working with you."
+                            You are really really good at what you do, but what I appreciate most is that you
+                            are humble and quietly do what the team needs to be done. It is always a pleasure
+                            working with you."
                         </p>
 
                         <div class="recognition-meta">
@@ -2951,29 +3087,29 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "I want to express my appreciation for Eda who has excelled in his role not just as
-                                    an Architect but also as an acting Tech Lead for the our Expansion project.<br><br>
+                            an Architect but also as an acting Tech Lead for the our Expansion project.<br><br>
 
-                                    The special characteristics about Eda are his resourcefulness, intellectual
-                                    curiosity, tenacity to dive deep into topics, cheerfulness in the face of adversity
-                                    and willingness to guide and help others. His amiable nature, and even keel
-                                    perfectly complement his technical brilliance.<br><br>
+                            The special characteristics about Eda are his resourcefulness, intellectual
+                            curiosity, tenacity to dive deep into topics, cheerfulness in the face of adversity
+                            and willingness to guide and help others. His amiable nature, and even keel
+                            perfectly complement his technical brilliance.<br><br>
 
-                                    Now that CA is in production, it is fair to say that we owe a large part of our
-                                    success to Eda rescuing us from situations - either with his own intuition and
-                                    analysis or by tackling issues discovered by other team members. Policy data issue,
-                                    Billing failures, Failed saves to SA during rating are just a few examples. Even
-                                    with an all around good team effort, Eda was the "extractor" for sticky
-                                    situations.<br><br>
+                            Now that CA is in production, it is fair to say that we owe a large part of our
+                            success to Eda rescuing us from situations - either with his own intuition and
+                            analysis or by tackling issues discovered by other team members. Policy data issue,
+                            Billing failures, Failed saves to SA during rating are just a few examples. Even
+                            with an all around good team effort, Eda was the "extractor" for sticky
+                            situations.<br><br>
 
-                                    It is unfortunate that he is forced to leave us shortly due to no fault of his own.
-                                    He will be sorely missed by all, including what the team fondly refers to as
-                                    "Edaisms".<br><br>
+                            It is unfortunate that he is forced to leave us shortly due to no fault of his own.
+                            He will be sorely missed by all, including what the team fondly refers to as
+                            "Edaisms".<br><br>
 
-                                    I consider myself fortunate to have made the acquaintance and worked with one of the
-                                    nicest, good at heart persons at our Organization."
+                            I consider myself fortunate to have made the acquaintance and worked with one of the
+                            nicest, good at heart persons at our Organization."
                         </p>
 
                         <div class="recognition-meta">
@@ -2982,26 +3118,26 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Hi all – Please join me congratulating our team for their fantastic achievement of
-                                    PCSAT 7/7. Also, received a score of 7/7 on Do it Right First Time (DRFT) parameter
-                                    which indicates the quality of the deliverables in consistent manner with less/no
-                                    re-work.<br><br>
+                            PCSAT 7/7. Also, received a score of 7/7 on Do it Right First Time (DRFT) parameter
+                            which indicates the quality of the deliverables in consistent manner with less/no
+                            re-work.<br><br>
 
-                                    <u>The proud team comprises of:</u><br><br>
+                            <u>The proud team comprises of:</u><br><br>
 
-                                    <b>-Captainship ! (Eda Srinivas – Program tech lead cum Onsite manager and --- -
-                                        Offshore Manager)</b><br>
-                                    -Development (---)<br>
-                                    -Testing (---)<br>
-                                    -Domain (---)<br><br>
+                            <b>-Captainship ! (Eda Srinivas – Program tech lead cum Onsite manager and --- -
+                                Offshore Manager)</b><br>
+                            -Development (---)<br>
+                            -Testing (---)<br>
+                            -Domain (---)<br><br>
 
-                                    I appreciate each and every one from all streams who contributed in their respective
-                                    capacity towards success of this program.<br><br>
+                            I appreciate each and every one from all streams who contributed in their respective
+                            capacity towards success of this program.<br><br>
 
-                                    Managers/Leads – Please pass on this mail to anyone whom we missed unintentionally
-                                    in the list."
+                            Managers/Leads – Please pass on this mail to anyone whom we missed unintentionally
+                            in the list."
                         </p>
 
                         <div class="recognition-meta">
@@ -3010,31 +3146,31 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "<b> --- Award - Program team recognition</b><br></br>
 
-                                    The following individuals may not have been listed as one of the 13 members of the
-                                    Award-winning team. That is only because they are contractors or were noble enough
-                                    to give up a slot on the nomination form to their front-line project level
-                                    associates.<br></br>
+                            The following individuals may not have been listed as one of the 13 members of the
+                            Award-winning team. That is only because they are contractors or were noble enough
+                            to give up a slot on the nomination form to their front-line project level
+                            associates.<br></br>
 
-                                    These important program team leaders' contributions were absolutely vital to the
-                                    successful delivery of our program. I didn't want recognition of this achievement to
-                                    pass without mention of the great value they brought to the program -- as leaders
-                                    and team members.<br></br>
+                            These important program team leaders' contributions were absolutely vital to the
+                            successful delivery of our program. I didn't want recognition of this achievement to
+                            pass without mention of the great value they brought to the program -- as leaders
+                            and team members.<br></br>
 
-                                    In 2010, they were:<br></br>
+                            In 2010, they were:<br></br>
 
-                                    --- - Program Test Lead<br>
-                                    --- - Program Business Lead<br>
-                                    --- - Program Solution Lead<br>
-                                    --- - Program UE Lead<br>
-                                    <b>Eda Srinivas - Program Tech Dev Lead</b><br>
-                                    --- - Program Architect<br></br>
+                            --- - Program Test Lead<br>
+                            --- - Program Business Lead<br>
+                            --- - Program Solution Lead<br>
+                            --- - Program UE Lead<br>
+                            <b>Eda Srinivas - Program Tech Dev Lead</b><br>
+                            --- - Program Architect<br></br>
 
-                                    If you would like more information on the important contributions these folks have
-                                    made , please let me know."
+                            If you would like more information on the important contributions these folks have
+                            made , please let me know."
                         </p>
 
                         <div class="recognition-meta">
@@ -3043,13 +3179,13 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Srini, During our weekly architecture meeting today, our program architect
-                                    recognized your outstanding contributions to our program. He stated that you
-                                    routinely go well beyond Program Tech Dev Lead responsibilities to make the program
-                                    successful . I too wanted to commend you on a job well done. Thanks for your
-                                    valuable contributions."
+                            recognized your outstanding contributions to our program. He stated that you
+                            routinely go well beyond Program Tech Dev Lead responsibilities to make the program
+                            successful . I too wanted to commend you on a job well done. Thanks for your
+                            valuable contributions."
                         </p>
 
                         <div class="recognition-meta">
@@ -3058,12 +3194,12 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "'Thanks Srini for your leadership on this project - you have done an outstanding job
-                                    personally to deliver last release. The recognition you have shown in your email
-                                    below truly demonstrates your ability as a leader. We are very pleased that you have
-                                    taken the overall Program Tech Lead role!'"
+                            personally to deliver last release. The recognition you have shown in your email
+                            below truly demonstrates your ability as a leader. We are very pleased that you have
+                            taken the overall Program Tech Lead role!'"
                         </p>
 
                         <div class="recognition-meta">
@@ -3072,22 +3208,22 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "I am very happy to announce that Eda Srinivasa Reddy (Srini) will be taking on the
-                                    Program Tech Lead role effective Monday 8/9. He will function as the Development
-                                    domain leader across all our projects. Srini has done a great job as the Project
-                                    Tech Lead and I am confident that he will continue to do great things at the program
-                                    level. Please give him your complete cooperation and support in the transition and
-                                    going-forward. Srini has previously served as a Tech Lead on our another program.
-                                    Prior to coming aboard at our organization, he consulted with his employer for
-                                    financial services clients and was engaged in a group-floor opportunity with A--
-                                    Technologies before that.<br><br>
+                            Program Tech Lead role effective Monday 8/9. He will function as the Development
+                            domain leader across all our projects. Srini has done a great job as the Project
+                            Tech Lead and I am confident that he will continue to do great things at the program
+                            level. Please give him your complete cooperation and support in the transition and
+                            going-forward. Srini has previously served as a Tech Lead on our another program.
+                            Prior to coming aboard at our organization, he consulted with his employer for
+                            financial services clients and was engaged in a group-floor opportunity with A--
+                            Technologies before that.<br><br>
 
-                                    Srini currently lives in Dublin with his wife and daughter. He likes to spend his
-                                    time with his family and to do a lot of reading. He played volleyball in college and
-                                    continues to play often, for recreation. Please join me in congratulating Srini on
-                                    his expanded responsibilities."
+                            Srini currently lives in Dublin with his wife and daughter. He likes to spend his
+                            time with his family and to do a lot of reading. He played volleyball in college and
+                            continues to play often, for recreation. Please join me in congratulating Srini on
+                            his expanded responsibilities."
                         </p>
 
                         <div class="recognition-meta">
@@ -3096,11 +3232,11 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Srini - congratulations on your assignment in the Program Tech Lead role - this is a
-                                    very important role and we are glad to have you on the team. Also, thanks for all
-                                    the great work on the --- project!!!"
+                            very important role and we are glad to have you on the team. Also, thanks for all
+                            the great work on the --- project!!!"
                         </p>
 
                         <div class="recognition-meta">
@@ -3109,16 +3245,16 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "<b>I got Caught !</b><br><br>
 
-                                    Srini Eda is an excelptionally talented software developer/architect, keeps his
-                                    focus at the bigger picture while paying attention to minute details of design
-                                    requirements. He is a pleasure to work with, enjoys intellectual debate and is a
-                                    great team player. Our project benefitted immensely by having a tech lead in Eda,
-                                    Eda has the uncanny ability to intuitively anticipate issues and provide guidance to
-                                    the development team."
+                            Srini Eda is an excelptionally talented software developer/architect, keeps his
+                            focus at the bigger picture while paying attention to minute details of design
+                            requirements. He is a pleasure to work with, enjoys intellectual debate and is a
+                            great team player. Our project benefitted immensely by having a tech lead in Eda,
+                            Eda has the uncanny ability to intuitively anticipate issues and provide guidance to
+                            the development team."
                         </p>
 
                         <div class="recognition-meta">
@@ -3127,15 +3263,15 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Eda - congratulations and great job to the development team on so few defects in
-                                    your queue - I see there is only 1 low defect assigned out to development. I know
-                                    we've had a couple of down days without new defects coming in, but I am very glad to
-                                    see we've cleared out the backlog so we can attack the new ones coming in.<br><br>
+                            your queue - I see there is only 1 low defect assigned out to development. I know
+                            we've had a couple of down days without new defects coming in, but I am very glad to
+                            see we've cleared out the backlog so we can attack the new ones coming in.<br><br>
 
-                                    I hear lots of great things about your work , thanks so much for your leadership on
-                                    the project!!!"
+                            I hear lots of great things about your work , thanks so much for your leadership on
+                            the project!!!"
                         </p>
 
                         <div class="recognition-meta">
@@ -3144,36 +3280,36 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Here is my feedback on Eda Srinivas for the below deliverables on our
-                                    project.<br><br>
+                            project.<br><br>
 
-                                    <u>Delivery:</u><br><br>
+                            <u>Delivery:</u><br><br>
 
-                                    Eda has delivered his tasks on time, within his estimates, and with high quality.
-                                    Eda even goes out of the way to propose better technical designs or solutions to
-                                    problems that others are having. Eda pairs with other teammates and helps others to
-                                    deliver on their commitments.<br><br>
+                            Eda has delivered his tasks on time, within his estimates, and with high quality.
+                            Eda even goes out of the way to propose better technical designs or solutions to
+                            problems that others are having. Eda pairs with other teammates and helps others to
+                            deliver on their commitments.<br><br>
 
-                                    <u>Communication:</u><br><br>
+                            <u>Communication:</u><br><br>
 
-                                    Eda is a good communicator. He works well with the team and can present issues and
-                                    his technical thoughts to everyone in a well thought out and easy to understand
-                                    manner. Eda is able to document his technical implementations for others to
-                                    understand.<br><br>
+                            Eda is a good communicator. He works well with the team and can present issues and
+                            his technical thoughts to everyone in a well thought out and easy to understand
+                            manner. Eda is able to document his technical implementations for others to
+                            understand.<br><br>
 
-                                    <u>Teamwork:</u><br><br>
+                            <u>Teamwork:</u><br><br>
 
-                                    Eda is a team player. He is the first to jump in and help out when help is needed.
-                                    His flexibility and calm demeanour make him a perfect fit for the team because he
-                                    compliments and provides an example for people of harsh character. Eda helps other
-                                    developers when needed and freely shares information and his technical
-                                    knowledge.<br><br>
+                            Eda is a team player. He is the first to jump in and help out when help is needed.
+                            His flexibility and calm demeanour make him a perfect fit for the team because he
+                            compliments and provides an example for people of harsh character. Eda helps other
+                            developers when needed and freely shares information and his technical
+                            knowledge.<br><br>
 
-                                    <u>Overall:</u><br><br>
+                            <u>Overall:</u><br><br>
 
-                                    Eda's performance has been stellar and he is a go to person on my team."
+                            Eda's performance has been stellar and he is a go to person on my team."
                         </p>
 
                         <div class="recognition-meta">
@@ -3182,26 +3318,26 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "Eda,<br><br>
 
-                                    I would be happy to pass along some feedback on you.<br><br>
+                            I would be happy to pass along some feedback on you.<br><br>
 
-                                    Eda has very strong technical skills, is an effective communicator, is accountable,
-                                    and goes above and beyond expectations on a regular basis. Eda has taken on
-                                    ownership of doing project builds, coordinating with the team on builds and testing,
-                                    as well as his regular duties as a developer. On several occasions Eda has provided
-                                    deliverables that were above my expectations (i.e. auto build process and messaging,
-                                    working late hours on defects and functionality, and coming up with creative
-                                    solutions to solve business requirements). Eda works well with the team and is a
-                                    great team player.<br><br>
+                            Eda has very strong technical skills, is an effective communicator, is accountable,
+                            and goes above and beyond expectations on a regular basis. Eda has taken on
+                            ownership of doing project builds, coordinating with the team on builds and testing,
+                            as well as his regular duties as a developer. On several occasions Eda has provided
+                            deliverables that were above my expectations (i.e. auto build process and messaging,
+                            working late hours on defects and functionality, and coming up with creative
+                            solutions to solve business requirements). Eda works well with the team and is a
+                            great team player.<br><br>
 
-                                    For Eda to continue his development I would like to see him continue to grow his
-                                    technical skills, take on more responsibility of onboarding developers, completing
-                                    development reviews, and helping to develop junior developers on the team.<br><br>
+                            For Eda to continue his development I would like to see him continue to grow his
+                            technical skills, take on more responsibility of onboarding developers, completing
+                            development reviews, and helping to develop junior developers on the team.<br><br>
 
-                                    Thanks Eda!"
+                            Thanks Eda!"
                         </p>
 
                         <div class="recognition-meta">
@@ -3210,61 +3346,61 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     <div class="individual-card">
+                    <div class="individual-card">
                         <p class="recognition-quote">
                             "As you know Srini Reddy’s last day on our team is Friday, April 25th. I thought I
-                                    would take this opportunity to provide you some feedback on Srini’s significant
-                                    contributions to our team.<br><br>
+                            would take this opportunity to provide you some feedback on Srini’s significant
+                            contributions to our team.<br><br>
 
-                                    Our project is a large complex project, with many moving interdependent parts, and a
-                                    web of business rules. At times we work on 3 simultaneous releases, one in
-                                    development, one in QA and one going into production – needless to say it is a
-                                    difficult situation to walk into. It was evident from the very outset when Srini
-                                    joined the team that he was going to be an asset to our team. Srini embodies all the
-                                    qualities the our team finds valuable in a team member; he has exemplary technical
-                                    skills, excellent communication skills, a strong work ethic, is a quick study, pays
-                                    extremely close attention to details, possesses strong leadership qualities, has a
-                                    genuine concern for the overall quality of the project, and does it all with a great
-                                    attitude.<br><br>
+                            Our project is a large complex project, with many moving interdependent parts, and a
+                            web of business rules. At times we work on 3 simultaneous releases, one in
+                            development, one in QA and one going into production – needless to say it is a
+                            difficult situation to walk into. It was evident from the very outset when Srini
+                            joined the team that he was going to be an asset to our team. Srini embodies all the
+                            qualities the our team finds valuable in a team member; he has exemplary technical
+                            skills, excellent communication skills, a strong work ethic, is a quick study, pays
+                            extremely close attention to details, possesses strong leadership qualities, has a
+                            genuine concern for the overall quality of the project, and does it all with a great
+                            attitude.<br><br>
 
-                                    Over the period that Srini has been on the team he has gained the respect of his
-                                    peers, including those on his program team, and members of our Mainframe team, our
-                                    QA team, our database modeling team, and our business team. He has forged strong
-                                    working relationships with the various teams he has been asked to work with. Srini’s
-                                    ability to gain the confidence of the multiple teams we work with has greatly
-                                    enhanced the our team’s ability to meet it’s often time aggressive goals and
-                                    schedules of releases.<br><br>
+                            Over the period that Srini has been on the team he has gained the respect of his
+                            peers, including those on his program team, and members of our Mainframe team, our
+                            QA team, our database modeling team, and our business team. He has forged strong
+                            working relationships with the various teams he has been asked to work with. Srini’s
+                            ability to gain the confidence of the multiple teams we work with has greatly
+                            enhanced the our team’s ability to meet it’s often time aggressive goals and
+                            schedules of releases.<br><br>
 
-                                    Srini exhibits a great ability to quickly grasp new concepts and technologies. In
-                                    the course of the project he has taken on many tasks that required learning new
-                                    techniques or quickly acquiring new areas of knowledge. This includes but is not
-                                    limited to taking over the service layer of our project. The service layer includes
-                                    not only a great many business details but several complex technologies including
-                                    the RRBus and inhouse object generation. Srini quickly became proficient in all
-                                    areas of the service layer. In leading the service layer objective Srini was deeply
-                                    involved with the business domain owners quickly proving himself a valuable resource
-                                    keeping track of all the excruciating details involved with this area.<br><br>
+                            Srini exhibits a great ability to quickly grasp new concepts and technologies. In
+                            the course of the project he has taken on many tasks that required learning new
+                            techniques or quickly acquiring new areas of knowledge. This includes but is not
+                            limited to taking over the service layer of our project. The service layer includes
+                            not only a great many business details but several complex technologies including
+                            the RRBus and inhouse object generation. Srini quickly became proficient in all
+                            areas of the service layer. In leading the service layer objective Srini was deeply
+                            involved with the business domain owners quickly proving himself a valuable resource
+                            keeping track of all the excruciating details involved with this area.<br><br>
 
-                                    In addition to guiding the service layer portion Srini shoulders great many other
-                                    responsibilities in the other nonservice layer areas of the project. He has stepped
-                                    in and stepped up anytime extra effort was needed in areas of the project that were
-                                    not his direct responsibility; this includes fixing view layer issues , developing
-                                    view layer classes, proving guidance to the database modeling team, executing
-                                    builds, managing source control issues, leading demos, and providing guidance and
-                                    support to team members. These efforts included some very long days and nights and
-                                    stemmed from Srini’s great sense of personal responsibility for the success of the
-                                    project.<br><br>
+                            In addition to guiding the service layer portion Srini shoulders great many other
+                            responsibilities in the other nonservice layer areas of the project. He has stepped
+                            in and stepped up anytime extra effort was needed in areas of the project that were
+                            not his direct responsibility; this includes fixing view layer issues , developing
+                            view layer classes, proving guidance to the database modeling team, executing
+                            builds, managing source control issues, leading demos, and providing guidance and
+                            support to team members. These efforts included some very long days and nights and
+                            stemmed from Srini’s great sense of personal responsibility for the success of the
+                            project.<br><br>
 
-                                    Srini has also been invaluable in mentoring in five new developers onto the team. He
-                                    has provided KAP and guidance to the new developers helping bring them to quickly
-                                    become productive members of the team. He has shown great leadership skill by
-                                    engaging new team members in long working sessions. These sessions served to
-                                    transfer significant knowledge but more importantly acted as a springboard to
-                                    forming strong bonds amongst the developers and facilitating teamwork. He is
-                                    constantly an excellent role model for the other developers on the team.<br><br>
+                            Srini has also been invaluable in mentoring in five new developers onto the team. He
+                            has provided KAP and guidance to the new developers helping bring them to quickly
+                            become productive members of the team. He has shown great leadership skill by
+                            engaging new team members in long working sessions. These sessions served to
+                            transfer significant knowledge but more importantly acted as a springboard to
+                            forming strong bonds amongst the developers and facilitating teamwork. He is
+                            constantly an excellent role model for the other developers on the team.<br><br>
 
-                                    It has been a genuine pleasure working with Srini and Our Team truly appreciates all
-                                    his effort and great work."
+                            It has been a genuine pleasure working with Srini and Our Team truly appreciates all
+                            his effort and great work."
                         </p>
 
                         <div class="recognition-meta">
@@ -3273,51 +3409,121 @@ font-size:0.95rem;
                         </div>
                     </div>
 
-                     
+
                 </div>
 
             </section>
 
-<!-- Impact Metrics Section -->
- <section id="impact-metrics" class="content-section">
+            <!-- Impact Metrics Section -->
+            <section id="impact-metrics" class="content-section">
 
-<h1>Impact at Scale</h1>
+                <h1>Impact at Scale</h1>
 
-<p class="section-subtitle">                
+                <p class="section-subtitle">
                     Significant Metrics.
                 </p>
 
 
-<div class="metrics-grid">
+                <div class="metrics-grid">
 
-<div class="metric-card">
-<h3>150+</h3>
-<p>Microservices Architected</p>
-</div>
+                    <div class="metric-card">
+                        <h3>150+</h3>
+                        <p>Microservices Architected</p>
+                    </div>
 
-<div class="metric-card">
-<h3>500+</h3>
-<p>Applications Migrated</p>
-</div>
+                    <div class="metric-card">
+                        <h3>500+</h3>
+                        <p>Applications Migrated</p>
+                    </div>
 
-<div class="metric-card">
-<h3>200+</h3>
-<p>Databases Migrated</p>
-</div>
+                    <div class="metric-card">
+                        <h3>200+</h3>
+                        <p>Databases Migrated</p>
+                    </div>
 
-<div class="metric-card">
-<h3>100+</h3>
-<p>Engineers Led</p>
-</div>
+                    <div class="metric-card">
+                        <h3>100+</h3>
+                        <p>Engineers Led</p>
+                    </div>
 
-<div class="metric-card">
-<h3>3M+</h3>
-<p>Customers Served</p>
-</div>
+                    <div class="metric-card">
+                        <h3>3M+</h3>
+                        <p>Customers Served</p>
+                    </div>
 
-</div>
+                </div>
 
-</section>           
+            </section>
+
+
+            <section id="about" class="content-section active">
+
+                <h1>About Me</h1>
+
+                <p class="section-subtitle">
+                    Designing scalable AI platforms, cloud-native architectures, and enterprise technology
+                    transformation systems.
+                </p>
+
+                <div class="cards-grid">
+
+                    <div class="individual-card">
+
+                        <h3>Architect Profile</h3>
+
+                        <ul class="card-list">
+                            <li class="card-item">☁️ Cloud & AI Architect</li>
+                            <li class="card-item">🚀 Enterprise Transformation Leader</li>
+                            <li class="card-item">🤖 Generative AI Platforms</li>
+                            <li class="card-item">🔄 Enterprise Agile Delivery</li>
+                            <li class="card-item">🛡️ DevSecOps Transformation</li>
+                            <li class="card-item">⚙️ Platform Engineering</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Professional Summary</h3>
+                        <p>
+                            Accomplished Cloud and AI Architect and Program Leader with extensive
+                            experience driving strategic technology initiatives, large-scale cloud
+                            transformations, and advanced Generative AI solutions across Google
+                            Cloud Platform (GCP), AWS, and hybrid environments.
+                        </p>
+                        <br>
+                        <p>
+                            Deep expertise in Google Cloud Platform (GCP) - including <strong>GKE, Cloud SQL,
+                                BigQuery ML, Dataproc, Dataflow, and Vertex AI</strong> - with a strong focus on
+                            designing scalable Generative AI and agentic platforms.
+                        </p>
+                        <br>
+                        <p>
+                            Recognized for aligning business and technology stakeholders and leading
+                            high-performing global teams to deliver strategic business outcomes and
+                            sustainable competitive advantage.
+                        </p>
+
+                    </div>
+
+                    <div class="approach-card">
+                        <h3>Architecture & Transformation Approach</h3>
+                        <ul class="approach-list">
+                            <li class="card-item">Understand business objectives, constraints, and technical context
+                            </li>
+                            <li class="card-item">Assess current architecture, delivery processes, and platform maturity
+                            </li>
+                            <li class="card-item">Identify architectural gaps, risks, and transformation opportunities
+                            </li>
+                            <li class="card-item">Define pragmatic, phased implementation roadmaps</li>
+                            <li class="card-item">Enable teams through governance, architecture guidance, and delivery
+                                frameworks</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </section>
 
             <!--
             <section id="resume" class="content-section">
