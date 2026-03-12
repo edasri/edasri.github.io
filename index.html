@@ -2,48 +2,833 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <title>Srinivasa Reddy Eda | AI Cloud Architect & Enterprise Consultant</title>
 
-    <head>
-        <meta charset="UTF-8" />
-        <title>Srinivasa Reddy Eda | AI Cloud Architect & Enterprise Consultant</title>
+    <!-- Mobile / responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Mobile / responsive -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO -->
+    <meta name="description"
+        content="AI Cloud Architect & Enterprise Consultant. 150+ microservices, 500+ app migrations, 3M+ customers served. Google Cloud Architect, SAFe RTE, based in Toronto, Canada.">
+    <link rel="canonical" href="https://your-domain.com">
 
-        <!-- SEO -->
-        <meta name="description"
-            content="AI Cloud Architect & Enterprise Consultant. 150+ microservices, 500+ app migrations, 3M+ customers served. Google Cloud Architect, SAFe RTE, based in Toronto, Canada." />
-        <link rel="canonical" href="https://your-domain.com" />
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Srinivasa Reddy Eda - AI Cloud Architect & Enterprise Consultant">
+    <meta property="og:description"
+        content="Enterprise AI, cloud-native platforms, and large-scale transformation leadership.">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:image" content="https://your-domain.com/hero-image.jpg">
 
-        <!-- Open Graph / Social -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Srinivasa Reddy Eda - AI Cloud Architect & Enterprise Consultant" />
-        <meta property="og:description"
-            content="Enterprise AI, cloud-native platforms, and large-scale transformation leadership." />
-        <meta property="og:url" content="https://your-domain.com" />
-        <meta property="og:image" content="https://your-domain.com/hero-image.jpg" />
+    <!-- Fonts (performance optimized) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Fonts (performance optimized) -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet" />
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Srinivasa Reddy Eda",
+                "jobTitle": "AI Cloud Architect & Enterprise Consultant",
+                "description": "Google Cloud Professional Architect. 150+ microservices designed, 500+ applications migrated, 3M+ customers served.",
+                "address": { "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "Ontario", "addressCountry": "CA" },
+                "url": "https://yourdomain.com",
+                "sameAs": ["https://linkedin.com/in/srinivasa-reddy-eda", "https://github.com/edasri"],
+                "knowsAbout": ["Google Cloud Platform", "Generative AI", "Kubernetes", "SAFe", "Enterprise Architecture"]
+            }
+        </script>
 
-        <!-- Schema.org -->
-        <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Srinivasa Reddy Eda",
-        "jobTitle": "AI Cloud Architect & Enterprise Consultant",
-        "description": "Google Cloud Professional Architect. 150+ microservices designed, 500+ applications migrated, 3M+ customers served.",
-        "address": { "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "Ontario", "addressCountry": "CA" },
-        "url": "https://yourdomain.com",
-        "sameAs": ["https://linkedin.com/in/srinivasa-reddy-eda", "https://github.com/edasri"],
-        "knowsAbout": ["Google Cloud Platform", "Generative AI", "Kubernetes", "SAFe", "Enterprise Architecture"]
-    }
-    </script>
-    </head>
+    <style>
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.9rem 1.3rem;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #0f172a 0%, #fbbf24 100%);
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            padding: 1rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            padding: 0.85rem 1.1rem;
+            border-radius: 12px;
+            margin: 0.15rem 0;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(6px);
+        }
+
+        .nav-link:focus-visible {
+            outline: 2px solid #fbbf24;
+            outline-offset: 2px;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem 3rem 2.5rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-height: 92vh;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h1 {
+            font-size: 2.7rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #0f172a, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .content-section-subtitle {
+            text-align: center;
+            font-size: 1.05rem;
+            color: #666;
+            margin: 0.4rem auto 0;
+            font-style: italic;
+            max-width: 720px;
+        }
+
+        .positioning-banner {
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 0.6px;
+            color: #2d4a8a;
+            padding: 6px 14px;
+            background: rgba(59, 130, 246, 0.10);
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 0.8rem auto 1.4rem;
+            line-height: 1.4;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .blue-card,
+        .purple-card,
+        .green-card,
+        .grey-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+        }
+
+        .blue-card:hover,
+        .purple-card:hover,
+        .green-card:hover,
+        .grey-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
+        }
+
+        .blue-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2f5597, #4a6fb3);
+            border-radius: 14px 14px 0 0;
+        }
+
+        .purple-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #6a5acd, #8b7cf0);
+            border-radius: 14px 14px 0 0;
+        }
+
+        .green-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1f9d73, #38c997);
+            border-radius: 14px 14px 0 0;
+        }
+
+        .grey-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #7a7a7a, #b5b5b5);
+            border-radius: 14px 14px 0 0;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #e1e5ff;
+        }
+
+        .card-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-list-item {
+            padding: 0.45rem 0;
+            color: #444;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .card-list-item:hover {
+            color: #1e3c72;
+        }
+
+        .card-list-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.9rem;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #3a5fa0;
+        }
+
+        /* Metrics grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 1.5rem auto 0;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        .metric-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            opacity: 0.12;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            /*background: linear-gradient(90deg, #2d4a8a, #3b82f6);*/
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .metric-card h2 {
+            font-size: 2.2rem;
+            color: #2d4a8a;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Certifications Page */
+        .certs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-group {
+            background: white;
+            padding: 0.5rem 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0f172a, #fbbf24);
+        }
+
+        .cert-group:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 60, 114, 0.2);
+        }
+
+        .group-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e1e5ff;
+            text-align: center;
+        }
+
+        .group-title.active {
+            color: #0f172a;
+            background: linear-gradient(135deg, #0f172a, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .group-title.expired {
+            color: #666;
+        }
+
+        .cert-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f2ff;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:last-child {
+            border-bottom: none;
+        }
+
+        .cert-item:hover {
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: 1rem;
+            border-radius: 8px;
+        }
+
+        .cert-badge-blue {
+            background: linear-gradient(135deg, #0f172a, #fbbf24);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Purple Badge */
+        .cert-badge-purple {
+            background: linear-gradient(135deg, #5f2c82, #8e44ad);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Orange Badge */
+        .cert-badge-orange {
+            background: linear-gradient(135deg, #ff7e00, #ffb347);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Green Badge */
+        .cert-badge-green {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Expired Badge */
+        .cert-badge-expired {
+            background: linear-gradient(135deg, #7a7a7a, #b5b5b5);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .cert-details {
+            flex: 1;
+        }
+
+        .cert-name {
+            font-size: 1.0rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .certs-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cert-group {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Projects page */
+        .project-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .project-role {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #1e3c72;
+            background: rgba(30, 60, 114, 0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .project-tech-outcome {
+            margin-top: 1.5rem;
+            font-size: 0.98rem;
+            color: #222;
+            border-top: 1px solid #e1e5ff;
+            padding-top: 1rem;
+
+        }
+
+        .project-tech-outcome strong {
+            color: #1e3c72;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .blue-card {
+                padding: 1.75rem;
+            }
+        }
+
+        /* Recognitions page */
+        .recognition-quote {
+            font-style: italic;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .recognition-meta {
+            font-size: 0.9rem;
+            color: #2a4b8d;
+        }
+
+        /* Contact layout */
+        /* Contact Page - New */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+            max-width: 1100px;
+            margin: 2.5rem auto 0;
+        }
+
+        .contact-intro {
+            text-align: left;
+            padding: 10px 10px 10px 0;
+        }
+
+        .contact-intro h2 {
+            font-size: 1.8rem;
+            color: #2d4a8a;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .contact-intro p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            max-width: 520px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 22px 24px;
+            text-decoration: none;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .contact-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #2d4a8a, #3b82f6);
+            opacity: 0.18;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 16px 35px rgba(0, 0, 0, 0.12),
+                0 0 0 2px rgba(59, 130, 246, 0.08);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #e6edf9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d4a8a;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.05);
+        }
+
+        .contact-text {
+            text-align: left;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2d4a8a;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        @media (max-width: 900px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-intro {
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .contact-text {
+                text-align: left;
+            }
+        }
+
+        /* Mobile toggle button */
+        .mobile-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: rgba(30, 60, 114, 0.95);
+            border: none;
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+
+        .mobile-toggle:focus-visible {
+            outline: 2px solid #fbbf24;
+            outline-offset: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -100%;
+                /* Hide off-screen by default */
+                top: 0;
+                width: 280px;
+                height: 100%;
+                z-index: 1000;
+                transition: 0.3s ease-in-out;
+                background: #0f172a;
+            }
+
+            .sidebar.active {
+                left: 0;
+                /* Slide in when toggled */
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 60px 20px;
+                /* Space for the floating menu button */
+            }
+
+            .content-section {
+                padding: 2rem 1.2rem;
+                margin: 1rem 0.5rem;
+                min-height: auto;
+            }
+
+            .content-section h1 {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem !important;
+                /* Scale down titles */
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                /* Single column for cards */
+                gap: 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr 1fr;
+                /* Two columns for metrics */
+            }
+
+            .mobile-toggle {
+                display: block;
+                /* Show the ☰ Menu button */
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1100;
+                background: #0f172a;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-link {
+                min-height: 48px;
+                /* WCAG touch target */
+                padding: 1rem 1.5rem;
+                display: flex;
+                align-items: center;
+            }
+
+            .sidebar.open {
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+            }
+
+            /* Close sidebar on outside click */
+            body.menu-open {
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
 
 
 <body>
@@ -55,7 +840,7 @@
 
     <div class="container">
         <!-- Sidebar -->
-        <nav class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+        <nav class="sidebar" id="sidebar" aria-label="Main navigation">
             <div class="logo">Srinivasa Reddy Eda</div>
             <ul class="nav-links">
                 <!-- Keep your existing SVGs, just ensure structure matches -->
@@ -188,7 +973,7 @@
 
                     <div class="blue-card">
 
-                        <h3>Architect Profile</h3>
+                        <h2 class="card-title">Architect Profile</h2>
 
                         <ul class="card-list">
                             <li class="card-list-item">☁️ Cloud & AI Architect</li>
@@ -203,7 +988,7 @@
                     </div>
 
                     <div class="purple-card">
-                        <h3>Professional Summary</h3>
+                        <h2 class="card-title">Professional Summary</h2>
                         <p>
                             Accomplished Cloud and AI Architect and Program Leader with extensive
                             experience driving strategic technology initiatives, large-scale cloud
@@ -226,7 +1011,7 @@
                     </div>
 
                     <div class="green-card">
-                        <h3>Architecture & Transformation Approach</h3>
+                        <h2 class="card-title">Architecture & Transformation Approach</h2>
                         <ul class="card-list">
                             <li class="card-list-item">Understand business objectives, constraints, and technical
                                 context
@@ -261,53 +1046,53 @@
                 <div class="metrics-grid">
 
                     <div class="metric-card">
-                        <h3>150+</h3>
+                        <h2>150+</h2>
                         <p>Microservices
                             Designed & Architected</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>500+</h3>
+                        <h2>500+</h2>
                         <p>Applications
                             Modernized & Migrated</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>200+</h3>
+                        <h2>200+</h2>
                         <p>Enterprise Databases
                             Migrated</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>100+</h3>
+                        <h2>100+</h2>
                         <p>Engineers
                             Led Across Global Teams</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>3M+</h3>
+                        <h2>3M+</h2>
                         <p>Customers
                             Supported by Platform</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>4</h3>
+                        <h2>4</h2>
                         <p>Countries:<br>
                             Enterprise Programs Delivered</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>10+</h3>
+                        <h2>10+</h2>
                         <p>Global Enterprise Clients</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>20+</h3>
+                        <h2>20+</h2>
                         <p>Enterprise Programs Delivered</p>
                     </div>
 
                     <div class="metric-card">
-                        <h3>5+</h3>
+                        <h2>5+</h2>
                         <p>Cloud Platform Transformations</p>
                     </div>
 
@@ -329,7 +1114,7 @@
                 <div class="cards-grid">
 
                     <div class="blue-card">
-                        <h3 class="card-title">🤖 Generative AI Systems</h3>
+                        <h2 class="card-title">🤖 Generative AI Systems</h2>
                         <ul class="card-list">
                             <li class="card-list-item">Multi-agent AI platforms</li>
                             <li class="card-list-item">LLM orchestration</li>
@@ -340,7 +1125,7 @@
                     </div>
 
                     <div class="purple-card">
-                        <h3 class="card-title">☁️ Cloud-Native Platforms</h3>
+                        <h2 class="card-title">☁️ Cloud-Native Platforms</h2>
                         <ul class="card-list">
                             <li class="card-list-item">Kubernetes-based architectures</li>
                             <li class="card-list-item">Microservices platforms</li>
@@ -353,7 +1138,7 @@
                     </div>
 
                     <div class="green-card">
-                        <h3 class="card-title">⚙️ DevSecOps Transformation</h3>
+                        <h2 class="card-title">⚙️ DevSecOps Transformation</h2>
                         <ul class="card-list">
                             <li class="card-list-item">Enterprise DevSecOps frameworks</li>
                             <li class="card-list-item">delivery optimization</li>
@@ -364,7 +1149,7 @@
                     </div>
 
                     <div class="blue-card">
-                        <h3 class="card-title">📊 Enterprise Delivery Leadership</h3>
+                        <h2 class="card-title">📊 Enterprise Delivery Leadership</h2>
                         <ul class="card-list">
                             <li class="card-list-item">Large-scale Agile programs</li>
                             <li class="card-list-item">SAFe Release Trains</li>
@@ -755,9 +1540,6 @@
                                     and release readiness</strong>.
                             </li>
                         </ul>
-
-                        </ul>
-
 
                         <p class="project-tech-outcome">
                             <strong>Technologies &amp; Delivery Capabilities:</strong>
@@ -1717,26 +2499,26 @@
 
                     <div class="purple-card">
                         <p class="recognition-quote">
-                            "<b> --- Award - Program team recognition</b><br></br>
+                            "<b> --- Award - Program team recognition</b><br><br>
 
                             The following individuals may not have been listed as one of the 13 members of the
                             Award-winning team. That is only because they are contractors or were noble enough
                             to give up a slot on the nomination form to their front-line project level
-                            associates.<br></br>
+                            associates.<br><br>
 
                             These important program team leaders' contributions were absolutely vital to the
                             successful delivery of our program. I didn't want recognition of this achievement to
                             pass without mention of the great value they brought to the program -- as leaders
-                            and team members.<br></br>
+                            and team members.<br><br>
 
-                            In 2010, they were:<br></br>
+                            In 2010, they were:<br><br>
 
                             --- - Program Test Lead<br>
                             --- - Program Business Lead<br>
                             --- - Program Solution Lead<br>
                             --- - Program UE Lead<br>
                             <b>Eda Srinivas - Program Tech Dev Lead</b><br>
-                            --- - Program Architect<br></br>
+                            --- - Program Architect<br><br>
 
                             If you would like more information on the important contributions these folks have
                             made , please let me know."
@@ -1926,7 +2708,7 @@
                             development, one in QA and one going into production – needless to say it is a
                             difficult situation to walk into. It was evident from the very outset when Srini
                             joined the team that he was going to be an asset to our team. Srini embodies all the
-                            qualities the our team finds valuable in a team member; he has exemplary technical
+                            qualities the our team finds valuable in a team member; he has exemplary technical
                             skills, excellent communication skills, a strong work ethic, is a quick study, pays
                             extremely close attention to details, possesses strong leadership qualities, has a
                             genuine concern for the overall quality of the project, and does it all with a great
@@ -1953,7 +2735,7 @@
                             In addition to guiding the service layer portion Srini shoulders great many other
                             responsibilities in the other nonservice layer areas of the project. He has stepped
                             in and stepped up anytime extra effort was needed in areas of the project that were
-                            not his direct responsibility; this includes fixing view layer issues , developing
+                            not his direct responsibility; this includes fixing view layer issues , developing
                             view layer classes, proving guidance to the database modeling team, executing
                             builds, managing source control issues, leading demos, and providing guidance and
                             support to team members. These efforts included some very long days and nights and
@@ -2141,811 +2923,18 @@
 
 
     </script>
-    <style>
-        .floating-cta {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-            z-index: 1000;
-            cursor: pointer;
-        }
 
-        @media (max-width: 768px) {
-            .floating-cta {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.9rem 1.3rem;
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /*:root {
-    --primary-bg: #0f172a;    
-    --accent-color: #fbbf24;  
-    --text-main: #f8fafc;   
-    --sidebar-bg: #1e293b;   
-}
-
-To Get Golden side bar Nav and gradient text, use these colors:
-Replace #0f172a by #0f172a
-replace #fbbf24 by #fbbf24
-*/
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: #0a0a0a;
-            overflow-x: hidden;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: row;
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background: linear-gradient(180deg, #0f172a 0%, #fbbf24 100%);
-            padding: 2rem 1.5rem;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
-            z-index: 100;
-            transition: transform 0.3s ease;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 2.5rem;
-            padding: 1rem 0;
-            text-align: center;
-            background: linear-gradient(135deg, #ffffff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .nav-links {
-            list-style: none;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 0.9rem;
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            padding: 0.85rem 1.1rem;
-            border-radius: 12px;
-            margin: 0.15rem 0;
-            font-weight: 500;
-            transition: all 0.25s ease;
-            cursor: pointer;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(6px);
-        }
-
-        .nav-link:focus-visible {
-            outline: 2px solid #fbbf24;
-            outline-offset: 2px;
-        }
-
-        .nav-icon {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
-
-        /* Main content */
-        .main-content {
-            margin-left: 280px;
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            min-height: 100vh;
-        }
-
-        .content-section {
-            display: none;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 2.5rem 3rem 2.5rem;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            min-height: 92vh;
-            position: relative;
-            margin-bottom: 2rem;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        .content-section h1 {
-            font-size: 2.7rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #0f172a, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-            text-align: center;
-        }
-
-        .content-section-subtitle {
-            text-align: center;
-            font-size: 1.05rem;
-            color: #666;
-            margin: 0.4rem auto 0;
-            font-style: italic;
-            max-width: 720px;
-        }
-
-        .positioning-banner {
-            text-align: center;
-            font-size: 0.9rem;
-            letter-spacing: 0.6px;
-            color: #2d4a8a;
-            padding: 6px 14px;
-            background: rgba(59, 130, 246, 0.10);
-            border: 1px solid rgba(59, 130, 246, 0.08);
-            border-radius: 12px;
-            max-width: 700px;
-            margin: 0.8rem auto 1.4rem;
-            line-height: 1.4;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .blue-card,
-        .purple-card,
-        .green-card,
-        .grey-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            position: relative;
-        }
-
-        .blue-card:hover,
-        .purple-card:hover,
-        .green-card:hover,
-        .grey-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
-        }
-
-        .blue-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #2f5597, #4a6fb3);
-            border-radius: 14px 14px 0 0;
-        }
-
-        .purple-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #6a5acd, #8b7cf0);
-            border-radius: 14px 14px 0 0;
-        }
-
-        .green-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #1f9d73, #38c997);
-            border-radius: 14px 14px 0 0;
-        }
-
-        .grey-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #7a7a7a, #b5b5b5);
-            border-radius: 14px 14px 0 0;
-        }
-
-        .card-title {
-            font-size: 1.1rem;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            padding-bottom: 0.6rem;
-            border-bottom: 2px solid #e1e5ff;
-        }
-
-        .card-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .card-list-item {
-            padding: 0.45rem 0;
-            color: #444;
-            font-size: 0.98rem;
-            line-height: 1.6;
-            position: relative;
-            padding-left: 16px;
-        }
-
-        .card-list-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.9rem;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background-color: #3a5fa0;
-        }
-
-        /* Metrics grid */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 1.5rem auto 0;
-        }
-
-        .metric-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            text-align: center;
-        }
-
-        .metric-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            opacity: 0.12;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            /*background: linear-gradient(90deg, #2d4a8a, #3b82f6);*/
-        }
-
-        .metric-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
-        }
-
-        .metric-card h3 {
-            font-size: 2.2rem;
-            color: #2d4a8a;
-            margin-bottom: 0.3rem;
-        }
-
-        .metric-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Certifications Page */
-        .certs-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .cert-group {
-            background: white;
-            padding: 0.5rem 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(30, 60, 114, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cert-group::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #0f172a, #fbbf24);
-        }
-
-        .cert-group:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(30, 60, 114, 0.2);
-        }
-
-        .group-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #e1e5ff;
-            text-align: center;
-        }
-
-        .group-title.active {
-            color: #0f172a;
-            background: linear-gradient(135deg, #0f172a, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .group-title.expired {
-            color: #666;
-        }
-
-        .cert-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .cert-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #f0f2ff;
-            transition: all 0.3s ease;
-        }
-
-        .cert-item:last-child {
-            border-bottom: none;
-        }
-
-        .cert-item:hover {
-            background: rgba(255, 255, 255, 0.5);
-            padding-left: 1rem;
-            border-radius: 8px;
-        }
-
-        .cert-badge-blue {
-            background: linear-gradient(135deg, #0f172a, #fbbf24);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            min-width: 80px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        /* Purple Badge */
-        .cert-badge-purple {
-            background: linear-gradient(135deg, #5f2c82, #8e44ad);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            min-width: 80px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        /* Orange Badge */
-        .cert-badge-orange {
-            background: linear-gradient(135deg, #ff7e00, #ffb347);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            min-width: 80px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        /* Green Badge */
-        .cert-badge-green {
-            background: linear-gradient(135deg, #11998e, #38ef7d);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            min-width: 80px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        /* Expired Badge */
-        .cert-badge-expired {
-            background: linear-gradient(135deg, #7a7a7a, #b5b5b5);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            min-width: 80px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .cert-details {
-            flex: 1;
-        }
-
-        .cert-name {
-            font-size: 1.0rem;
-            color: #333;
-            font-weight: 500;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .certs-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .cert-group {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Projects page */
-        .project-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .project-role {
-            display: inline-block;
-            font-size: 0.9rem;
-            color: #0f172a;
-            background: rgba(30, 60, 114, 0.08);
-            padding: 0.3rem 0.8rem;
-            border-radius: 999px;
-            font-weight: 600;
-        }
-
-        .project-tech-outcome {
-            margin-top: 1.5rem;
-            font-size: 0.98rem;
-            color: #222;
-            border-top: 1px solid #e1e5ff;
-            padding-top: 1rem;
-
-        }
-
-        .project-tech-outcome strong {
-            color: #0f172a;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .card-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .blue-card {
-                padding: 1.75rem;
-            }
-        }
-
-        /* Recognitions page */
-        .recognition-quote {
-            font-style: italic;
-            color: #444;
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .recognition-meta {
-            font-size: 0.9rem;
-            color: #2a4b8d;
-        }
-
-        /* Contact layout */
-        /* Contact Page - New */
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
-            align-items: start;
-            max-width: 1100px;
-            margin: 2.5rem auto 0;
-        }
-
-        .contact-intro {
-            text-align: left;
-            padding: 10px 10px 10px 0;
-        }
-
-        .contact-intro h2 {
-            font-size: 1.8rem;
-            color: #2d4a8a;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .contact-intro p {
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            max-width: 520px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            padding: 22px 24px;
-            text-decoration: none;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .contact-item::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #2d4a8a, #3b82f6);
-            opacity: 0.18;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-4px);
-            box-shadow:
-                0 16px 35px rgba(0, 0, 0, 0.12),
-                0 0 0 2px rgba(59, 130, 246, 0.08);
-        }
-
-        .contact-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: #e6edf9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2d4a8a;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-            transition: transform 0.2s ease;
-        }
-
-        .contact-item:hover .contact-icon {
-            transform: scale(1.05);
-        }
-
-        .contact-text {
-            text-align: left;
-        }
-
-        .contact-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #2d4a8a;
-            margin-bottom: 4px;
-        }
-
-        .contact-value {
-            font-size: 1rem;
-            color: #444;
-        }
-
-        @media (max-width: 900px) {
-            .contact-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-intro {
-                text-align: center;
-                padding-right: 0;
-            }
-
-            .contact-text {
-                text-align: left;
-            }
-        }
-
-        /* Mobile toggle button */
-        .mobile-toggle {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 200;
-            background: rgba(30, 60, 114, 0.95);
-            border: none;
-            color: #ffffff;
-            padding: 0.75rem 1rem;
-            border-radius: 999px;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            display: none;
-        }
-
-        .mobile-toggle:focus-visible {
-            outline: 2px solid #fbbf24;
-            outline-offset: 2px;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .contact-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                position: fixed;
-                left: -100%;
-                /* Hide off-screen by default */
-                top: 0;
-                width: 280px;
-                height: 100%;
-                z-index: 1000;
-                transition: 0.3s ease-in-out;
-                background: #0f172a;
-            }
-
-            .sidebar.active {
-                left: 0;
-                /* Slide in when toggled */
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 60px 20px;
-                /* Space for the floating menu button */
-            }
-
-            .content-section {
-                padding: 2rem 1.2rem;
-                margin: 1rem 0.5rem;
-                min-height: auto;
-            }
-
-            .content-section h1 {
-                font-size: 2rem;
-            }
-
-            h1 {
-                font-size: 1.8rem !important;
-                /* Scale down titles */
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-                /* Single column for cards */
-                gap: 1.5rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr 1fr;
-                /* Two columns for metrics */
-            }
-
-            .mobile-toggle {
-                display: block;
-                /* Show the ☰ Menu button */
-                position: fixed;
-                top: 20px;
-                left: 20px;
-                z-index: 1100;
-                background: #0f172a;
-                color: white;
-                padding: 10px 15px;
-                border-radius: 8px;
-                cursor: pointer;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-link {
-                min-height: 48px;
-                /* WCAG touch target */
-                padding: 1rem 1.5rem;
-                display: flex;
-                align-items: center;
-            }
-
-            .sidebar.open {
-                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
-            }
-
-            /* Close sidebar on outside click */
-            body.menu-open {
-                overflow: hidden;
-            }
-        }
-    </style>
 
     <!-- Optional: Analytics (replace ID) -->
     <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script>
-  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
 </body>
 
 </html>
