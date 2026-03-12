@@ -733,13 +733,6 @@
             outline-offset: 2px;
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .contact-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
             .sidebar {
                 position: fixed;
@@ -756,10 +749,6 @@
             .sidebar.active {
                 left: 0;
                 /* Slide in when toggled */
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
             }
 
             .main-content {
@@ -787,6 +776,10 @@
                 grid-template-columns: 1fr;
                 /* Single column for cards */
                 gap: 1.5rem;
+            }
+
+            .card-list {
+                padding: 1.5rem;
             }
 
             .metrics-grid {
@@ -820,6 +813,7 @@
 
             .sidebar.open {
                 box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+                transform: translateX(0);
             }
 
             /* Close sidebar on outside click */
