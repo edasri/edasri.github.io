@@ -2841,89 +2841,96 @@
         </main>
     </div>
 
-    <script>
-        // Sidebar toggle
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
         const mobileToggle = document.getElementById('mobileToggle');
         const sidebar = document.getElementById('sidebar');
-        mobileToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-        });
-
-        document.getElementById('mobileToggle').addEventListener('click', function () {
-            document.getElementById('sidebar').classList.toggle('active');
-        });
-
-        // Close sidebar when a link is clicked (crucial for mobile UX)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('sidebar').classList.remove('active');
-            });
-        });
-
-        // Section navigation
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.content-section');
+        const destinationLinks = document.querySelectorAll('.navigate-to-destination-page');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            document.body.classList.add('menu-open');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            document.body.classList.remove('menu-open');
+        }
+
+        function toggleSidebar() {
+            const isOpen = sidebar.classList.contains('open');
+            if (isOpen) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        }
+
+        function showSection(targetId) {
+            sections.forEach(section => {
+                section.classList.toggle('active', section.id === targetId);
+            });
+
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('data-section') === targetId);
+            });
+        }
+
+        if (mobileToggle && sidebar) {
+            mobileToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                toggleSidebar();
+            });
+        }
 
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', function () {
                 const target = link.getAttribute('data-section');
-                sections.forEach(sec => {
-                    sec.classList.toggle('active', sec.id === target);
-                });
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+                showSection(target);
 
-                // Close sidebar on mobile after navigation
                 if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('open');
+                    closeSidebar();
                 }
             });
         });
 
-        // Mobile nav toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileToggle = document.getElementById('mobileToggle');
-            const sidebar = document.getElementById('sidebar');
-
-            mobileToggle.addEventListener('click', function () {
-                sidebar.classList.toggle('open');
-                document.body.classList.toggle('menu-open');
-            });
-
-            // Close sidebar when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
-                    sidebar.classList.remove('open');
-                    document.body.classList.remove('menu-open');
-                }
-            });
-        });
-
-        // Add to your existing script
-        document.querySelectorAll('.navigate-to-destination-page').forEach(link => {
-            link.addEventListener('click', (e) => {
+        destinationLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = link.getAttribute('href').substring(1); // "projects"
 
-                // Show the section (your existing logic)
-                document.querySelectorAll('.content-section').forEach(sec => {
-                    sec.classList.toggle('active', sec.id === target);
-                });
+                const target = link.getAttribute('href')?.substring(1);
+                if (!target) return;
 
-                // Scroll to it smoothly
-                document.querySelector(`#${target}`).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                showSection(target);
 
-                // Update nav active state
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                document.querySelector(`[data-section="${target}"]`)?.classList.add('active');
+                const targetSection = document.getElementById(target);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+
+                if (window.innerWidth <= 768) {
+                    closeSidebar();
+                }
             });
         });
 
-
-    </script>
-
+        document.addEventListener('click', function (e) {
+            if (
+                window.innerWidth <= 768 &&
+                sidebar.classList.contains('open') &&
+                !sidebar.contains(e.target) &&
+                !mobileToggle.contains(e.target)
+            ) {
+                closeSidebar();
+            }
+        });
+    });
+</script>
 
     <!-- Optional: Analytics (replace ID) -->
     <!--
