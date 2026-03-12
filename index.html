@@ -357,7 +357,7 @@
         }
 
         .metric-card h2 {
-            font-size: 1.5rem;
+            font-size: 2.2rem;
             color: #2d4a8a;
             margin-bottom: 0.3rem;
         }
@@ -734,27 +734,22 @@
         }
 
         @media (max-width: 768px) {
-.sidebar {
-        position: fixed;
-        top: 16px;
-        left: 16px;
-        width: 280px;
-        max-width: calc(100vw - 32px);
-        height: calc(100dvh - 32px);
+            .sidebar {
+                position: fixed;
+                left: 0;
+                transform: translateX(-100%);
+                top: 0;
+                width: 280px;
+                height: 100dvh;
+                z-index: 1000;
+                transition: transform 0.3s ease;
+                background: linear-gradient(180deg, #0f172a 0%, #fbbf24 100%);
+            }
 
-        transform: translateX(-110%);
-        transition: transform 0.3s ease;
-
-        background: linear-gradient(180deg, #0f172a 0%, #fbbf24 100%);
-        border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-        overflow-y: auto;
-        z-index: 1000;
-    }
-
-    .sidebar.open {
-        transform: translateX(0);
-    }
+            .sidebar.open {
+                transform: translateX(0);
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+            }
 
             .container {
                 display: block;
@@ -783,7 +778,8 @@
                 /* Scale down titles */
             }
 
-            .cards-grid {
+            .cards-grid,
+            .metrics-grid {
                 grid-template-columns: 1fr;
                 /* Single column for cards */
                 gap: 1.5rem;
@@ -791,11 +787,6 @@
 
             .card-list {
                 padding: 1.5rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr 1fr;
-                /* Two columns for metrics */
             }
 
             .mobile-toggle {
