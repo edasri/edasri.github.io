@@ -102,7 +102,7 @@
             font-size: 1.8rem;
             font-weight: 800;
             margin-bottom: 2.5rem;
-            padding: 1rem 0;
+            padding: 0rem 0 1rem 0;
             text-align: center;
             background: linear-gradient(135deg, #ffffff, #e0e7ff);
             -webkit-background-clip: text;
@@ -121,7 +121,7 @@
             gap: 0.9rem;
             color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
-            padding: 0.70rem 1.1rem;
+            padding: 0.7rem 1.1rem;
             border-radius: 12px;
             margin: 0.15rem 0;
             font-weight: 500;
@@ -179,36 +179,91 @@
         }
 
         .content-section h1 {
-            font-size: 2.7rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.6rem;
+            margin-top: 10px;
+            margin-bottom: 18px;
             background: linear-gradient(135deg, #0f172a, #fbbf24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-weight: 800;
+            font-weight: 700;
             text-align: center;
+            letter-spacing: -0.4px;
+            line-height: 1.25;
         }
 
         .content-section-subtitle {
             text-align: center;
-            font-size: 1.05rem;
-            color: #666;
-            margin: 0.4rem auto 0;
+            font-size: 1.15rem;
+            color: #5a5a5a;
+            margin: 10px auto 0;
             font-style: italic;
             max-width: 720px;
+            line-height: 1.6;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-pill {
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(45, 74, 138, 0.08);
+            font-size: 0.9rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.6rem, 4vw, 3.4rem);
+            line-height: 1.18;
+            letter-spacing: -0.6px;
+            max-width: 900px;
+            margin: 18px auto 26px;
+        }
+
+        .accent {
+            background: linear-gradient(90deg, #b48b2a, #d4a93c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section {
+            animation: heroFade 0.8s ease-out;
+            padding: 5rem 2rem;
+            min-height: 70dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        @keyframes heroFade {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .positioning-banner {
             text-align: center;
-            font-size: 0.9rem;
-            letter-spacing: 0.6px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
             color: #2d4a8a;
             padding: 6px 14px;
             background: rgba(59, 130, 246, 0.10);
             border: 1px solid rgba(59, 130, 246, 0.08);
             border-radius: 12px;
             max-width: 700px;
-            margin: 0.8rem auto 1.4rem;
+            margin: 0.8rem auto 16px;
             line-height: 1.4;
         }
 
@@ -217,6 +272,7 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 1.5rem;
+            gap: 30px;
         }
 
         .blue-card,
@@ -330,6 +386,9 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(0, 0, 0, 0.04);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .metric-card::before {
@@ -346,19 +405,50 @@
         }
 
         .metric-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
         }
 
-        .metric-card h2 {
-            font-size: 2.2rem;
-            color: #2d4a8a;
-            margin-bottom: 0.3rem;
+        .metric-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .metric-card:hover::after {
+            opacity: 1;
+        }
+
+        .metric-number {
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #2d4a8a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.7rem;
         }
 
         .metric-card p {
             color: #666;
             font-size: 0.95rem;
+        }
+
+        .impact-metrics {
+            position: relative;
+        }
+
+        .impact-metrics::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(45, 74, 138, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(45, 74, 138, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
         }
 
         /* Certifications Page */
@@ -395,20 +485,16 @@
         }
 
         .group-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             margin-bottom: 2rem;
             padding-bottom: 0.75rem;
             border-bottom: 2px solid #e1e5ff;
-            text-align: center;
+            text-align: left;
         }
 
         .group-title.active {
-            color: #0f172a;
-            background: linear-gradient(135deg, #0f172a, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #2d4a8a;
         }
 
         .group-title.expired {
@@ -425,7 +511,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 1rem 0;
+            padding: 0.6rem 0;
             border-bottom: 1px solid #f0f2ff;
             transition: all 0.3s ease;
         }
@@ -441,7 +527,7 @@
         }
 
         .cert-badge-blue {
-            background: linear-gradient(135deg, #0f172a, #fbbf24);
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
             color: white;
             padding: 0.4rem 0.8rem;
             border-radius: 20px;
@@ -827,7 +913,7 @@
         <!-- Sidebar -->
         <nav class="sidebar" id="sidebar" aria-label="Main navigation">
             <div class="logo">Srinivasa Reddy Eda</div>
-            <ul class="nav-links">
+            <ul class="nav-links" aria-label="ARCHITECT PROFILE">
                 <!-- Keep your existing SVGs, just ensure structure matches -->
                 <li>
                     <a class="nav-link active" data-section="about">
@@ -835,7 +921,7 @@
                             <path
                                 d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z" />
                         </svg>
-                        About Me
+                        Overview
                     </a>
                 </li>
                 <li>
@@ -844,7 +930,7 @@
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 12h18M12 3v18" />
                         </svg>
-                        Impact Metrics
+                        Impact
                     </a>
                 </li>
 
@@ -861,7 +947,7 @@
                             <path d="M14 16l1 0" />
                             <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" />
                         </svg>
-                        What I Build
+                        Architecture Focus
                     </a>
                 </li>
 
@@ -870,15 +956,7 @@
                             <path
                                 d="M21 5v6h-2V7.4L12 11 3 6v11h9v2H3c-1.1 0-2-.9-2-2V5c0-.4.2-.7.5-.9.3-.2.7-.2 1 0L12 8.5 20.5 4c.3-.2.7-.2 1 0 .3.2.5.5.5 1zM17 14h2v2h2v2h-2v2h-2v-2h-2v-2h2z" />
                         </svg>
-                        Skills
-                    </a></li>
-
-                <li><a class="nav-link" data-section="certifications">
-                        <svg class="nav-icon" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l2.1 3.9 4.4.7-3.2 3.3.8 4.6-4.1-2.1-4.1 2.1.8-4.6L5.5 6.6l4.4-.7L12 2zm0 5.2l-1 1.9-2.1.3 1.5 1.6-.4 2.1 2-1.1 2 1.1-.4-2.1 1.5-1.6-2.1-.3-1-1.9zM7 19h10v2H7z" />
-                        </svg>
-                        Certifications
+                        Expertise
                     </a></li>
 
                 <li><a class="nav-link" data-section="projects">
@@ -886,14 +964,24 @@
                             <path
                                 d="M4 5c0-1.1.9-2 2-2h4l2 2h6c1.1 0 2 .9 2 2v3h-2V7H6v10h6v2H6c-1.1 0-2-.9-2-2V5zm11 8h2v3h3v2h-3v3h-2v-3h-3v-2h3z" />
                         </svg>
-                        Projects
+                        Engagements
                     </a></li>
+
+
+                <li><a class="nav-link" data-section="certifications">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l2.1 3.9 4.4.7-3.2 3.3.8 4.6-4.1-2.1-4.1 2.1.8-4.6L5.5 6.6l4.4-.7L12 2zm0 5.2l-1 1.9-2.1.3 1.5 1.6-.4 2.1 2-1.1 2 1.1-.4-2.1 1.5-1.6-2.1-.3-1-1.9zM7 19h10v2H7z" />
+                        </svg>
+                        Credentials
+                    </a></li>
+
                 <li><a class="nav-link" data-section="recognitions">
                         <svg class="nav-icon" viewBox="0 0 24 24">
                             <path
                                 d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z" />
                         </svg>
-                        Recognitions
+                        Recognition
                     </a></li>
 
                 <li><a class="nav-link" data-section="contact-page">
@@ -901,7 +989,7 @@
                             <path
                                 d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 3.2L12 13 4 7.2V6l8 5 8-5v1.2z" />
                         </svg>
-                        Contact
+                        Connect
                     </a></li>
             </ul>
         </nav>
@@ -911,20 +999,22 @@
 
             <!-- Hero Section -->
             <section class="content-section active" id="hero">
-                <div style="max-width: 800px; margin: 0 auto; padding: 4rem 2rem;">
-                    <p
-                        style="font-size: 1.2rem; color: #444; margin-bottom: 2rem; line-height: 1.6; text-align: center;">
-                        <strong>150+ Microservices | 500+ App Migrations | 200+ Database Migrations</strong>
-                        <br>
-                        Google Cloud Architect • SAFe RTE • SAFe SPC • PMP
-                        <br>
-                        Toronto-based Consultant
-                    </p>
-                    <h1
-                        style="font-size: clamp(2.2rem, 5vw, 3.0rem); background: linear-gradient(135deg, #0f172a, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; line-height: 1.2;">
-                        De-risking Enterprise AI and Cloud Transformations for Global Organizations.
+                <div class="hero-section">
 
-                    </h1><br>
+                    <div class="hero-badges">
+                        <div class="hero-pill">150+ Microservices | 500+ App Migrations | 200+ Database Migrations</div>
+                        <div class="hero-pill">Google Cloud Architect • SAFe RTE • SAFe SPC • PMP</div>
+                        <div class="hero-pill">Toronto-based Consultant</div>
+                    </div>
+
+
+
+                    <h1 class="hero-title">
+                        De-risking Enterprise <span class="accent">AI and Cloud Transformations</span><br>
+                        for Global Organizations.
+                    </h1>
+
+                    <br>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                         <!-- Primary (darker blue) -->
                         <a href="#contact-page" class="btn-secondary navigate-to-destination-page"
@@ -934,7 +1024,7 @@
 
                         <!-- Secondary (navy blue - darker than before) -->
                         <a href="#projects" class="btn-secondary navigate-to-destination-page"
-                            style="background: linear-gradient(135deg, #0f172a, #fbbf24); color: white; padding: 1rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 25px rgba(30,60,114,0.4); border: 2px solid rgba(255,255,255,0.2);">
+                            style="background: linear-gradient(135deg, #5d47a1, #2153c7); color: white; padding: 1rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 25px rgba(30,60,114,0.4); border: 2px solid rgba(255,255,255,0.2);">
                             View Projects
                         </a>
 
@@ -945,7 +1035,7 @@
             <!-- About Me Page -->
             <section id="about" class="content-section">
 
-                <h1>About Me</h1>
+                <h1>About the Architect</h1>
                 <div class="positioning-banner">
                     AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
                 </div>
@@ -1031,53 +1121,53 @@
                 <div class="cards-grid">
 
                     <div class="metric-card">
-                        <h2>150+</h2>
+                        <h2 class="metric-number" data-target="150">150+</h2>
                         <p>Microservices<br>
                             Designed & Architected</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>500+</h2>
+                        <h2 class="metric-number" data-target="500">500+</h2>
                         <p>Applications<br>
                             Modernized & Migrated</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>200+</h2>
+                        <h2 class="metric-number" data-target="200">200+</h2>
                         <p>Enterprise Databases<br>
                             Migrated</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>100+</h2>
+                        <h2 class="metric-number" data-target="100">100+</h2>
                         <p>Engineers
                             Led <br>Across Global Teams</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>3M+</h2>
+                        <h2 class="metric-number" data-target="3" data-suffix="M+">3M+</h2>
                         <p>Customers
                             Supported<br> by Platform</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>4</h2>
+                        <h2 class="metric-number" data-target="4">4</h2>
                         <p>Countries:<br>
                             Enterprise Programs Delivered</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>10+</h2>
+                        <h2 class="metric-number" data-target="10">10+</h2>
                         <p>Global <br>Enterprise Clients</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>20+</h2>
+                        <h2 class="metric-number" data-target="20">20+</h2>
                         <p>Enterprise<br> Programs Delivered</p>
                     </div>
 
                     <div class="metric-card">
-                        <h2>5+</h2>
+                        <h2 class="metric-number" data-target="5">5+</h2>
                         <p>Cloud Platform <br>Transformations</p>
                     </div>
 
@@ -1087,7 +1177,7 @@
 
             <!-- What I Build Page -->
             <section id="what-i-build" class="content-section">
-                <h1>Architecture Focus</h1>
+                <h1>Architecture & Technology Focus</h1>
                 <div class="positioning-banner">
                     AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
                 </div>
@@ -1148,7 +1238,7 @@
 
             <!-- Skills Page -->
             <section id="skills" class="content-section">
-                <h1>Core Technologies & Capabilities</h1>
+                <h1>Architecture & Technology Expertise</h1>
                 <div class="positioning-banner">
                     AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
                 </div>
@@ -1324,86 +1414,9 @@
                 </div>
             </section>
 
-            <!-- Certifications Page -->
-            <section id="certifications" class="content-section">
-                <h1>Certifications</h1>
-                <div class="positioning-banner">
-                    AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                </div>
-                <p class="content-section-subtitle">
-                    Industry-recognized certifications validating expertise in cloud architecture, Generative AI, Agile
-                    program leadership, and enterprise technology transformation.<br>
-                    <strong>6 Active Certifications • Cloud, AI, Agile & Program Leadership</strong>
-                </p>
-                <div class="cards-grid">
-                    <div class="blue-card">
-                        <h2 class="group-title active">Active Certifications</h2>
-                        <ul class="cert-list">
-                            <li class="cert-item">
-                                <span class="cert-badge-blue">Google Cloud</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">Professional Cloud Architect</div>
-                                </div>
-                            </li>
-                            <li class="cert-item">
-                                <span class="cert-badge-blue">Google Cloud</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">Generative AI Leader</div>
-                                </div>
-                            </li>
-                            <li class="cert-item">
-                                <span class="cert-badge-orange">SAFe</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">SAFe Practice
-                                        Consultant (SPC)</div>
-                                </div>
-                            </li>
-                            <li class="cert-item">
-                                <span class="cert-badge-orange">SAFe</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">Release Train
-                                        Engineer (RTE)</div>
-                                </div>
-                            </li>
-                            <li class="cert-item">
-                                <span class="cert-badge-purple">PMI</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">Project
-                                        Management Professional (PMP)</div>
-                                </div>
-                            </li>
-                            <li class="cert-item">
-                                <span class="cert-badge-green">Scrum Alliance</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">ScrumMaster (CSM)</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="grey-card">
-                        <h2 class="group-title expired">Past Certifications</h2>
-                        <ul class="cert-list">
-                            <li class="cert-item">
-                                <span class="cert-badge-expired">HashiCorp</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">Terraform Associate (003)</div>
-                                </div>
-                            </li>
-                            <li class="cert-item">
-                                <span class="cert-badge-expired">Sun</span>
-                                <div class="cert-details">
-                                    <div class="cert-name">&nbsp;&nbsp;Java Programmer</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
             <!-- Projects Page -->
             <section id="projects" class="content-section">
-                <h1>Projects & Engagements</h1>
+                <h1>Selected Architecture & Transformation Initiatives</h1>
                 <div class="positioning-banner">
                     AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
                 </div>
@@ -2069,9 +2082,86 @@
                 </div>
             </section>
 
+            <!-- Certifications Page -->
+            <section id="certifications" class="content-section">
+                <h1>Professional Certifications & Credentials</h1>
+                <div class="positioning-banner">
+                    AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                </div>
+                <p class="content-section-subtitle">
+                    Industry-recognized certifications validating expertise in cloud architecture, Generative AI, Agile
+                    program leadership, and enterprise technology transformation.<br>
+                    <strong>6 Active Certifications • Cloud, AI, Agile & Program Leadership</strong>
+                </p>
+                <div class="cards-grid">
+                    <div class="blue-card">
+                        <h2 class="group-title active">Active Certifications</h2>
+                        <ul class="cert-list">
+                            <li class="cert-item">
+                                <span class="cert-badge-blue">Google Cloud</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Professional Cloud Architect</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge-blue">Google Cloud</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Generative AI Leader</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge-orange">SAFe</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">SAFe Practice
+                                        Consultant (SPC)</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge-orange">SAFe</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Release Train
+                                        Engineer (RTE)</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge-purple">PMI</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Project
+                                        Management Professional (PMP)</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge-green">Scrum Alliance</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">ScrumMaster (CSM)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grey-card">
+                        <h2 class="group-title expired">Past Certifications</h2>
+                        <ul class="cert-list">
+                            <li class="cert-item">
+                                <span class="cert-badge-expired">HashiCorp</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">Terraform Associate (003)</div>
+                                </div>
+                            </li>
+                            <li class="cert-item">
+                                <span class="cert-badge-expired">Sun</span>
+                                <div class="cert-details">
+                                    <div class="cert-name">&nbsp;&nbsp;Java Programmer</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             <!-- Recognitions Page -->
             <section id="recognitions" class="content-section">
-                <h1>Appreciations & Recognition</h1>
+                <h1>Leadership Recognition</h1>
                 <div class="positioning-banner">
                     AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
                 </div>
@@ -2750,7 +2840,7 @@
 
             <!-- Contact Page -->
             <section id="contact-page" class="content-section">
-                <h1>Contact</h1>
+                <h1>Contact & Collaboration</h1>
                 <div class="positioning-banner">
                     AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
                 </div>
@@ -2924,6 +3014,42 @@
                 }
             });
         });
+
+        function animateCounters() {
+            const counters = document.querySelectorAll('.metric-number');
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const suffix = counter.getAttribute('data-suffix') || "+";
+                let count = 0;
+
+                const step = target / 60;
+
+                function update() {
+                    count += step;
+
+                    if (count < target) {
+                        counter.innerText = Math.floor(count) + suffix;
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.innerText = target + suffix;
+                    }
+                }
+
+                update();
+            });
+        }
+
+        const impactSection = document.getElementById('impact-metrics');
+
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(impactSection);
     </script>
 
     <!-- Optional: Analytics (replace ID) -->
