@@ -88,27 +88,23 @@
         /* Sidebar */
         .sidebar {
             width: 280px;
-            background: linear-gradient(180deg, #0f172a 0%, #fbbf24 100%);
+            background: linear-gradient(180deg, #0b1220 0%, #6f5617 45%, #d6a622 100%);
             padding: 2rem 1.5rem;
             position: fixed;
             height: 100dvh;
             overflow-y: auto;
-            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+            box-shadow: inset -1px 0 0 rgba(255, 255, 255, .06);
             z-index: 100;
             transition: transform 0.3s ease;
+            border-right: 1px solid rgba(15, 23, 42, .08);
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 2.5rem;
-            padding: 0rem 0 1rem 0;
-            text-align: center;
-            background: linear-gradient(135deg, #ffffff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        .sidebar::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 18%, rgba(255, 255, 255, 0) 40%);
         }
 
         .sidebar-header {
@@ -137,6 +133,14 @@
             margin-top: 8px;
             margin-bottom: 10px;
             line-height: 1.45;
+        }
+
+        .sidebar-positioning {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, .65);
+            line-height: 1.35;
+            margin-top: 6px;
+            max-width: 220px;
         }
 
         .sidebar-divider {
@@ -180,14 +184,44 @@
             font-weight: 500;
             transition: all 0.25s ease;
             cursor: pointer;
+            margin-bottom: 8px;
+            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.14);
-            transform: translateX(6px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(2px);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.06),
+                0 8px 20px rgba(0, 0, 0, 0.10);
+            border-radius: 14px;
+            position: relative;
+        }
+
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            pointer-events: none;
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.08) 0%,
+                    rgba(255, 255, 255, 0.03) 45%,
+                    rgba(255, 255, 255, 0) 100%);
+        }
+
+        .nav-link.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            border-radius: 0 3px 3px 0;
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .nav-link:focus-visible {
@@ -213,6 +247,10 @@
             flex-direction: column;
             position: relative;
             z-index: 1;
+            background: linear-gradient(180deg,
+                    #ffffff 0%,
+                    #f8fafc 60%,
+                    #f1f5f9 100%);
         }
 
         .main-content::before {
@@ -366,8 +404,9 @@
             border-radius: 16px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(0, 0, 0, 0.04);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: all .25s ease;
             position: relative;
+            backdrop-filter: blur(4px);
         }
 
         .about-summary-card:hover,
@@ -490,6 +529,7 @@
             position: relative;
             transform: translateY(-8px);
             box-shadow: 0 18px 36px rgba(0, 0, 0, 0.09);
+            backdrop-filter: blur(4px);
         }
 
         .about-summary-card::before {
@@ -519,20 +559,23 @@
         }
 
         .metric-card {
-            background: #ffffff;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(15, 23, 42, .06);
             text-align: center;
             position: relative;
             overflow: hidden;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: all .25s ease;
+            backdrop-filter: blur(4px);
         }
 
         .metric-card::before {
             content: "";
             position: absolute;
+            pointer-events: none;
+            inset: 0;
             top: 0;
             left: 0;
             width: 100%;
@@ -541,11 +584,15 @@
             border-top-left-radius: 12px;
             border-top-right-radius: 12px;
             /*background: linear-gradient(90deg, #2d4a8a, #3b82f6);*/
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, .55) 0%,
+                    rgba(255, 255, 255, .25) 25%,
+                    rgba(255, 255, 255, 0) 55%);
         }
 
         .metric-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 34px rgba(15, 23, 42, .08);
         }
 
         .metric-card::after {
@@ -564,11 +611,12 @@
         .metric-number {
             font-variant-numeric: tabular-nums;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: .5px;
             background: linear-gradient(90deg, #2d4a8a, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 2.7rem;
+            color: #3b63b3;
         }
 
         .metric-card p {
@@ -977,19 +1025,20 @@
             }
 
             .content-area {
-                padding: 14px 18px 18px 6px;
+                padding: 4px 8px 8px 0;
             }
 
             .main-content {
                 margin-left: 0;
-                padding: 36px 40px 48px;
+                padding: 10px 28px 28px;
                 overflow: visible;
                 min-height: auto;
                 background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
                 border: 1px solid rgba(15, 23, 42, 0.08);
+                border-top: 1px solid rgba(0, 0, 0, .04);
                 border-radius: 24px;
                 box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-                margin: 12px;
+                margin: 0 8px 8px 0;
             }
 
             .content-section {
@@ -1102,7 +1151,7 @@
         .section-divider {
             display: flex;
             align-items: center;
-            margin: 40px 0 25px 0;
+            margin: 15px auto 35px;
         }
 
         .section-divider::before,
@@ -1110,7 +1159,7 @@
             content: "";
             flex: 1;
             height: 1px;
-            background: #e5e7eb;
+            background: #d1d5db;
         }
 
         .section-divider span {
@@ -1122,49 +1171,187 @@
         }
 
         .advisor-cta {
-            margin-top: 60px;
-            padding: 40px 30px;
-            border-radius: 16px;
-            background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+            margin-top: 110px;
+            position: relative;
+            padding: 40px 32px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, .06);
+            border-radius: 20px;
+            background: linear-gradient(180deg,
+                    #f8fafc 0%,
+                    #eef2f7 100%);
             text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(15, 23, 42, .08);
+            transition: all .25s ease;
+
+        }
+
+        .advisor-cta::before {
+            content: "";
+            position: absolute;
+            top: -22px;
+            left: 25%;
+            right: 25%;
+            height: 1px;
+            background: rgba(15, 23, 42, .08);
+        }
+
+        .advisor-cta:hover {
+            box-shadow: 0 14px 35px rgba(0, 0, 0, .08);
         }
 
         .advisor-cta h3 {
             font-size: 22px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 10px;
             color: #1f2937;
+            letter-spacing: .02em;
         }
 
         .advisor-cta p {
             color: #4b5563;
-            max-width: 650px;
-            margin: 0 auto 20px;
+            max-width: 700px;
+            margin: auto;
+            padding: 1rem 0;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 12px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 25px;
         }
 
         .cta-primary {
-            background: #1f2937;
+            background: #1e293b;
             color: white;
-            padding: 10px 18px;
+            padding: 14px 26px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
         }
 
+        .cta-primary:hover {
+            background: #111827;
+        }
+
         .cta-secondary {
-            border: 1px solid #d1d5db;
-            padding: 10px 18px;
+            border: 1px solid rgba(15, 23, 42, .15);
+            background: white;
+            padding: 14px 26px;
             border-radius: 8px;
             text-decoration: none;
-            color: #374151;
+            color: #1e293b;
+        }
+
+        .cta-secondary:hover {
+            background: #f3f4f6;
+        }
+
+        .advisory-areas {
+            margin: 36px auto 24px auto;
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        .advisory-areas h3 {
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2f3542;
+            letter-spacing: .02em;
+        }
+
+        .advisory-areas ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+        }
+
+        .advisory-areas li {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+
+            background: #f8fafc;
+            border: 1px solid rgba(15, 23, 42, .06);
+
+            font-size: .9rem;
+            font-weight: 500;
+            color: #475569;
+
+            transition: all .18s ease;
+        }
+
+
+        .advisory-areas li:hover {
+            background: #eef2f7;
+            border-color: rgba(15, 23, 42, .08);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(15, 23, 42, .08);
+        }
+
+        .page-end-divider {
+            width: 80px;
+            height: 2px;
+            background: #e5e7eb;
+            margin: 60px auto 40px;
+        }
+
+        .site-footer {
+            margin-top: 40px;
+            padding: 40px 20px;
+            background: #111827;
+            color: #d1d5db;
+            padding: 60px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-about h4 {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .site-footer h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a,
+        .footer-contact a {
+            display: block;
+            color: #d1d5db;
+            text-decoration: none;
+            margin-bottom: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-contact a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        .footer-connect {
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -1193,6 +1380,10 @@
                     <div class="sidebar-role">
                         Enterprise AI & Cloud Architecture Advisor
                     </div>
+                    <p class="sidebar-positioning">
+                        Advising organizations on AI platforms, cloud transformation,
+                        and enterprise architecture strategy.
+                    </p>
 
                     <div class="sidebar-divider"></div>
 
@@ -1316,12 +1507,16 @@
 
                         </div>
                     </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
+
                 </section>
 
                 <!-- About Me Page -->
                 <section id="about" class="content-section">
 
-                    <h1>Architecture Leadership</h1>
+                    <h1>Enterprise Architecture Leadership</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
                         <br>
@@ -1343,6 +1538,10 @@
                             transformation systems.
                         </p>
 
+                    </div>
+                    <!-- DiVIDER -->
+                    <div class="section-divider">
+                        <span>ARCHITECTURE ADVISORY OVERVIEW</span>
                     </div>
                     <div class="about-grid">
 
@@ -1413,6 +1612,37 @@
 
                     </div>
 
+                    <div class="advisory-areas">
+
+                        <h3>Advisory Engagement Areas</h3>
+
+                        <ul>
+                            <li>AI Platform Strategy & Architecture</li>
+                            <li>Cloud Modernization & Migration Roadmaps</li>
+                            <li>Enterprise Architecture Governance</li>
+                            <li>Large-Scale Transformation Programs</li>
+                        </ul>
+
+                    </div>
+
+                    <!-- CTA Area -->
+                    <div class="advisor-cta">
+                        <h3>Architecture Strategy Advisory</h3>
+                        <p>
+                            Advising organizations on AI platforms, cloud modernization,
+                            and enterprise architecture transformation initiatives.
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="#contact-page" class="cta-primary navigate-to-destination-page">Discuss
+                                Architecture Strategy</a>
+                            <a href="#what-i-build" class="cta-secondary navigate-to-destination-page">Explore Advisory
+                                Focus</a>
+                        </div>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
                 </section>
 
                 <!-- Impact Metrics Page -->
@@ -1427,6 +1657,11 @@
                         Quantifiable outcomes from large-scale cloud, platform, and AI architecture initiatives.
                     </p>
 
+                    <!-- DiVIDER -->
+                    <div class="section-divider">
+                        <span>TRANSFORMATION IMPACT</span>
+                    </div>
+
                     <div class="cards-grid">
 
                         <div class="metric-card">
@@ -1437,14 +1672,14 @@
 
                         <div class="metric-card">
                             <h2 class="metric-number" data-target="500">500+</h2>
-                            <p>Applications<br>
+                            <p>Enterprise Applications<br>
                                 Modernized & Migrated</p>
                         </div>
 
                         <div class="metric-card">
                             <h2 class="metric-number" data-target="200">200+</h2>
-                            <p>Enterprise Databases<br>
-                                Migrated</p>
+                            <p>Enterprise Databases Migrated<br>
+                                Across Cloud Platforms</p>
                         </div>
 
                         <div class="metric-card">
@@ -1461,7 +1696,7 @@
 
                         <div class="metric-card">
                             <h2 class="metric-number" data-target="4">4</h2>
-                            <p>Countries:<br>
+                            <p>Countries<br>
                                 Enterprise Programs Delivered</p>
                         </div>
 
@@ -1477,10 +1712,32 @@
 
                         <div class="metric-card">
                             <h2 class="metric-number" data-target="5">5+</h2>
-                            <p>Cloud Platform <br>Transformations</p>
+                            <p>Multi-Region <br> Cloud Transformation <br>Programs Delivered</p>
                         </div>
 
+                        <div class="metric-card">
+                            <h2 class="metric-number" data-target="20">20</h2>
+                            <p>Years <br> Enterprise Architecture <br>Leadership</p>
+                        </div>
                     </div>
+                    <!-- CTA Area -->
+                    <div class="advisor-cta">
+                        <h3>Enterprise Transformation Advisory</h3>
+                        <p>
+                            Helping organizations modernize cloud platforms, implement scalable AI systems, and
+                            deliver enterprise architecture transformation programs.
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="#contact-page" class="cta-primary navigate-to-destination-page">Discuss
+                                Transformation Strategy</a>
+                            <a href="#what-i-build" class="cta-secondary navigate-to-destination-page">Explore
+                                Architecture Focus</a>
+                        </div>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
                 </section>
 
 
@@ -1519,8 +1776,8 @@
                                 <li class="card-list-item">Kubernetes-based architectures</li>
                                 <li class="card-list-item">Microservices platforms</li>
                                 <li class="card-list-item">Cloud migrations</li>
-                                <li class="card-list-item">Large-scale distributed systems running on Google Cloud and
-                                    hybrid environments</li>
+                                <li class="card-list-item">Large-scale distributed systems across Google Cloud and
+                                    hybrid enterprise platforms</li>
 
                             </ul>
                         </div>
@@ -1547,6 +1804,8 @@
                         </div>
 
                     </div>
+
+                    <!-- CTA Area -->
                     <div class="advisor-cta">
                         <h3>Strategic Architecture Advisory</h3>
                         <p>
@@ -1555,10 +1814,15 @@
                         </p>
 
                         <div class="cta-buttons">
-                            <a href="#contact-page" class="cta-primary navigate-to-destination-page">Discuss Architecture Strategy</a>
-                            <a href="https://www.linkedin.com/in/srinivasa-reddy-eda-09463b34/" class="cta-secondary">Connect on LinkedIn</a>
+                            <a href="#contact-page" class="cta-primary navigate-to-destination-page">Discuss
+                                Architecture Strategy</a>
+                            <a href="https://www.linkedin.com/in/srinivasa-reddy-eda-09463b34/"
+                                class="cta-secondary">Connect on LinkedIn</a>
                         </div>
                     </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
                 </section>
 
                 <!-- Skills Page -->
@@ -1574,6 +1838,11 @@
                         leadership,
                         and stakeholder-driven transformation expertise.
                     </p>
+
+                    <!-- DiVIDER -->
+                    <div class="section-divider">
+                        <span>EXPERTISE THAT TRANSLATES INTO REAL ENTERPRISE IMPACT</span>
+                    </div>
 
                     <div class="cards-grid">
 
@@ -1764,7 +2033,40 @@
                             </ul>
                         </div>
 
+                        <div class="green-card">
+                            <h2 class="card-title">🗄 Enterprise Architecture & Governance</h2>
+                            <ul class="card-list">
+                                <li class="card-list-item">Technology strategy and architecture governance
+                                </li>
+                                <li class="card-list-item">Architecture review boards</li>
+                                <li class="card-list-item">Technology standards and reference architectures</li>
+                                <li class="card-list-item">Enterprise modernization roadmaps
+                                </li>
+
+                            </ul>
+                        </div>
+
                     </div>
+
+                    <!-- CTA Area -->
+                    <div class="advisor-cta">
+                        <h3>Applying Architecture Expertise to Real Enterprise Transformation</h3>
+                        <p>
+                            My work spans enterprise AI platform architecture, cloud modernization,
+                            and solution design for complex organizations. Explore how these
+                            capabilities translate into practical advisory engagements,
+                            architecture assessments, and transformation initiatives.
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="#projects" class="cta-primary">Explore Advisory Engagements</a>
+                            <a href="#impact-metrics" class="cta-secondary">View Architecture Impact</a>
+                        </div>
+                    </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
+
                 </section>
 
                 <!-- Projects Page -->
@@ -2439,6 +2741,9 @@
 
 
                     </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
                 </section>
 
                 <!-- Certifications Page -->
@@ -2519,6 +2824,9 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
                 </section>
 
                 <!-- Recognitions Page -->
@@ -3199,6 +3507,9 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
                 </section>
 
 
@@ -3277,13 +3588,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- FOOTER -->
+                    <div class="site-footer-section"></div>
                 </section>
-
-
-
             </main>
         </div>
     </div>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const mobileToggle = document.getElementById('mobileToggle');
@@ -3420,6 +3733,39 @@
         observer.observe(impactSection);
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const footerContainers = document.querySelectorAll(".site-footer-section");
+
+            footerContainers.forEach(function (footerContainer) {
+                footerContainer.innerHTML = `
+                <footer class="site-footer">
+                    <div class="footer-container">
+                        <div class="footer-about">
+                            <h4 class="footer-name">Srinivasa Reddy Eda</h4>
+                            <p>Enterprise AI & Cloud Architecture Advisor</p>
+                            <p class="footer-tagline">
+                                Advising organizations on AI platforms, cloud transformation,
+                                and enterprise architecture strategy.
+                            </p>
+                        </div>
+
+                        <div class="footer-contact">
+                            <h4>Connect</h4>
+                            <a href="https://www.linkedin.com/in/srinivasa-reddy-eda-09463b34/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+                            <a href="https://github.com/edasri" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+                            <a href="mailto:edasri@gmail.com">&nbsp;✉ &nbsp;Email</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        © 2026 Srinivasa Reddy Eda • Architecture Advisory
+                    </div>
+                </footer>
+            `;
+            });
+        });
+    </script>
     <!-- Optional: Analytics (replace ID) -->
     <!--
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
