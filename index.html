@@ -861,21 +861,22 @@
 
         /* Contact Page */
 
-#wp-contact-page {
-    position: relative;
-}
+        #wp-contact-page {
+            position: relative;
+        }
 
-#wp-contact-page::before {
-    content: "";
-    position: absolute;
-    top: -150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(79,124,255,0.15), transparent 70%);
-    z-index: -1;
-}
+        #wp-contact-page::before {
+            content: "";
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(79, 124, 255, 0.15), transparent 70%);
+            z-index: -1;
+        }
+
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -1382,6 +1383,50 @@
         .footer-connect {
             margin-top: 5px;
         }
+
+        .page-hero {
+            max-width: 900px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+
+        .page-hero .hero-eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #4f6ecf;
+        }
+
+        .page-hero h1 {
+            margin: 0 0 18px;
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 800;
+            color: #8a6a15;
+        }
+
+        .page-hero .positioning-banner {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            border-radius: 18px;
+            background: #eaf0fb;
+            color: #27344d;
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        .page-hero .page-intro {
+            max-width: 760px;
+            margin: 22px auto 0;
+            font-size: 16px;
+            line-height: 1.75;
+            color: #4c5870;
+        }
     </style>
 </head>
 
@@ -1545,33 +1590,28 @@
                 <!-- About Me Page -->
                 <section id="wp-overview-about" class="content-section">
 
-                    <h1>Enterprise Architecture Leadership</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
-                    </div>
-                    <div class="advisory-focus">
 
-                        <div class="advisory-title">
-                            Advisory Focus
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            ENTERPRISE ARCHITECTURE ADVISORY
                         </div>
 
-                        <div class="advisory-items">
-                            Enterprise AI Platforms • Cloud Modernization • Architecture Governance • Transformation
-                            Programs
+                        <h1>Overview</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
                         </div>
 
-                        <p class="content-section-subtitle">
-                            Designing scalable AI platforms, cloud-native architectures, and enterprise technology
-                            transformation systems.
+                        <p class="page-intro">
+                            Enterprise AI and cloud architecture leader specializing in scalable AI platforms,
+                            cloud transformation programs, and enterprise technology strategy for complex organizations.
                         </p>
 
                     </div>
-                    <!-- DiVIDER -->
-                    <div class="section-divider">
-                        <span>ARCHITECTURE ADVISORY OVERVIEW</span>
-                    </div>
+
                     <div class="about-grid">
 
                         <div class="blue-card">
@@ -1677,19 +1717,28 @@
 
                 <!-- Impact Metrics Page -->
                 <section id="wp-impact-metrics" class="content-section">
-                    <h1>Impact at Scale</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
-                    </div>
-                    <p class="content-section-subtitle">
-                        Quantifiable outcomes from large-scale cloud, platform, and AI architecture initiatives.
-                    </p>
 
-                    <!-- DiVIDER -->
-                    <div class="section-divider">
-                        <span>TRANSFORMATION IMPACT</span>
+
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            BUSINESS OUTCOMES
+                        </div>
+
+                        <h1>Business Impact</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+                        </div>
+
+                        <p class="page-intro">
+                            Selected outcomes across AI platform architecture, cloud modernization, and enterprise
+                            transformation initiatives, demonstrating measurable business value and technology
+                            leadership.
+                        </p>
+
                     </div>
 
                     <div class="cards-grid">
@@ -1773,20 +1822,29 @@
 
                 <!-- What I Build Page -->
                 <section id="wp-archi-what-i-build" class="content-section">
-                    <h1>Architecture & Technology Focus</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+
+
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            ARCHITECTURE LEADERSHIP
+                        </div>
+
+                        <h1>Architecture Focus</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+                        </div>
+
+                        <p class="page-intro">
+                            Strategic architecture focus areas spanning AI platform design, cloud-native modernization,
+                            enterprise architecture governance, and large-scale technology transformation initiatives.
+                        </p>
+
                     </div>
-                    <p class="content-section-subtitle">
-                        Designing scalable AI, cloud-native, and enterprise platforms that enable intelligent automation
-                        and
-                        large-scale digital transformation.
-                    </p>
-                    <div class="section-divider">
-                        <span>CORE ADVISORY CAPABILITIES</span>
-                    </div>
+
                     <div class="cards-grid">
 
                         <div class="blue-card">
@@ -1857,21 +1915,28 @@
 
                 <!-- Skills Page -->
                 <section id="wp-expertise-skills" class="content-section">
-                    <h1>Architecture & Technology Expertise</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
-                    </div>
-                    <p class="content-section-subtitle">
-                        A blend of AI architecture, cloud engineering, enterprise modernization, Agile delivery
-                        leadership,
-                        and stakeholder-driven transformation expertise.
-                    </p>
 
-                    <!-- DiVIDER -->
-                    <div class="section-divider">
-                        <span>EXPERTISE THAT TRANSLATES INTO REAL ENTERPRISE IMPACT</span>
+
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            TECHNOLOGY EXPERTISE
+                        </div>
+
+                        <h1>Skills & Expertise</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+                        </div>
+
+                        <p class="page-intro">
+                            Core technology and leadership capabilities spanning AI platform architecture,
+                            cloud-native systems, enterprise architecture governance, and large-scale
+                            transformation program delivery.
+                        </p>
+
                     </div>
 
                     <div class="cards-grid">
@@ -2103,20 +2168,26 @@
 
                 <!-- Projects Page -->
                 <section id="wp-work-projects" class="content-section">
-                    <h1>Selected Architecture & Transformation Initiatives</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
-                    </div>
-                    <p class="content-section-subtitle">
-                        Showcasing select high-impact projects that demonstrate diverse Technical Leadership across AI,
-                        Cloud Architecture, and Enterprise Transformation.
-                    </p>
 
-                    <!-- DiVIDER -->
-                    <div class="section-divider">
-                        <span>ENTERPRISE ARCHITECTURE ENGAGEMENTS</span>
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            SELECTED INITIATIVES
+                        </div>
+
+                        <h1>Work</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+                        </div>
+
+                        <p class="page-intro">
+                            Representative initiatives spanning AI platform development, cloud modernization,
+                            enterprise architecture transformation, and large-scale technology delivery programs.
+                        </p>
+
                     </div>
 
                     <div class="cards-grid">
@@ -2803,22 +2874,28 @@
 
                 <!-- Certifications Page -->
                 <section id="wp-credentials-certi" class="content-section">
-                    <h1>Professional Certifications & Credentials</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            PROFESSIONAL CREDENTIALS
+                        </div>
+
+                        <h1>Credentials</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+                        </div>
+
+                        <p class="page-intro">
+                            Professional certifications and credentials that reinforce enterprise architecture,
+                            cloud platform expertise, and leadership in large-scale technology transformation programs.
+                        </p>
+
                     </div>
-                    <p class="content-section-subtitle">
-                        Industry-recognized certifications validating expertise in cloud architecture, Generative AI,
-                        Agile
-                        program leadership, and enterprise technology transformation.<br>
-                        <strong>6 Active Certifications • Cloud, AI, Agile & Program Leadership</strong>
-                    </p>
-                    <!-- DiVIDER -->
-                    <div class="section-divider">
-                        <span>PROFESSIONAL CERTIFICATIONS & CREDENTIALS</span>
-                    </div>
+
 
                     <div class="cards-grid">
                         <div class="blue-card">
@@ -2909,21 +2986,27 @@
 
                 <!-- Recognitions Page -->
                 <section id="wp-recognitions" class="content-section">
-                    <h1>Leadership Recognition</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
-                    </div>
-                    <p class="content-section-subtitle">
-                        Recognition from clients, senior leaders, and colleagues for delivering high-impact
-                        architecture, cloud transformation, and enterprise program leadership across complex
-                        initiatives.
-                    </p>
 
-                    <!-- DiVIDER -->
-                    <div class="section-divider">
-                        <span>INDUSTRY RECOGNITION & APPRECIATION</span>
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            PROFESSIONAL RECOGNITION
+                        </div>
+
+                        <h1>Recognitions</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+                        </div>
+
+                        <p class="page-intro">
+                            Professional acknowledgements and appreciation received for leadership,
+                            architecture innovation, and successful delivery of complex enterprise
+                            transformation initiatives.
+                        </p>
+
                     </div>
 
                     <div class="cards-grid">
@@ -3616,11 +3699,27 @@
 
                 <!-- Contact Page -->
                 <section id="wp-contact-page" class="content-section">
-                    <h1>Contact & Collaboration</h1>
-                    <div class="positioning-banner">
-                        AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
-                        <br>
-                        Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+
+
+                    <div class="page-hero">
+
+                        <div class="hero-eyebrow">
+                            CONTACT & COLLABORATION
+                        </div>
+
+                        <h1>Contact</h1>
+
+                        <div class="positioning-banner">
+                            AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
+                            <br>
+                            Google Professional Cloud Architect • SAFe SPC • SAFe RTE • PMP
+                        </div>
+
+                        <p class="page-intro">
+                            Open to conversations around enterprise AI platforms, cloud transformation,
+                            architecture advisory, and strategic technology leadership initiatives.
+                        </p>
+
                     </div>
 
                     <div class="contact-layout">
@@ -3690,7 +3789,7 @@
                         </div>
                     </div>
 
-                    
+
                     <!-- FOOTER -->
                     <div class="site-footer-section"></div>
                 </section>
