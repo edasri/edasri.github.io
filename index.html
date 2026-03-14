@@ -859,8 +859,23 @@
             color: #2a4b8d;
         }
 
-        /* Contact layout */
-        /* Contact Page - New */
+        /* Contact Page */
+
+#wp-contact-page {
+    position: relative;
+}
+
+#wp-contact-page::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(79,124,255,0.15), transparent 70%);
+    z-index: -1;
+}
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -962,6 +977,20 @@
         .contact-value {
             font-size: 1rem;
             color: #444;
+        }
+
+        #wp-contact-page .positioning-banner {
+            text-align: center;
+            position: relative;
+        }
+
+        #wp-contact-page .positioning-banner::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 1px;
+            margin: 22px auto 0;
+            background: linear-gradient(90deg, transparent, #4f7cff, transparent);
         }
 
         @media (max-width: 900px) {
@@ -1391,7 +1420,7 @@
                 <ul class="nav-links" aria-label="ARCHITECT PROFILE">
                     <!-- Keep your existing SVGs, just ensure structure matches -->
                     <li>
-                        <a class="nav-link active" data-section="about">
+                        <a class="nav-link active" data-section="wp-overview-about">
                             <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
                                 <path
                                     d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z" />
@@ -1400,7 +1429,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" data-section="impact-metrics">
+                        <a class="nav-link" data-section="wp-impact-metrics">
                             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 12h18M12 3v18" />
@@ -1410,7 +1439,7 @@
                     </li>
 
                     <li>
-                        <a class="nav-link" data-section="what-i-build">
+                        <a class="nav-link" data-section="wp-archi-what-i-build">
                             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 21l18 0" />
@@ -1426,7 +1455,7 @@
                         </a>
                     </li>
 
-                    <li><a class="nav-link" data-section="skills">
+                    <li><a class="nav-link" data-section="wp-expertise-skills">
                             <svg class="nav-icon" viewBox="0 0 24 24">
                                 <path
                                     d="M21 5v6h-2V7.4L12 11 3 6v11h9v2H3c-1.1 0-2-.9-2-2V5c0-.4.2-.7.5-.9.3-.2.7-.2 1 0L12 8.5 20.5 4c.3-.2.7-.2 1 0 .3.2.5.5.5 1zM17 14h2v2h2v2h-2v2h-2v-2h-2v-2h2z" />
@@ -1434,7 +1463,7 @@
                             Expertise
                         </a></li>
 
-                    <li><a class="nav-link" data-section="projects">
+                    <li><a class="nav-link" data-section="wp-work-projects">
                             <svg class="nav-icon" viewBox="0 0 24 24">
                                 <path
                                     d="M4 5c0-1.1.9-2 2-2h4l2 2h6c1.1 0 2 .9 2 2v3h-2V7H6v10h6v2H6c-1.1 0-2-.9-2-2V5zm11 8h2v3h3v2h-3v3h-2v-3h-3v-2h3z" />
@@ -1443,7 +1472,7 @@
                         </a></li>
 
 
-                    <li><a class="nav-link" data-section="certifications">
+                    <li><a class="nav-link" data-section="wp-credentials-certi">
                             <svg class="nav-icon" viewBox="0 0 24 24">
                                 <path
                                     d="M12 2l2.1 3.9 4.4.7-3.2 3.3.8 4.6-4.1-2.1-4.1 2.1.8-4.6L5.5 6.6l4.4-.7L12 2zm0 5.2l-1 1.9-2.1.3 1.5 1.6-.4 2.1 2-1.1 2 1.1-.4-2.1 1.5-1.6-2.1-.3-1-1.9zM7 19h10v2H7z" />
@@ -1451,7 +1480,7 @@
                             Credentials
                         </a></li>
 
-                    <li><a class="nav-link" data-section="recognitions">
+                    <li><a class="nav-link" data-section="wp-recognitions">
                             <svg class="nav-icon" viewBox="0 0 24 24">
                                 <path
                                     d="M12 2c3.9 0 7 3.1 7 7 0 2.6-1.4 4.8-3.5 6l1.5 5-4-2-4 2 1.5-5C6.4 13.8 5 11.6 5 9c0-3.9 3.1-7 7-7zm0 2C9.2 4 7 6.2 7 9c0 1.9 1.1 3.6 2.8 4.4L10 14l-.7 2.3 1.9-1 1.9 1L13 14l.2-.6C15.9 12.6 17 10.9 17 9c0-2.8-2.2-5-5-5z" />
@@ -1459,7 +1488,7 @@
                             Recognition
                         </a></li>
 
-                    <li><a class="nav-link" data-section="contact-page">
+                    <li><a class="nav-link" data-section="wp-contact-page">
                             <svg class="nav-icon" viewBox="0 0 24 24">
                                 <path
                                     d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 3.2L12 13 4 7.2V6l8 5 8-5v1.2z" />
@@ -1494,13 +1523,13 @@
                         <br>
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                             <!-- Primary (darker blue) -->
-                            <a href="#contact-page" class="btn-secondary navigate-to-destination-page"
+                            <a href="#wp-contact-page" class="btn-secondary navigate-to-destination-page"
                                 style="background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; padding: 1rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 25px rgba(59,130,246,0.4); margin-top:28px;">
                                 Start a Conversation
                             </a>
 
                             <!-- Secondary (navy blue - darker than before) -->
-                            <a href="#projects" class="btn-secondary navigate-to-destination-page"
+                            <a href="#wp-work-projects" class="btn-secondary navigate-to-destination-page"
                                 style="background: linear-gradient(135deg, #5d47a1, #2153c7); color: white; padding: 1rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 25px rgba(30,60,114,0.4); border: 2px solid rgba(255,255,255,0.2); margin-top:28px;">
                                 View Transformation Work
                             </a>
@@ -1514,7 +1543,7 @@
                 </section>
 
                 <!-- About Me Page -->
-                <section id="about" class="content-section">
+                <section id="wp-overview-about" class="content-section">
 
                     <h1>Enterprise Architecture Leadership</h1>
                     <div class="positioning-banner">
@@ -1634,9 +1663,10 @@
                         </p>
 
                         <div class="cta-buttons">
-                            <a href="#contact-page" class="cta-primary navigate-to-destination-page">Discuss
+                            <a href="#wp-contact-page" class="cta-primary navigate-to-destination-page">Discuss
                                 Architecture Strategy</a>
-                            <a href="#what-i-build" class="cta-secondary navigate-to-destination-page">Explore Advisory
+                            <a href="#wp-archi-what-i-build" class="cta-secondary navigate-to-destination-page">Explore
+                                Advisory
                                 Focus</a>
                         </div>
                     </div>
@@ -1646,7 +1676,7 @@
                 </section>
 
                 <!-- Impact Metrics Page -->
-                <section id="impact-metrics" class="content-section">
+                <section id="wp-impact-metrics" class="content-section">
                     <h1>Impact at Scale</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
@@ -1729,9 +1759,9 @@
                         </p>
 
                         <div class="cta-buttons">
-                            <a href="#contact-page" class="cta-primary navigate-to-destination-page">Discuss
+                            <a href="#wp-contact-page" class="cta-primary navigate-to-destination-page">Discuss
                                 Transformation Strategy</a>
-                            <a href="#what-i-build" class="cta-secondary navigate-to-destination-page">Explore
+                            <a href="#wp-archi-what-i-build" class="cta-secondary navigate-to-destination-page">Explore
                                 Architecture Focus</a>
                         </div>
                     </div>
@@ -1742,7 +1772,7 @@
 
 
                 <!-- What I Build Page -->
-                <section id="what-i-build" class="content-section">
+                <section id="wp-archi-what-i-build" class="content-section">
                     <h1>Architecture & Technology Focus</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
@@ -1814,7 +1844,7 @@
                         </p>
 
                         <div class="cta-buttons">
-                            <a href="#contact-page" class="cta-primary navigate-to-destination-page">Discuss
+                            <a href="#wp-contact-page" class="cta-primary navigate-to-destination-page">Discuss
                                 Architecture Strategy</a>
                             <a href="https://www.linkedin.com/in/srinivasa-reddy-eda-09463b34/"
                                 class="cta-secondary">Connect on LinkedIn</a>
@@ -1826,7 +1856,7 @@
                 </section>
 
                 <!-- Skills Page -->
-                <section id="skills" class="content-section">
+                <section id="wp-expertise-skills" class="content-section">
                     <h1>Architecture & Technology Expertise</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
@@ -2059,8 +2089,10 @@
                         </p>
 
                         <div class="cta-buttons">
-                            <a href="#projects" class="cta-primary">Explore Advisory Engagements</a>
-                            <a href="#impact-metrics" class="cta-secondary">View Architecture Impact</a>
+                            <a href="#wp-work-projects" class="cta-primary navigate-to-destination-page">Explore
+                                Advisory Engagements</a>
+                            <a href="#wp-impact-metrics" class="cta-secondary navigate-to-destination-page">View
+                                Architecture Impact</a>
                         </div>
                     </div>
 
@@ -2070,7 +2102,7 @@
                 </section>
 
                 <!-- Projects Page -->
-                <section id="projects" class="content-section">
+                <section id="wp-work-projects" class="content-section">
                     <h1>Selected Architecture & Transformation Initiatives</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
@@ -2081,6 +2113,11 @@
                         Showcasing select high-impact projects that demonstrate diverse Technical Leadership across AI,
                         Cloud Architecture, and Enterprise Transformation.
                     </p>
+
+                    <!-- DiVIDER -->
+                    <div class="section-divider">
+                        <span>ENTERPRISE ARCHITECTURE ENGAGEMENTS</span>
+                    </div>
 
                     <div class="cards-grid">
                         <article class="blue-card">
@@ -2742,12 +2779,30 @@
 
                     </div>
 
+                    <!-- CTA Area -->
+                    <div class="advisor-cta">
+                        <h3>Discuss Your Architecture Transformation</h3>
+                        <p>
+                            Advising organizations on enterprise AI platforms,
+                            cloud modernization, and large-scale technology
+                            transformation initiatives.
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="#wp-contact-page" class="cta-primary navigate-to-destination-page">Start an
+                                Architecture Conversation</a>
+                            <a href="#wp-archi-what-i-build" class="cta-secondary navigate-to-destination-page">View
+                                Advisory Focus</a>
+                        </div>
+                    </div>
+
+
                     <!-- FOOTER -->
                     <div class="site-footer-section"></div>
                 </section>
 
                 <!-- Certifications Page -->
-                <section id="certifications" class="content-section">
+                <section id="wp-credentials-certi" class="content-section">
                     <h1>Professional Certifications & Credentials</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
@@ -2760,6 +2815,11 @@
                         program leadership, and enterprise technology transformation.<br>
                         <strong>6 Active Certifications • Cloud, AI, Agile & Program Leadership</strong>
                     </p>
+                    <!-- DiVIDER -->
+                    <div class="section-divider">
+                        <span>PROFESSIONAL CERTIFICATIONS & CREDENTIALS</span>
+                    </div>
+
                     <div class="cards-grid">
                         <div class="blue-card">
                             <h2 class="group-title active">Active Certifications</h2>
@@ -2825,12 +2885,30 @@
                         </div>
                     </div>
 
+                    <!-- CTA Area -->
+                    <div class="advisor-cta">
+                        <h3>Explore Architecture Expertise in Action</h3>
+                        <p>
+                            These certifications represent a foundation of continuous learning and industry validation.
+                            Explore how this expertise is applied across enterprise AI platforms, cloud modernization,
+                            and large-scale transformation programs.
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="#wp-archi-what-i-build" class="cta-primary navigate-to-destination-page">View
+                                Architecture Advisory</a>
+                            <a href="#wp-impact-metrics" class="cta-secondary navigate-to-destination-page">Explore
+                                Transformation Impact</a>
+                        </div>
+                    </div>
+
+
                     <!-- FOOTER -->
                     <div class="site-footer-section"></div>
                 </section>
 
                 <!-- Recognitions Page -->
-                <section id="recognitions" class="content-section">
+                <section id="wp-recognitions" class="content-section">
                     <h1>Leadership Recognition</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
@@ -2842,6 +2920,11 @@
                         architecture, cloud transformation, and enterprise program leadership across complex
                         initiatives.
                     </p>
+
+                    <!-- DiVIDER -->
+                    <div class="section-divider">
+                        <span>INDUSTRY RECOGNITION & APPRECIATION</span>
+                    </div>
 
                     <div class="cards-grid">
 
@@ -3508,13 +3591,31 @@
                         </div>
                     </div>
 
+                    <!-- CTA Area -->
+                    <div class="advisor-cta">
+                        <h3>Recognized for Enterprise Technology Leadership</h3>
+                        <p>
+                            Industry certifications, leadership acknowledgements, and client recognition reflect a
+                            consistent focus on architecture excellence, scalable platforms, and transformation
+                            delivery.
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="#wp-expertise-skills" class="cta-primary navigate-to-destination-page">Explore
+                                Architecture Expertise</a>
+                            <a href="#wp-credentials-certi" class="cta-secondary navigate-to-destination-page">View
+                                Credentials</a>
+                        </div>
+                    </div>
+
+
                     <!-- FOOTER -->
                     <div class="site-footer-section"></div>
                 </section>
 
 
                 <!-- Contact Page -->
-                <section id="contact-page" class="content-section">
+                <section id="wp-contact-page" class="content-section">
                     <h1>Contact & Collaboration</h1>
                     <div class="positioning-banner">
                         AI Platform Architecture • Cloud Transformation • Enterprise Technology Leadership
@@ -3589,6 +3690,7 @@
                         </div>
                     </div>
 
+                    
                     <!-- FOOTER -->
                     <div class="site-footer-section"></div>
                 </section>
